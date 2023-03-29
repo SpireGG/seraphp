@@ -4,8 +4,46 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "47082e74eb62af1254fb5c001417cd32",
+    "content-hash": "e145a882fd72a7e33543b89d794a5751",
     "packages": [
+        {
+            "name": "koriym/http-constants",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/koriym/Koriym.HttpConstants.git",
+                "reference": "8602c3b89b51c2cbfd686e3bf63d28aa1bc1a924"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/koriym/Koriym.HttpConstants/zipball/8602c3b89b51c2cbfd686e3bf63d28aa1bc1a924",
+                "reference": "8602c3b89b51c2cbfd686e3bf63d28aa1bc1a924",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Koriym\\HttpConstants\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Constants for the HTTP protocol",
+            "keywords": [
+                "consntats",
+                "http"
+            ],
+            "support": {
+                "issues": "https://github.com/koriym/Koriym.HttpConstants/issues",
+                "source": "https://github.com/koriym/Koriym.HttpConstants/tree/1.2.1"
+            },
+            "time": "2021-10-12T11:00:54+00:00"
+        },
         {
             "name": "psr/cache",
             "version": "3.0.0",
@@ -3331,8 +3369,8 @@
     "platform": {
         "php": ">=8.1",
         "ext-ctype": "*",
-        "ext-json": "*",
-        "ext-iconv": "*"
+        "ext-iconv": "*",
+        "ext-json": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
