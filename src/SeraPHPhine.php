@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace SeraPHPhine;
 
 use SeraPHPhine\API\AbstractAPIFactory;
+use SeraPHPhine\API\Configuration;
 use SeraPHPhine\API\Connection;
 use SeraPHPhine\API\ConnectionInterface;
 use SeraPHPhine\API\Endpoints\Version1;
@@ -12,7 +13,7 @@ use SeraPHPhine\API\Endpoints\Version3;
 use SeraPHPhine\API\Endpoints\Version4;
 use SeraPHPhine\DTO as Dto;
 use SeraPHPhine\Enum\GeoRegionEnum;
-use SeraPHPhine\Exceptions\InvalidApiVersionException;
+use SeraPHPhine\Exceptions\Riot\InvalidApiVersionException;
 
 class SeraPHPhine
 {
@@ -20,13 +21,15 @@ class SeraPHPhine
     private const VERSION_3 = 'version3';
     private const VERSION_4 = 'version4';
 
-    protected ConnectionInterface $connection;
+    private ConnectionInterface $connection;
 
     /** @var array<string, AbstractAPIFactory> */
     private array $factories;
 
-    public function __construct(array $config)
+    public function __construct(array|Configuration $config)
     {
+        $config = is_array($config) ? new Configuration($config) : $config;
+        $config->validate();
         $this->connection = new Connection($config);
     }
 

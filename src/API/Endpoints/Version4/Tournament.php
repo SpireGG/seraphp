@@ -20,7 +20,6 @@ final class Tournament extends AbstractApi
      * @param array<string> $allowedSummonerIds
      *
      * @return array<string>
-     *
      */
     public function createCode(
         int $tournamentId,
@@ -54,7 +53,6 @@ final class Tournament extends AbstractApi
 
     /**
      * @param array<string> $allowedSummonerIds
-     *
      */
     public function updateCode(
         string $tournamentCode,

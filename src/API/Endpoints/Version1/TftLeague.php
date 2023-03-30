@@ -13,14 +13,12 @@ use SeraPHPhine\Enum\TierEnum;
 
 final class TftLeague extends AbstractApi
 {
-
     public function getChallenger(RegionEnum $region): LeagueListDTO
     {
         $response = $this->riotConnection->get($region->getValue(), 'tft/league/v1/challenger');
 
         return LeagueListDTO::createFromArray($response->getBodyContentsDecodedAsArray());
     }
-
 
     public function getBySummonerId(string $encryptedSummonerId, RegionEnum $region): LeagueEntryDTOCollection
     {
@@ -31,7 +29,6 @@ final class TftLeague extends AbstractApi
 
         return LeagueEntryDTOCollection::createFromArray($response->getBodyContentsDecodedAsArray());
     }
-
 
     public function getByTierAndDivision(
         TierEnum $tier,
@@ -52,14 +49,12 @@ final class TftLeague extends AbstractApi
         return LeagueEntryDTOCollection::createFromArray($response->getBodyContentsDecodedAsArray());
     }
 
-
     public function getGrandmaster(RegionEnum $region): LeagueListDTO
     {
         $response = $this->riotConnection->get($region->getValue(), 'tft/league/v1/grandmaster');
 
         return LeagueListDTO::createFromArray($response->getBodyContentsDecodedAsArray());
     }
-
 
     public function getById(string $id, RegionEnum $region): LeagueListDTO
     {
@@ -70,7 +65,6 @@ final class TftLeague extends AbstractApi
 
         return LeagueListDTO::createFromArray($response->getBodyContentsDecodedAsArray());
     }
-
 
     public function getMaster(RegionEnum $region): LeagueListDTO
     {

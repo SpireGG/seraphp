@@ -6,21 +6,16 @@ namespace SeraPHPhine\API;
 
 use Koriym\HttpConstants\Method;
 use Koriym\HttpConstants\StatusCode;
+use Psr\Cache\CacheItemPoolInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
+use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamFactoryInterface;
-use SeraPHPhine\Exceptions\BadGatewayException;
-use SeraPHPhine\Exceptions\BadRequestException;
-use SeraPHPhine\Exceptions\DataNotFoundException;
-use SeraPHPhine\Exceptions\ForbiddenException;
-use SeraPHPhine\Exceptions\GatewayTimeoutException;
-use SeraPHPhine\Exceptions\InternalServerErrorException;
-use SeraPHPhine\Exceptions\MethodNotAllowedException;
-use SeraPHPhine\Exceptions\RateLimitExceededException;
-use SeraPHPhine\Exceptions\ServiceUnavailableException;
-use SeraPHPhine\Exceptions\UnauthorizedException;
-use SeraPHPhine\Exceptions\UnsupportedMediaTypeException;
+use SeraPHPhine\API\Cache\CallCacheControl;
+use SeraPHPhine\Exceptions\RequestException;
+use SeraPHPhine\Exceptions\Riot;
+use SeraPHPhine\Exceptions\SettingsException;
 use Symfony\Component\HttpClient\Psr18Client;
 
 final class Connection implements ConnectionInterface
@@ -30,72 +25,85 @@ final class Connection implements ConnectionInterface
     private ClientInterface $client;
     private RequestFactoryInterface $requestFactory;
     private StreamFactoryInterface $streamFactory;
+    private ?CacheItemPoolInterface $cache;
+    private ?CallCacheControl $ccc;
+    private Configuration $config;
+
+    private array $callbacksBefore = [];
+    private array $callbacksAfter = [];
+    private string $resource;
 
     public function __construct(
-        string $apiKey,
+        Configuration $config,
         ?ClientInterface $riotClient = null,
         ?RequestFactoryInterface $requestFactory = null,
         ?StreamFactoryInterface $streamFactory = null
     ) {
         $psrClient = new Psr18Client();
-        $this->apiKey = $apiKey;
+        $this->apiKey = $config->getApiKey();
         $this->client = $riotClient ?: $psrClient;
         $this->requestFactory = $requestFactory ?: $psrClient;
         $this->streamFactory = $streamFactory ?: $psrClient;
+        $this->config = $config;
+        $this->initializeCache();
+        $this->setupCallbacks();
     }
 
     public function get(string $region, string $path): ResponseDecoderInterface
     {
-        $request = $this->requestFactory->createRequest(
+        return $this->_makeCall($this->requestFactory->createRequest(
             Method::GET,
             sprintf('https://%s.%s/%s', $region, self::API_URL, $path),
-        );
-        $request = $request->withAddedHeader('X-Riot-Token', $this->apiKey);
-
-        $response = $this->client->sendRequest($request);
-        if (StatusCode::OK !== $response->getStatusCode()) {
-            $this->statusCodeToException($response);
-        }
-
-        return new ResponseDecoder($response);
+        ));
     }
 
     public function post(string $region, string $path, array $data): ResponseDecoderInterface
     {
-        return $this->sendRequestWithData(
-            Method::POST,
-            $region,
-            $path,
-            $data,
-        );
-    }
-
-    public function put(string $region, string $path, array $data): ResponseDecoderInterface
-    {
-        return $this->sendRequestWithData(
-            Method::PUT,
-            $region,
-            $path,
-            $data,
-        );
-    }
-
-    private function sendRequestWithData(string $method, string $region, string $path, array $data): ResponseDecoderInterface
-    {
         $request = $this->requestFactory->createRequest(
-            $method,
+            Method::POST,
             sprintf('https://%s.%s/%s', $region, self::API_URL, $path),
         );
-        $request = $request->withAddedHeader('X-Riot-Token', $this->apiKey);
         $request = $request->withBody($this->streamFactory->createStream(json_encode(
             $data,
             JSON_THROW_ON_ERROR,
         )));
 
+        return $this->_makeCall($request);
+    }
+
+    public function put(string $region, string $path, array $data): ResponseDecoderInterface
+    {
+        $request = $this->requestFactory->createRequest(
+            Method::PUT,
+            sprintf('https://%s.%s/%s', $region, self::API_URL, $path),
+        );
+        $request = $request->withBody($this->streamFactory->createStream(json_encode(
+            $data,
+            JSON_THROW_ON_ERROR,
+        )));
+
+        return $this->_makeCall($request);
+    }
+
+    private function _makeCall(RequestInterface $request): ResponseDecoder
+    {
+        $url = $request->getUri()->getPath();
+        $requestHash = md5($url);
+
+        $this->_beforeCall($url, $requestHash);
+
+        if ($this->ccc && $this->ccc->isCallCached($requestHash)) {
+            return new ResponseDecoder($this->ccc->loadCallData($requestHash));
+        }
+
+        $request = $request->withAddedHeader('X-Riot-Token', $this->apiKey);
+
         $response = $this->client->sendRequest($request);
         if (StatusCode::OK !== $response->getStatusCode()) {
             $this->statusCodeToException($response);
         }
+
+        $this->_afterCall($url, $requestHash, $response);
 
         return new ResponseDecoder($response);
     }
@@ -104,27 +112,115 @@ final class Connection implements ConnectionInterface
     {
         switch ($response->getStatusCode()) {
             case StatusCode::BAD_REQUEST:
-                throw BadRequestException::createFromResponse('Bad request', $response);
+                throw Riot\BadRequestException::createFromResponse('Bad request', $response);
             case StatusCode::UNAUTHORIZED:
-                throw UnauthorizedException::createFromResponse('Unauthorized', $response);
+                throw Riot\UnauthorizedException::createFromResponse('Unauthorized', $response);
             case StatusCode::FORBIDDEN:
-                throw ForbiddenException::createFromResponse('Forbidden', $response);
+                throw Riot\ForbiddenException::createFromResponse('Forbidden', $response);
             case StatusCode::NOT_FOUND:
-                throw DataNotFoundException::createFromResponse('Data not found', $response);
+                throw Riot\DataNotFoundException::createFromResponse('Data not found', $response);
             case StatusCode::METHOD_NOT_ALLOWED:
-                throw MethodNotAllowedException::createFromResponse('Method not allowed', $response);
+                throw Riot\MethodNotAllowedException::createFromResponse('Method not allowed', $response);
             case StatusCode::UNSUPPORTED_MEDIA_TYPE:
-                throw UnsupportedMediaTypeException::createFromResponse('Unsupported media type', $response);
+                throw Riot\UnsupportedMediaTypeException::createFromResponse('Unsupported media type', $response);
             case 429: // rate limit
-                throw RateLimitExceededException::createFromResponse('Rate limit exceeded', $response);
+                throw Riot\RateLimitExceededException::createFromResponse('Rate limit exceeded', $response);
             case StatusCode::INTERNAL_SERVER_ERROR:
-                throw InternalServerErrorException::createFromResponse('Internal server error', $response);
+                throw Riot\InternalServerErrorException::createFromResponse('Internal server error', $response);
             case StatusCode::BAD_GATEWAY:
-                throw BadGatewayException::createFromResponse('Bad gateway', $response);
+                throw Riot\BadGatewayException::createFromResponse('Bad gateway', $response);
             case StatusCode::SERVICE_UNAVAILABLE:
-                throw ServiceUnavailableException::createFromResponse('Service unavailable', $response);
+                throw Riot\ServiceUnavailableException::createFromResponse('Service unavailable', $response);
             case StatusCode::GATEWAY_TIME_OUT:
-                throw GatewayTimeoutException::createFromResponse('Gateway timeout', $response);
+                throw Riot\GatewayTimeoutException::createFromResponse('Gateway timeout', $response);
+        }
+    }
+
+    private function initializeCache(): void
+    {
+        try {
+            $cacheProvider = new \ReflectionClass($this->config->getCacheProvider());
+            if (!$cacheProvider->implementsInterface(CacheItemPoolInterface::class)) {
+                throw new SettingsException("Provided CacheProvider does not implement Psr\Cache\CacheItemPoolInterface (PSR-6)");
+            }
+
+            $this->cache = $cacheProvider->newInstanceArgs($this->config->getCacheProviderParams());
+        } catch (\ReflectionException $ex) {
+            //  probably problem when instantiating the class
+            throw new SettingsException("Failed to initialize CacheProvider class: {$ex->getMessage()}.");
+        } catch (\Throwable $ex) {
+            //  something went wrong when initializing the class - invalid settings, etc.
+            throw new SettingsException("CacheProvider class failed to be initialized: {$ex->getMessage()}.");
+        }
+    }
+
+    private function saveCache(): bool
+    {
+        if (!$this->cache) {
+            return false;
+        }
+
+        $ccc = $this->cache->getItem('api-calls.cache');
+        $ccc->set($this->ccc);
+        $ccc->expiresAfter(60);
+
+        $this->cache->saveDeferred($ccc);
+
+        return $this->cache->commit();
+    }
+
+    private function setupCallbacks(): void
+    {
+        $this->callbacksBefore[] = static function () {
+            //            if ($this->getCacheRateLimit() && $this->rlc != false) {
+            //                if ($this->rlc->canCall($this->getSetting($this->used_key), $this->getRegion(), $this->getResource(), $this->getResourceEndpoint()) == false) {
+            //                    throw new RateLimitException('API call rate limit would be exceeded by this call.');
+            //                }
+            //            }
+        };
+
+        $this->callbacksAfter[] = function () {
+            $requestHash = func_get_arg(2);
+            $response = func_get_arg(3);
+            if ($this->ccc && !$this->ccc->isCallCached($requestHash)) {
+                if (is_int($this->config->getCacheCallsLength())) {
+                    $timeInterval = $this->config->getCacheCallsLength();
+                } else {
+                    $timeInterval = @$this->config->getCacheCallsLength()[$this->getResource()];
+                }
+                $this->ccc->saveCallData($requestHash, $response->getBody(), $timeInterval);
+            }
+        };
+
+        $this->callbacksAfter[] = function () {
+            $this->saveCache();
+        };
+    }
+
+    public function setResource(string $resource): self
+    {
+        $this->resource = $resource;
+
+        return $this;
+    }
+    private function getResource(): string
+    {
+        return $this->resource;
+    }
+
+    private function _beforeCall(string $url, string $requestHash): void
+    {
+        foreach ($this->callbacksBefore as $function) {
+            if (false === $function($this, $url, $requestHash)) {
+                throw new RequestException('Request terminated by beforeCall function.');
+            }
+        }
+    }
+
+    private function _afterCall(string $url, string $requestHash, ?ResponseInterface $response): void
+    {
+        foreach ($this->callbacksAfter as $function) {
+            $function($this, $url, $requestHash, $response);
         }
     }
 }

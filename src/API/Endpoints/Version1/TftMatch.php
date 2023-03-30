@@ -23,7 +23,6 @@ final class TftMatch extends AbstractApi
         return $response->getBodyContentsDecodedAsArray();
     }
 
-
     public function getById(string $matchId, GeoRegionEnum $geoRegion): MatchDTO
     {
         $response = $this->riotConnection->get(

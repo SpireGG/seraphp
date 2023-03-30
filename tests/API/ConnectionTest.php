@@ -11,6 +11,7 @@ use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamFactoryInterface;
+use SeraPHPhine\API\Configuration;
 use SeraPHPhine\API\Connection;
 use SeraPHPhine\API\ResponseDecoderInterface;
 use SeraPHPhine\Exceptions as SeraPHPhineException;
@@ -43,7 +44,7 @@ final class ConnectionTest extends TestCase
         $this->mockCreateRequestMethod('GET');
 
         $connection = new Connection(
-            'my-api-token',
+            new Configuration(['api_key' => 'my-api-token']),
             $this->createMock(ClientInterface::class),
             $this->requestFactory,
             $this->streamFactory,
@@ -63,7 +64,7 @@ final class ConnectionTest extends TestCase
             ->willReturnSelf();
 
         $connection = new Connection(
-            'my-api-token',
+            new Configuration(['api_key' => 'my-api-token']),
             $this->createMock(ClientInterface::class),
             $this->requestFactory,
             $this->streamFactory,
@@ -120,11 +121,11 @@ final class ConnectionTest extends TestCase
 
         $client = $this->createMock(ClientInterface::class);
         $client->expects(self::once())
-            ->method('sendRequest')
+            ->method('_makeCall')
             ->willReturn($this->response);
 
         $connection = new Connection(
-            'my-api-token',
+            new Configuration(['api_key' => 'my-api-token']),
             $client,
             $this->requestFactory,
             $this->streamFactory,
@@ -157,7 +158,7 @@ final class ConnectionTest extends TestCase
             ->willReturn($this->response);
 
         $connection = new Connection(
-            'my-api-token',
+            new Configuration(['api_key' => 'my-api-token']),
             $client,
             $this->requestFactory,
             $this->streamFactory,
@@ -187,7 +188,7 @@ final class ConnectionTest extends TestCase
             ->willReturn($this->response);
 
         $connection = new Connection(
-            'my-api-token',
+            new Configuration(['api_key' => 'my-api-token']),
             $client,
             $this->requestFactory,
             $this->streamFactory,
@@ -203,17 +204,17 @@ final class ConnectionTest extends TestCase
     public function statusCodesAndExceptionsProvider(): array
     {
         return [
-            [400, SeraPHPhineException\BadRequestException::class],
-            [401, SeraPHPhineException\UnauthorizedException::class],
-            [403, SeraPHPhineException\ForbiddenException::class],
-            [404, SeraPHPhineException\DataNotFoundException::class],
-            [405, SeraPHPhineException\MethodNotAllowedException::class],
-            [415, SeraPHPhineException\UnsupportedMediaTypeException::class],
-            [429, SeraPHPhineException\RateLimitExceededException::class],
-            [500, SeraPHPhineException\InternalServerErrorException::class],
-            [502, SeraPHPhineException\BadGatewayException::class],
-            [503, SeraPHPhineException\ServiceUnavailableException::class],
-            [504, SeraPHPhineException\GatewayTimeoutException::class],
+            [400, SeraPHPhineException\Riot\BadRequestException::class],
+            [401, SeraPHPhineException\Riot\UnauthorizedException::class],
+            [403, SeraPHPhineException\Riot\ForbiddenException::class],
+            [404, SeraPHPhineException\Riot\DataNotFoundException::class],
+            [405, SeraPHPhineException\Riot\MethodNotAllowedException::class],
+            [415, SeraPHPhineException\Riot\UnsupportedMediaTypeException::class],
+            [429, SeraPHPhineException\Riot\RateLimitExceededException::class],
+            [500, SeraPHPhineException\Riot\InternalServerErrorException::class],
+            [502, SeraPHPhineException\Riot\BadGatewayException::class],
+            [503, SeraPHPhineException\Riot\ServiceUnavailableException::class],
+            [504, SeraPHPhineException\Riot\GatewayTimeoutException::class],
         ];
     }
 

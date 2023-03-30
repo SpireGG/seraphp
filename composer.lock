@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6541fd1c751af27a85ec21512092ee7",
+    "content-hash": "02946d57f5aa525b61dab1d4e9b87f17",
     "packages": [
         {
             "name": "koriym/http-constants",

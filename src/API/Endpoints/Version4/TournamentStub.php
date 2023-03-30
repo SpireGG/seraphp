@@ -19,7 +19,6 @@ final class TournamentStub extends AbstractApi
      * @param array<string> $allowedSummonerIds
      *
      * @return array<string>
-     *
      */
     public function createCode(
         int $tournamentId,

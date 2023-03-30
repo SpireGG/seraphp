@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Exceptions;
+namespace SeraPHPhine\Exceptions\Riot;
 
 use Psr\Http\Message\ResponseInterface;
 
-final class RateLimitExceededException extends SeraPHPhineException
+final class RateLimitExceededException extends RiotException
 {
     private int $retryAfter;
 

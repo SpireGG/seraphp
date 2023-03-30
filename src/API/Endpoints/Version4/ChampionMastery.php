@@ -11,11 +11,6 @@ use SeraPHPhine\Enum\RegionEnum;
 
 final class ChampionMastery extends AbstractApi
 {
-    /**
-     * @param string $encryptedSummonerId
-     * @param RegionEnum $region
-     * @return ChampionMasteryDTOCollection
-     */
     public function getBySummonerId(string $encryptedSummonerId, RegionEnum $region): ChampionMasteryDTOCollection
     {
         $response = $this->riotConnection->get(
@@ -31,7 +26,6 @@ final class ChampionMastery extends AbstractApi
 
         return $collection;
     }
-
 
     public function getBySummonerIdAndChampionId(
         string $encryptedSummonerId,
@@ -49,7 +43,6 @@ final class ChampionMastery extends AbstractApi
 
         return ChampionMasteryDTO::createFromArray($response->getBodyContentsDecodedAsArray());
     }
-
 
     public function getScoreBySummonerId(string $encryptedSummonerId, RegionEnum $region): int
     {

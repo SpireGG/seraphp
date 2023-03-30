@@ -10,7 +10,6 @@ use SeraPHPhine\Enum\ValRegionEnum;
 
 final class ValContent extends AbstractApi
 {
-
     public function get(ValRegionEnum $valRegion, ?string $locale = null): ContentDTO
     {
         if ($locale) {

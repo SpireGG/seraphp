@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Exceptions;
+namespace SeraPHPhine\Exceptions\Riot;
 
-final class InvalidApiEndpointException extends SeraPHPhineException
+final class InvalidApiVersionException extends RiotException
 {
     public function __construct(string $message = '')
     {

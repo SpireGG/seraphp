@@ -11,7 +11,6 @@ use SeraPHPhine\Enum\RegionEnum;
 
 final class Spectator extends AbstractApi
 {
-
     public function getActiveGamesBySummonerId(string $encryptedSummonerId, RegionEnum $region): CurrentGameInfoDTO
     {
         $response = $this->riotConnection->get(
@@ -21,7 +20,6 @@ final class Spectator extends AbstractApi
 
         return CurrentGameInfoDTO::createFromArray($response->getBodyContentsDecodedAsArray());
     }
-
 
     public function getFeaturedGames(RegionEnum $region): FeaturedGamesDTO
     {

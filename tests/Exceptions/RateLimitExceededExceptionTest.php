@@ -6,7 +6,7 @@ namespace SeraPHPhine\Tests\Exceptions;
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
-use SeraPHPhine\Exceptions\RateLimitExceededException;
+use SeraPHPhine\Exceptions\Riot\RateLimitExceededException;
 
 final class RateLimitExceededExceptionTest extends TestCase
 {

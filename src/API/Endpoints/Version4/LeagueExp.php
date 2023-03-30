@@ -13,7 +13,6 @@ use SeraPHPhine\Enum\TierExpEnum;
 
 final class LeagueExp extends AbstractApi
 {
-
     public function getByQueueAndTierAndDivision(
         QueueEnum $queue,
         TierExpEnum $tier,

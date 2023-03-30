@@ -10,7 +10,6 @@ use SeraPHPhine\Enum\RegionEnum;
 
 final class Summoner extends AbstractApi
 {
-
     public function getByName(string $summonerName, RegionEnum $region): SummonerDTO
     {
         $response = $this->riotConnection->get(
@@ -20,7 +19,6 @@ final class Summoner extends AbstractApi
 
         return SummonerDTO::createFromArray($response->getBodyContentsDecodedAsArray());
     }
-
 
     public function getByAccountId(string $encryptedAccountId, RegionEnum $region): SummonerDTO
     {
@@ -32,7 +30,6 @@ final class Summoner extends AbstractApi
         return SummonerDTO::createFromArray($response->getBodyContentsDecodedAsArray());
     }
 
-
     public function getByPuuid(string $encryptedPuuid, RegionEnum $region): SummonerDTO
     {
         $response = $this->riotConnection->get(
@@ -42,7 +39,6 @@ final class Summoner extends AbstractApi
 
         return SummonerDTO::createFromArray($response->getBodyContentsDecodedAsArray());
     }
-
 
     public function getById(string $id, RegionEnum $region): SummonerDTO
     {

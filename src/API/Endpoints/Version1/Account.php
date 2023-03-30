@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace SeraPHPhine\API\Endpoints\Version1;
 
 use SeraPHPhine\API\AbstractApi;
+use SeraPHPhine\API\Configuration;
 use SeraPHPhine\DTO\AccountDTO;
 use SeraPHPhine\DTO\ActiveShardDTO;
 use SeraPHPhine\Enum\GeoRegionEnum;
@@ -13,10 +14,12 @@ final class Account extends AbstractApi
 {
     public function getByPuuid(string $puuid, GeoRegionEnum $geoRegion): AccountDTO
     {
-        $response = $this->riotConnection->get(
-            $geoRegion->getValue(),
-            sprintf('riot/account/v1/accounts/by-puuid/%s', $puuid),
-        );
+        $response = $this->riotConnection
+            ->setResource(Configuration::RESOURCE_CHAMPION)
+            ->get(
+                $geoRegion->getValue(),
+                sprintf('riot/account/v1/accounts/by-puuid/%s', $puuid),
+            );
 
         return AccountDTO::createFromArray($response->getBodyContentsDecodedAsArray());
     }

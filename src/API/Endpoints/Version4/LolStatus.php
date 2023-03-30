@@ -10,7 +10,6 @@ use SeraPHPhine\Enum\RegionEnum;
 
 final class LolStatus extends AbstractApi
 {
-
     public function getPlatformData(RegionEnum $region): PlatformDataDTO
     {
         $response = $this->riotConnection->get(

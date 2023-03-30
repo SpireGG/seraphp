@@ -14,7 +14,7 @@ use SeraPHPhine\API\Endpoints\Version1\TftLeague;
 use SeraPHPhine\API\Endpoints\Version1\TftMatch;
 use SeraPHPhine\API\Endpoints\Version1\TftSummoner;
 use SeraPHPhine\API\Endpoints\Version1\ValContent;
-use SeraPHPhine\Exceptions\InvalidApiEndpointException;
+use SeraPHPhine\Exceptions\Riot\InvalidApiEndpointException;
 
 final class Version1 extends AbstractAPIFactory
 {

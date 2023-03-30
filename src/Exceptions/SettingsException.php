@@ -4,6 +4,6 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\Exceptions;
 
-final class DataNotFoundException extends SeraPHPhineException
+class SettingsException extends \Exception
 {
 }

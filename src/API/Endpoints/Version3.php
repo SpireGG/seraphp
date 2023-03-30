@@ -7,7 +7,7 @@ namespace SeraPHPhine\API\Endpoints;
 use SeraPHPhine\API\AbstractApi;
 use SeraPHPhine\API\AbstractAPIFactory;
 use SeraPHPhine\API\Endpoints\Version3\Champion;
-use SeraPHPhine\Exceptions\InvalidApiEndpointException;
+use SeraPHPhine\Exceptions\Riot\InvalidApiEndpointException;
 
 final class Version3 extends AbstractAPIFactory
 {

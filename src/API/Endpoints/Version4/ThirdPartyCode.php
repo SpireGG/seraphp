@@ -9,7 +9,6 @@ use SeraPHPhine\Enum\RegionEnum;
 
 final class ThirdPartyCode extends AbstractApi
 {
-
     public function getBySummonerId(string $encryptedSummonerId, RegionEnum $region): string
     {
         $response = $this->riotConnection->get(

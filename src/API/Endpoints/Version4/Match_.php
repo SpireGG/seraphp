@@ -13,7 +13,6 @@ use SeraPHPhine\Filter\MatchlistFilter;
 
 final class Match_ extends AbstractApi
 {
-
     public function getByMatchId(int $matchId, RegionEnum $region): MatchDTO
     {
         $response = $this->riotConnection->get(
@@ -23,7 +22,6 @@ final class Match_ extends AbstractApi
 
         return MatchDTO::createFromArray($response->getBodyContentsDecodedAsArray());
     }
-
 
     public function getMatchlistByAccountId(
         string $encryptedAccountId,
@@ -41,7 +39,6 @@ final class Match_ extends AbstractApi
 
         return MatchlistDTO::createFromArray($response->getBodyContentsDecodedAsArray());
     }
-
 
     public function getTimelineByMatchId(int $matchId, RegionEnum $region): MatchTimelineDTO
     {
@@ -65,7 +62,6 @@ final class Match_ extends AbstractApi
 
         return $response->getBodyContentsDecodedAsArray();
     }
-
 
     public function getByMatchIdAndTournamentCode(int $matchId, string $tournamentCode, RegionEnum $region): MatchDTO
     {

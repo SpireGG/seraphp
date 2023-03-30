@@ -1,6 +1,18 @@
 {
+  "name": "spiregg/seraphphine",
+  "description": "Wrapper around Riot Games APIs.",
+  "keywords": [
+    "riot", "riot games", "lol", "league of legends", "valorant", "teamfight tactics", "tft",
+    "legends of runeterra", "lor", "psr-17", "psr-17", "httplug", "php"
+  ],
   "type": "library",
   "license": "MIT",
+  "authors": [
+    {
+      "name": "Chypriote",
+      "email": "chypriote@lolpros.gg"
+    }
+  ],
   "minimum-stability": "stable",
   "prefer-stable": true,
   "require": {

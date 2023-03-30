@@ -16,7 +16,7 @@ use SeraPHPhine\API\Endpoints\Version4\Summoner;
 use SeraPHPhine\API\Endpoints\Version4\ThirdPartyCode;
 use SeraPHPhine\API\Endpoints\Version4\Tournament;
 use SeraPHPhine\API\Endpoints\Version4\TournamentStub;
-use SeraPHPhine\Exceptions\InvalidApiEndpointException;
+use SeraPHPhine\Exceptions\Riot\InvalidApiEndpointException;
 
 final class Version4 extends AbstractAPIFactory
 {

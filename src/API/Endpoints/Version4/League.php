@@ -14,7 +14,6 @@ use SeraPHPhine\Enum\TierEnum;
 
 final class League extends AbstractApi
 {
-
     public function getChallengerLeaguesByQueue(QueueEnum $queue, RegionEnum $region): LeagueListDTO
     {
         $response = $this->riotConnection->get(
@@ -25,7 +24,6 @@ final class League extends AbstractApi
         return LeagueListDTO::createFromArray($response->getBodyContentsDecodedAsArray());
     }
 
-
     public function getBySummonerId(string $encryptedSummonerId, RegionEnum $region): LeagueEntryDTOCollection
     {
         $response = $this->riotConnection->get(
@@ -35,7 +33,6 @@ final class League extends AbstractApi
 
         return LeagueEntryDTOCollection::createFromArray($response->getBodyContentsDecodedAsArray());
     }
-
 
     public function getByQueueAndTierAndDivision(
         QueueEnum $queue,
@@ -58,7 +55,6 @@ final class League extends AbstractApi
         return LeagueEntryDTOCollection::createFromArray($response->getBodyContentsDecodedAsArray());
     }
 
-
     public function getGrandmasterLeaguesByQueue(QueueEnum $queue, RegionEnum $region): LeagueListDTO
     {
         $response = $this->riotConnection->get(
@@ -69,7 +65,6 @@ final class League extends AbstractApi
         return LeagueListDTO::createFromArray($response->getBodyContentsDecodedAsArray());
     }
 
-
     public function getById(string $leagueId, RegionEnum $region): LeagueListDTO
     {
         $response = $this->riotConnection->get(
@@ -79,7 +74,6 @@ final class League extends AbstractApi
 
         return LeagueListDTO::createFromArray($response->getBodyContentsDecodedAsArray());
     }
-
 
     public function getMasterLeaguesByQueue(QueueEnum $queue, RegionEnum $region): LeagueListDTO
     {

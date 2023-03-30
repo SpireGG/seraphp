@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Exceptions;
+namespace SeraPHPhine\Exceptions\Riot;
 
 use Psr\Http\Message\ResponseInterface;
 
-abstract class SeraPHPhineException extends \Exception implements ISeraPHPhineException
+abstract class RiotException extends \Exception implements IRiotException
 {
     private string $edgeTraceId;
 
@@ -18,6 +18,7 @@ abstract class SeraPHPhineException extends \Exception implements ISeraPHPhineEx
 
     public static function createFromResponse(string $message, ResponseInterface $response): self
     {
+        /* @phpstan-ignore-next-line */
         return new static(
             $message,
             $response->getHeader('x-riot-edge-trace-id')[0],
