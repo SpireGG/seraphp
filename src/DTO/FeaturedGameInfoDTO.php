@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO;
 
-use Riot\Collection\BannedChampionDTOCollection;
-use Riot\Collection\ParticipantDTOCollection;
+use SeraPHPhine\Collection\BannedChampionDTOCollection;
+use SeraPHPhine\Collection\ParticipantDTOCollection;
 
 final class FeaturedGameInfoDTO implements DTOInterface
 {
@@ -43,8 +43,7 @@ final class FeaturedGameInfoDTO implements DTOInterface
         int $gameStartTime,
         ParticipantDTOCollection $participants,
         string $platformId
-    )
-    {
+    ) {
         $this->gameMode = $gameMode;
         $this->gameLength = $gameLength;
         $this->mapId = $mapId;

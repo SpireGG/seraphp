@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO;
 
-use Riot\Enum\MapTypeEnum;
-use Riot\Enum\PickTypeEnum;
-use Riot\Enum\SpectatorTypeEnum;
-use Riot\Enum\TournamentRegionEnum;
+use SeraPHPhine\Enum\MapTypeEnum;
+use SeraPHPhine\Enum\PickTypeEnum;
+use SeraPHPhine\Enum\SpectatorTypeEnum;
+use SeraPHPhine\Enum\TournamentRegionEnum;
 use Webmozart\Assert\Assert;
 
 final class TournamentCodeDTO implements DTOInterface
@@ -56,8 +56,7 @@ final class TournamentCodeDTO implements DTOInterface
         TournamentRegionEnum $region,
         MapTypeEnum $map,
         array $participants
-    )
-    {
+    ) {
         Assert::isList($participants);
         Assert::allString($participants);
 

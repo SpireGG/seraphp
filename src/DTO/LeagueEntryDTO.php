@@ -49,8 +49,7 @@ final class LeagueEntryDTO implements DTOInterface
         bool $freshBlood,
         bool $inactive,
         ?MiniSeriesDTO $miniSeries
-    )
-    {
+    ) {
         $this->leagueId = $leagueId;
         $this->summonerId = $summonerId;
         $this->summonerName = $summonerName;

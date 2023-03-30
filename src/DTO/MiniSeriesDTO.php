@@ -19,8 +19,7 @@ final class MiniSeriesDTO implements DTOInterface
         string $progress,
         int $target,
         int $wins
-    )
-    {
+    ) {
         $this->losses = $losses;
         $this->progress = $progress;
         $this->target = $target;

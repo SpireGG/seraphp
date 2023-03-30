@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Tft;
 
-use Riot\Collection\Tft\TraitDTOCollection;
-use Riot\Collection\Tft\UnitDTOCollection;
-use Riot\DTO\DTOInterface;
+use SeraPHPhine\Collection\Tft\TraitDTOCollection;
+use SeraPHPhine\Collection\Tft\UnitDTOCollection;
+use SeraPHPhine\DTO\DTOInterface;
 
 final class ParticipantDTO implements DTOInterface
 {
@@ -44,8 +44,7 @@ final class ParticipantDTO implements DTOInterface
         int $totalDamageToPlayers,
         TraitDTOCollection $traits,
         UnitDTOCollection $units
-    )
-    {
+    ) {
         $this->companion = $companion;
         $this->goldLeft = $goldLeft;
         $this->lastRound = $lastRound;

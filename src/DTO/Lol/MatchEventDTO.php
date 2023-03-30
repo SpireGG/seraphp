@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Lol;
 
-use Riot\DTO\DTOInterface;
-use Riot\Enum\MatchType;
-use Riot\Enum\TeamEnum;
+use SeraPHPhine\DTO\DTOInterface;
+use SeraPHPhine\Enum\MatchType;
+use SeraPHPhine\Enum\TeamEnum;
 
 final class MatchEventDTO implements DTOInterface
 {
@@ -84,8 +84,7 @@ final class MatchEventDTO implements DTOInterface
         ?array $assistingParticipantIds,
         ?string $buildingType,
         ?int $victimId
-    )
-    {
+    ) {
         $this->laneType = $laneType;
         $this->skillSlot = $skillSlot;
         $this->ascendedType = $ascendedType;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Tft;
 
-use Riot\DTO\DTOInterface;
+use SeraPHPhine\DTO\DTOInterface;
 
 final class MatchDTO implements DTOInterface
 {

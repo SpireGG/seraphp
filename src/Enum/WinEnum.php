@@ -11,6 +11,7 @@ use MyCLabs\Enum\Enum;
  * @method static self FAIL()
  *
  * @extends Enum<string>
+ *
  * @psalm-immutable
  */
 final class WinEnum extends Enum

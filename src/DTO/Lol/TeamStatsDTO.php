@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Lol;
 
-use Riot\Collection\Lol\TeamBansDTOCollection;
-use Riot\DTO\DTOInterface;
-use Riot\Enum\TeamEnum;
-use Riot\Enum\WinEnum;
+use SeraPHPhine\Collection\Lol\TeamBansDTOCollection;
+use SeraPHPhine\DTO\DTOInterface;
+use SeraPHPhine\Enum\TeamEnum;
+use SeraPHPhine\Enum\WinEnum;
 
 final class TeamStatsDTO implements DTOInterface
 {
@@ -64,8 +64,7 @@ final class TeamStatsDTO implements DTOInterface
         bool $firstRiftHerald,
         TeamEnum $teamId,
         WinEnum $win
-    )
-    {
+    ) {
         $this->towerKills = $towerKills;
         $this->riftHeraldKills = $riftHeraldKills;
         $this->firstBlood = $firstBlood;

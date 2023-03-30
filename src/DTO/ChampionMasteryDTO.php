@@ -34,8 +34,7 @@ final class ChampionMasteryDTO implements DTOInterface
         int $championPoints,
         int $championPointsSinceLastLevel,
         int $tokensEarned
-    )
-    {
+    ) {
         $this->championPointsUntilNextLevel = $championPointsUntilNextLevel;
         $this->chestGranted = $chestGranted;
         $this->championId = $championId;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO;
 
-use Riot\Collection\PlayerDTOCollection;
+use SeraPHPhine\Collection\PlayerDTOCollection;
 
 final class LeaderboardDTO implements DTOInterface
 {

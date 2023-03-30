@@ -13,6 +13,7 @@ use MyCLabs\Enum\Enum;
  * @method static self IV()
  *
  * @extends Enum<string>
+ *
  * @psalm-immutable
  */
 final class DivisionEnum extends Enum

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Clash;
 
-use Riot\Collection\Clash\PlayerDTOCollection;
-use Riot\DTO\DTOInterface;
+use SeraPHPhine\Collection\Clash\PlayerDTOCollection;
+use SeraPHPhine\DTO\DTOInterface;
 
 final class TeamDTO implements DTOInterface
 {
@@ -34,8 +34,7 @@ final class TeamDTO implements DTOInterface
         string $captain,
         string $abbreviation,
         PlayerDTOCollection $players
-    )
-    {
+    ) {
         $this->id = $id;
         $this->tournamentId = $tournamentId;
         $this->name = $name;

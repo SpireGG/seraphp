@@ -18,6 +18,7 @@ use MyCLabs\Enum\Enum;
  * @method static self IRON()
  *
  * @extends Enum<string>
+ *
  * @psalm-immutable
  */
 final class TierExpEnum extends Enum

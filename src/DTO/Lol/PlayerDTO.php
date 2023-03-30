@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Lol;
 
-use Riot\DTO\DTOInterface;
+use SeraPHPhine\DTO\DTOInterface;
 
 final class PlayerDTO implements DTOInterface
 {
@@ -33,8 +33,7 @@ final class PlayerDTO implements DTOInterface
         string $summonerName,
         string $summonerId,
         string $platformId
-    )
-    {
+    ) {
         $this->profileIcon = $profileIcon;
         $this->accountId = $accountId;
         $this->matchHistoryUri = $matchHistoryUri;

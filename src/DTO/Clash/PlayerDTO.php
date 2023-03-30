@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Clash;
 
-use Riot\DTO\DTOInterface;
-use Riot\Enum\PositionEnum;
-use Riot\Enum\TeamRoleEnum;
+use SeraPHPhine\DTO\DTOInterface;
+use SeraPHPhine\Enum\PositionEnum;
+use SeraPHPhine\Enum\TeamRoleEnum;
 
 final class PlayerDTO implements DTOInterface
 {
@@ -23,8 +23,7 @@ final class PlayerDTO implements DTOInterface
         string $teamId,
         PositionEnum $position,
         TeamRoleEnum $role
-    )
-    {
+    ) {
         $this->summonerId = $summonerId;
         $this->teamId = $teamId;
         $this->position = $position;

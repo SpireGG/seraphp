@@ -28,8 +28,7 @@ final class ParticipantDTO implements DTOInterface
         int $championId,
         int $teamId,
         int $spell1Id
-    )
-    {
+    ) {
         $this->bot = $bot;
         $this->spell2Id = $spell2Id;
         $this->profileIconId = $profileIconId;

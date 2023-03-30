@@ -12,6 +12,7 @@ use MyCLabs\Enum\Enum;
  * @method static self RANKED_FLEX_TT()
  *
  * @extends Enum<string>
+ *
  * @psalm-immutable
  */
 final class QueueEnum extends Enum

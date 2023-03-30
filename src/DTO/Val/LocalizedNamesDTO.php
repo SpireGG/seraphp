@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Val;
 
-use Riot\DTO\DTOInterface;
+use SeraPHPhine\DTO\DTOInterface;
 
 final class LocalizedNamesDTO implements DTOInterface
 {
@@ -48,8 +48,7 @@ final class LocalizedNamesDTO implements DTOInterface
         string $viVn,
         string $zhCn,
         string $zhTw
-    )
-    {
+    ) {
         $this->arAe = $arAe;
         $this->deDe = $deDe;
         $this->enGb = $enGb;

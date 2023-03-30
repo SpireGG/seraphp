@@ -6,7 +6,7 @@ namespace SeraPHPhine\Exceptions;
 
 use Psr\Http\Message\ResponseInterface;
 
-abstract class SeraPHPhineException extends \Exception
+abstract class SeraPHPhineException extends \Exception implements ISeraPHPhineException
 {
     private string $edgeTraceId;
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Clash;
 
-use Riot\DTO\DTOInterface;
+use SeraPHPhine\DTO\DTOInterface;
 
 final class TournamentPhaseDTO implements DTOInterface
 {
@@ -21,8 +21,7 @@ final class TournamentPhaseDTO implements DTOInterface
         int $registrationTime,
         int $startTime,
         bool $cancelled
-    )
-    {
+    ) {
         $this->id = $id;
         $this->registrationTime = $registrationTime;
         $this->startTime = $startTime;

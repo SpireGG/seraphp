@@ -14,6 +14,7 @@ use MyCLabs\Enum\Enum;
  * @method static self DUO_SUPPORT()
  *
  * @extends Enum<string>
+ *
  * @psalm-immutable
  */
 final class RoleEnum extends Enum

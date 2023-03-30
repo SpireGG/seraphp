@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Lor;
 
-use Riot\DTO\DTOInterface;
+use SeraPHPhine\DTO\DTOInterface;
 
 final class PlayerDTO implements DTOInterface
 {
@@ -31,8 +31,7 @@ final class PlayerDTO implements DTOInterface
         array $factions,
         string $gameOutcome,
         int $orderOfPlay
-    )
-    {
+    ) {
         $this->puuid = $puuid;
         $this->deckId = $deckId;
         $this->deckCode = $deckCode;

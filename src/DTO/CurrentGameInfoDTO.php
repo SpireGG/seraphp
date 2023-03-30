@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO;
 
-use Riot\Collection\BannedChampionDTOCollection;
-use Riot\Collection\CurrentGameParticipantDTOCollection;
+use SeraPHPhine\Collection\BannedChampionDTOCollection;
+use SeraPHPhine\Collection\CurrentGameParticipantDTOCollection;
 
 final class CurrentGameInfoDTO implements DTOInterface
 {

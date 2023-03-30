@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO;
 
-use Riot\Collection\TranslationDTOCollection;
+use SeraPHPhine\Collection\TranslationDTOCollection;
 
 final class MessageDTO implements DTOInterface
 {
@@ -37,8 +37,7 @@ final class MessageDTO implements DTOInterface
         string $createdAt,
         string $updatedAt,
         TranslationDTOCollection $translations
-    )
-    {
+    ) {
         $this->id = $id;
         $this->author = $author;
         $this->heading = $heading;

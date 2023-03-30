@@ -12,6 +12,7 @@ use MyCLabs\Enum\Enum;
  * @method static self ALL()
  *
  * @extends Enum<string>
+ *
  * @psalm-immutable
  */
 final class SpectatorTypeEnum extends Enum

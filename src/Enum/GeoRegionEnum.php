@@ -13,6 +13,7 @@ use MyCLabs\Enum\Enum;
  * @method static self SEA()
  *
  * @extends Enum<string>
+ *
  * @psalm-immutable
  */
 final class GeoRegionEnum extends Enum

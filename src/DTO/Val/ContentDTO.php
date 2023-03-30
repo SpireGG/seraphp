@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Val;
 
-use Riot\Collection\Val\ActDTOCollection;
-use Riot\Collection\Val\ContentItemDTOCollection;
-use Riot\DTO\DTOInterface;
+use SeraPHPhine\Collection\Val\ActDTOCollection;
+use SeraPHPhine\Collection\Val\ContentItemDTOCollection;
+use SeraPHPhine\DTO\DTOInterface;
 
 final class ContentDTO implements DTOInterface
 {
@@ -42,8 +42,7 @@ final class ContentDTO implements DTOInterface
         ContentItemDTOCollection $playerCards,
         ContentItemDTOCollection $playerTitles,
         ActDTOCollection $acts
-    )
-    {
+    ) {
         $this->version = $version;
         $this->characters = $characters;
         $this->maps = $maps;

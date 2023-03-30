@@ -13,6 +13,7 @@ use MyCLabs\Enum\Enum;
  * @method static self TOURNAMENT_DRAFT()
  *
  * @extends Enum<string>
+ *
  * @psalm-immutable
  */
 final class PickTypeEnum extends Enum

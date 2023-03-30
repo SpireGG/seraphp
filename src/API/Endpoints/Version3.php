@@ -22,9 +22,6 @@ final class Version3 extends AbstractAPIFactory
         return $api;
     }
 
-    /**
-     * @return Champion
-     */
     protected function createApiMap(string $key): AbstractApi
     {
         return match ($key) {

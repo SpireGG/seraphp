@@ -26,19 +26,19 @@ use Symfony\Component\HttpClient\Psr18Client;
 final class Connection implements ConnectionInterface
 {
     private const API_URL = 'api.riotgames.com';
-    private string $riotApiToken;
+    private string $apiKey;
     private ClientInterface $client;
     private RequestFactoryInterface $requestFactory;
     private StreamFactoryInterface $streamFactory;
 
     public function __construct(
-        array $config,
+        string $apiKey,
         ?ClientInterface $riotClient = null,
         ?RequestFactoryInterface $requestFactory = null,
         ?StreamFactoryInterface $streamFactory = null
     ) {
         $psrClient = new Psr18Client();
-        $this->riotApiToken = $config['api_key'] ?? '';
+        $this->apiKey = $apiKey;
         $this->client = $riotClient ?: $psrClient;
         $this->requestFactory = $requestFactory ?: $psrClient;
         $this->streamFactory = $streamFactory ?: $psrClient;
@@ -50,7 +50,7 @@ final class Connection implements ConnectionInterface
             Method::GET,
             sprintf('https://%s.%s/%s', $region, self::API_URL, $path),
         );
-        $request = $request->withAddedHeader('X-Riot-Token', $this->riotApiToken);
+        $request = $request->withAddedHeader('X-Riot-Token', $this->apiKey);
 
         $response = $this->client->sendRequest($request);
         if (StatusCode::OK !== $response->getStatusCode()) {
@@ -86,7 +86,7 @@ final class Connection implements ConnectionInterface
             $method,
             sprintf('https://%s.%s/%s', $region, self::API_URL, $path),
         );
-        $request = $request->withAddedHeader('X-Riot-Token', $this->riotApiToken);
+        $request = $request->withAddedHeader('X-Riot-Token', $this->apiKey);
         $request = $request->withBody($this->streamFactory->createStream(json_encode(
             $data,
             JSON_THROW_ON_ERROR,

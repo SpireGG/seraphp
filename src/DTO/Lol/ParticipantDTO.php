@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Lol;
 
-use Riot\Collection\Lol\MasteryDTOCollection;
-use Riot\Collection\Lol\RuneDTOCollection;
-use Riot\DTO\DTOInterface;
+use SeraPHPhine\Collection\Lol\MasteryDTOCollection;
+use SeraPHPhine\Collection\Lol\RuneDTOCollection;
+use SeraPHPhine\DTO\DTOInterface;
 
 final class ParticipantDTO implements DTOInterface
 {
@@ -41,8 +41,7 @@ final class ParticipantDTO implements DTOInterface
         int $spell2Id,
         ?string $highestAchievedSeasonTier,
         MasteryDTOCollection $masteries
-    )
-    {
+    ) {
         $this->participantId = $participantId;
         $this->championId = $championId;
         $this->runes = $runes;

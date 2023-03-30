@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Tft;
 
-use Riot\DTO\DTOInterface;
+use SeraPHPhine\DTO\DTOInterface;
 
 final class UnitDTO implements DTOInterface
 {
@@ -31,8 +31,7 @@ final class UnitDTO implements DTOInterface
         string $name,
         int $rarity,
         int $tier
-    )
-    {
+    ) {
         $this->items = $items;
         $this->characterId = $characterId;
         $this->chosen = $chosen;

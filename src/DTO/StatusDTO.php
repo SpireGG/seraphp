@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO;
 
-use Riot\Collection\ContentDTOCollection;
-use Riot\Collection\UpdateDTOCollection;
+use SeraPHPhine\Collection\ContentDTOCollection;
+use SeraPHPhine\Collection\UpdateDTOCollection;
 
 final class StatusDTO implements DTOInterface
 {
@@ -26,7 +26,7 @@ final class StatusDTO implements DTOInterface
     private ?string $updatedAt;
 
     /** @var array<string> */
-    private array $platforms; //(Legal values: windows, macos, android, ios, ps4, xbone, switch)
+    private array $platforms; // (Legal values: windows, macos, android, ios, ps4, xbone, switch)
 
     /**
      * @param array<string> $platforms
@@ -41,8 +41,7 @@ final class StatusDTO implements DTOInterface
         ?string $archiveAt,
         ?string $updatedAt,
         array $platforms
-    )
-    {
+    ) {
         $this->id = $id;
         $this->maintenanceStatus = $maintenanceStatus;
         $this->incidentSeverity = $incidentSeverity;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Lol;
 
-use Riot\DTO\DTOInterface;
+use SeraPHPhine\DTO\DTOInterface;
 
 final class MatchParticipantFrameDTO implements DTOInterface
 {
@@ -39,8 +39,7 @@ final class MatchParticipantFrameDTO implements DTOInterface
         int $currentGold,
         ?MatchPositionDTO $position,
         int $jungleMinionsKilled
-    )
-    {
+    ) {
         $this->participantId = $participantId;
         $this->minionsKilled = $minionsKilled;
         $this->teamScore = $teamScore;

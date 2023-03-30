@@ -39,7 +39,7 @@ final class PlayerDTO implements DTOInterface
         return new self(
             $data['name'],
             $data['rank'],
-            (int)$data['lp'],
+            (int) $data['lp'],
         );
     }
 }

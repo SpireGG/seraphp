@@ -12,6 +12,7 @@ use MyCLabs\Enum\Enum;
  * @method static self HOWLING_ABYSS()
  *
  * @extends Enum<string>
+ *
  * @psalm-immutable
  */
 final class MapTypeEnum extends Enum

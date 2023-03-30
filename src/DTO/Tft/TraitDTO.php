@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Tft;
 
-use Riot\DTO\DTOInterface;
-use Riot\Enum\Tft\TraitStyleEnum;
+use SeraPHPhine\DTO\DTOInterface;
+use SeraPHPhine\Enum\Tft\TraitStyleEnum;
 
 final class TraitDTO implements DTOInterface
 {
@@ -25,8 +25,7 @@ final class TraitDTO implements DTOInterface
         TraitStyleEnum $style,
         int $tierCurrent,
         int $tierTotal
-    )
-    {
+    ) {
         $this->name = $name;
         $this->numUnits = $numUnits;
         $this->style = $style;

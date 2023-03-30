@@ -14,6 +14,7 @@ use MyCLabs\Enum\Enum;
  * @method static self CHROMATIC()
  *
  * @extends Enum<int>
+ *
  * @psalm-immutable
  */
 final class TraitStyleEnum extends Enum

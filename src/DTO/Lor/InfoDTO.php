@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Lor;
 
-use Riot\Collection\Lor\PlayerDTOCollection;
-use Riot\DTO\DTOInterface;
+use SeraPHPhine\Collection\Lor\PlayerDTOCollection;
+use SeraPHPhine\DTO\DTOInterface;
 
 final class InfoDTO implements DTOInterface
 {
@@ -32,8 +32,7 @@ final class InfoDTO implements DTOInterface
         string $gameVersion,
         PlayerDTOCollection $players,
         int $totalTurnCount
-    )
-    {
+    ) {
         $this->gameMode = $gameMode;
         $this->gameType = $gameType;
         $this->gameStartTimeUtc = $gameStartTimeUtc;

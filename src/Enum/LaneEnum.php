@@ -15,6 +15,7 @@ use MyCLabs\Enum\Enum;
  * @method static self BOTTOM()
  *
  * @extends Enum<string>
+ *
  * @psalm-immutable
  */
 final class LaneEnum extends Enum

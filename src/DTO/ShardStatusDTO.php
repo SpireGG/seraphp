@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO;
 
-use Riot\Collection\ServiceDTOCollection;
+use SeraPHPhine\Collection\ServiceDTOCollection;
 
 final class ShardStatusDTO implements DTOInterface
 {
@@ -23,7 +23,7 @@ final class ShardStatusDTO implements DTOInterface
     private string $regionTag;
 
     /**
-     * @param array<string> $locales
+     * @param array<string>                    $locales
      * @param ServiceDTOCollection<ServiceDTO> $services
      */
     public function __construct(
@@ -33,8 +33,7 @@ final class ShardStatusDTO implements DTOInterface
         ServiceDTOCollection $services,
         string $slug,
         string $regionTag
-    )
-    {
+    ) {
         $this->locales = $locales;
         $this->hostname = $hostname;
         $this->name = $name;

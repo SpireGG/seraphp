@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Lol;
 
-use Riot\Collection\Lol\MatchFrameDTOCollection;
-use Riot\DTO\DTOInterface;
+use SeraPHPhine\Collection\Lol\MatchFrameDTOCollection;
+use SeraPHPhine\DTO\DTOInterface;
 
 final class MatchTimelineDTO implements DTOInterface
 {

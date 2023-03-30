@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Lol;
 
-use Riot\DTO\DTOInterface;
+use SeraPHPhine\DTO\DTOInterface;
 
 final class ParticipantStatsDTO implements DTOInterface
 {
@@ -342,8 +342,7 @@ final class ParticipantStatsDTO implements DTOInterface
         int $statPerk0,
         int $statPerk1,
         int $statPerk2
-    )
-    {
+    ) {
         $this->item0 = $item0;
         $this->item2 = $item2;
         $this->totalUnitsHealed = $totalUnitsHealed;

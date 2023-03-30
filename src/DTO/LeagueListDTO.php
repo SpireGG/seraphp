@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO;
 
-use Riot\Collection\LeagueItemDTOCollection;
+use SeraPHPhine\Collection\LeagueItemDTOCollection;
 
 final class LeagueListDTO implements DTOInterface
 {
@@ -28,8 +28,7 @@ final class LeagueListDTO implements DTOInterface
         string $tier,
         string $name,
         string $queue
-    )
-    {
+    ) {
         $this->leagueId = $leagueId;
         $this->entries = $entries;
         $this->tier = $tier;

@@ -20,6 +20,7 @@ use MyCLabs\Enum\Enum;
  * @method static self TR()
  *
  * @extends Enum<string>
+ *
  * @psalm-immutable
  */
 final class TournamentRegionEnum extends Enum

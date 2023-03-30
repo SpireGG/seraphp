@@ -40,8 +40,7 @@ final class LeagueItemDTO implements DTOInterface
         int $leaguePoints,
         int $losses,
         string $summonerId
-    )
-    {
+    ) {
         $this->freshBlood = $freshBlood;
         $this->wins = $wins;
         $this->summonerName = $summonerName;

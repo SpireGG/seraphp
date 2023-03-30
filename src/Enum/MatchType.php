@@ -20,7 +20,9 @@ use MyCLabs\Enum\Enum;
  * @method static self ASCENDED_EVENT()
  * @method static self CAPTURE_POINT()
  * @method static self PORO_KING_SUMMON()
+ *
  * @extends Enum<string>
+ *
  * @psalm-immutable
  */
 final class MatchType extends Enum

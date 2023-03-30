@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Lol;
 
-use Riot\Collection\Lol\ParticipantDTOCollection;
-use Riot\Collection\Lol\ParticipantIdentityDTOCollection;
-use Riot\Collection\Lol\TeamStatsDTOCollection;
-use Riot\DTO\DTOInterface;
+use SeraPHPhine\Collection\Lol\ParticipantDTOCollection;
+use SeraPHPhine\Collection\Lol\ParticipantIdentityDTOCollection;
+use SeraPHPhine\Collection\Lol\TeamStatsDTOCollection;
+use SeraPHPhine\DTO\DTOInterface;
 
 final class MatchDTO implements DTOInterface
 {
@@ -42,8 +42,8 @@ final class MatchDTO implements DTOInterface
 
     /**
      * @param ParticipantIdentityDTOCollection<ParticipantIdentityDTO> $participantIdentities
-     * @param TeamStatsDTOCollection<TeamStatsDTO> $teams
-     * @param ParticipantDTOCollection<ParticipantDTO> $participants
+     * @param TeamStatsDTOCollection<TeamStatsDTO>                     $teams
+     * @param ParticipantDTOCollection<ParticipantDTO>                 $participants
      */
     public function __construct(
         int $gameId,
@@ -59,8 +59,7 @@ final class MatchDTO implements DTOInterface
         int $mapId,
         string $gameMode,
         ParticipantDTOCollection $participants
-    )
-    {
+    ) {
         $this->gameId = $gameId;
         $this->participantIdentities = $participantIdentities;
         $this->queueId = $queueId;

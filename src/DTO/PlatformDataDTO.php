@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO;
 
-use Riot\Collection\StatusDTOCollection;
+use SeraPHPhine\Collection\StatusDTOCollection;
 
 final class PlatformDataDTO implements DTOInterface
 {
@@ -28,8 +28,7 @@ final class PlatformDataDTO implements DTOInterface
         array $locales,
         StatusDTOCollection $maintenances,
         StatusDTOCollection $incidents
-    )
-    {
+    ) {
         $this->id = $id;
         $this->name = $name;
         $this->locales = $locales;

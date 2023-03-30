@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Tft;
 
-use Riot\Collection\Tft\ParticipantDTOCollection;
-use Riot\DTO\DTOInterface;
+use SeraPHPhine\Collection\Tft\ParticipantDTOCollection;
+use SeraPHPhine\DTO\DTOInterface;
 
 final class InfoDTO implements DTOInterface
 {
@@ -31,8 +31,7 @@ final class InfoDTO implements DTOInterface
         ParticipantDTOCollection $participants,
         int $queueId,
         int $tftSetNumber
-    )
-    {
+    ) {
         $this->gameDateTime = $gameDateTime;
         $this->gameLength = $gameLength;
         $this->gameVariation = $gameVariation;

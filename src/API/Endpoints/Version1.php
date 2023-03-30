@@ -91,9 +91,6 @@ final class Version1 extends AbstractAPIFactory
         return $api;
     }
 
-    /**
-     * @return Account|LorRanked|LorMatch|Clash|TftSummoner|TftLeague|TftMatch|ValContent
-     */
     protected function createApiMap(string $key): AbstractApi
     {
         return match ($key) {

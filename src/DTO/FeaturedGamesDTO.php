@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO;
 
-use Riot\Collection\FeaturedGameInfoDTOCollection;
+use SeraPHPhine\Collection\FeaturedGameInfoDTOCollection;
 
 final class FeaturedGamesDTO implements DTOInterface
 {
@@ -19,8 +19,7 @@ final class FeaturedGamesDTO implements DTOInterface
     public function __construct(
         FeaturedGameInfoDTOCollection $gameList,
         int $clientRefreshInterval
-    )
-    {
+    ) {
         $this->gameList = $gameList;
         $this->clientRefreshInterval = $clientRefreshInterval;
     }

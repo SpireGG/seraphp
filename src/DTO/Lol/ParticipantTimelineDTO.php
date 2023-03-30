@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Lol;
 
-use Riot\DTO\DTOInterface;
-use Riot\Enum\LaneEnum;
-use Riot\Enum\RoleEnum;
+use SeraPHPhine\DTO\DTOInterface;
+use SeraPHPhine\Enum\LaneEnum;
+use SeraPHPhine\Enum\RoleEnum;
 
 final class ParticipantTimelineDTO implements DTOInterface
 {
@@ -57,8 +57,7 @@ final class ParticipantTimelineDTO implements DTOInterface
         LaneEnum $lane,
         array $creepsPerMinDeltas,
         array $goldPerMinDeltas
-    )
-    {
+    ) {
         $this->participantId = $participantId;
         $this->csDiffPerMinDeltas = $csDiffPerMinDeltas;
         $this->damageTakenPerMinDeltas = $damageTakenPerMinDeltas;

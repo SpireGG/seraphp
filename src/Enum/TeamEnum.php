@@ -11,6 +11,7 @@ use MyCLabs\Enum\Enum;
  * @method static self RED()
  *
  * @extends Enum<int>
+ *
  * @psalm-immutable
  */
 final class TeamEnum extends Enum

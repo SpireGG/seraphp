@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Clash;
 
-use Riot\Collection\Clash\TournamentPhaseDTOCollection;
-use Riot\DTO\DTOInterface;
+use SeraPHPhine\Collection\Clash\TournamentPhaseDTOCollection;
+use SeraPHPhine\DTO\DTOInterface;
 
 final class TournamentDTO implements DTOInterface
 {
@@ -29,8 +29,7 @@ final class TournamentDTO implements DTOInterface
         string $nameKey,
         string $nameKeySecondary,
         TournamentPhaseDTOCollection $schedule
-    )
-    {
+    ) {
         $this->id = $id;
         $this->themeId = $themeId;
         $this->nameKey = $nameKey;

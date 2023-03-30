@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO;
 
-use Riot\Collection\ContentDTOCollection;
+use SeraPHPhine\Collection\ContentDTOCollection;
 
 final class UpdateDTO implements DTOInterface
 {
@@ -34,8 +34,7 @@ final class UpdateDTO implements DTOInterface
         ContentDTOCollection $translations,
         string $createdAt,
         string $updatedAt
-    )
-    {
+    ) {
         $this->id = $id;
         $this->author = $author;
         $this->publish = $publish;

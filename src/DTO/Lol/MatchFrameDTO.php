@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Lol;
 
-use Riot\Collection\Lol\MatchEventDTOCollection;
-use Riot\DTO\DTOInterface;
+use SeraPHPhine\Collection\Lol\MatchEventDTOCollection;
+use SeraPHPhine\DTO\DTOInterface;
 
 final class MatchFrameDTO implements DTOInterface
 {
@@ -19,7 +19,7 @@ final class MatchFrameDTO implements DTOInterface
 
     /**
      * @param array<string, MatchParticipantFrameDTO> $participantFrames
-     * @param MatchEventDTOCollection<MatchEventDTO> $events
+     * @param MatchEventDTOCollection<MatchEventDTO>  $events
      */
     public function __construct(array $participantFrames, MatchEventDTOCollection $events, int $timestamp)
     {
@@ -53,7 +53,7 @@ final class MatchFrameDTO implements DTOInterface
     {
         $frames = [];
         foreach ($data['participantFrames'] as $key => $frame) {
-            $frames[(string)$key] = MatchParticipantFrameDTO::createFromArray($frame);
+            $frames[(string) $key] = MatchParticipantFrameDTO::createFromArray($frame);
         }
 
         return new self(

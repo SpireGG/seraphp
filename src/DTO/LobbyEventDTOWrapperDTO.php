@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO;
 
-use Riot\Collection\LobbyEventDTOCollection;
+use SeraPHPhine\Collection\LobbyEventDTOCollection;
 
 final class LobbyEventDTOWrapperDTO implements DTOInterface
 {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO;
 
-use Riot\Collection\GameCustomizationObjectDTOCollection;
+use SeraPHPhine\Collection\GameCustomizationObjectDTOCollection;
 
 final class CurrentGameParticipantDTO implements DTOInterface
 {
@@ -43,8 +43,7 @@ final class CurrentGameParticipantDTO implements DTOInterface
         int $spell1Id,
         int $spell2Id,
         GameCustomizationObjectDTOCollection $gameCustomizationObjects
-    )
-    {
+    ) {
         $this->championId = $championId;
         $this->perks = $perks;
         $this->profileIconId = $profileIconId;

@@ -22,8 +22,7 @@ final class ChampionInfoDTO implements DTOInterface
         int $maxNewPlayerLevel,
         array $freeChampionIdsForNewPlayers,
         array $freeChampionIds
-    )
-    {
+    ) {
         $this->maxNewPlayerLevel = $maxNewPlayerLevel;
         $this->freeChampionIdsForNewPlayers = $freeChampionIdsForNewPlayers;
         $this->freeChampionIds = $freeChampionIds;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Lol;
 
-use Riot\DTO\DTOInterface;
+use SeraPHPhine\DTO\DTOInterface;
 
 final class MatchReferenceDTO implements DTOInterface
 {
@@ -33,8 +33,7 @@ final class MatchReferenceDTO implements DTOInterface
         int $queue,
         string $lane,
         int $timestamp
-    )
-    {
+    ) {
         $this->gameId = $gameId;
         $this->role = $role;
         $this->season = $season;

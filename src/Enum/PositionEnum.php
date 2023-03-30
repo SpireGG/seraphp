@@ -16,6 +16,7 @@ use MyCLabs\Enum\Enum;
  * @method static self UTILITY()
  *
  * @extends Enum<string>
+ *
  * @psalm-immutable
  */
 final class PositionEnum extends Enum

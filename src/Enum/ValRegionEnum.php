@@ -15,6 +15,7 @@ use MyCLabs\Enum\Enum;
  * @method static self NA()
  *
  * @extends Enum<string>
+ *
  * @psalm-immutable
  */
 final class ValRegionEnum extends Enum

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO;
 
-use Riot\Collection\MessageDTOCollection;
+use SeraPHPhine\Collection\MessageDTOCollection;
 
 final class IncidentDTO implements DTOInterface
 {

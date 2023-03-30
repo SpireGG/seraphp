@@ -11,6 +11,7 @@ use MyCLabs\Enum\Enum;
  * @method static self MEMBER()
  *
  * @extends Enum<string>
+ *
  * @psalm-immutable
  */
 final class TeamRoleEnum extends Enum

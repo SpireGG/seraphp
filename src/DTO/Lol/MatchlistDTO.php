@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\DTO\Lol;
 
-use Riot\Collection\Lol\MatchReferenceDTOCollection;
-use Riot\DTO\DTOInterface;
+use SeraPHPhine\Collection\Lol\MatchReferenceDTOCollection;
+use SeraPHPhine\DTO\DTOInterface;
 
 final class MatchlistDTO implements DTOInterface
 {
@@ -26,8 +26,7 @@ final class MatchlistDTO implements DTOInterface
         int $totalGames,
         int $endIndex,
         MatchReferenceDTOCollection $matches
-    )
-    {
+    ) {
         $this->startIndex = $startIndex;
         $this->totalGames = $totalGames;
         $this->endIndex = $endIndex;
