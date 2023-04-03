@@ -22,3 +22,6 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    SeraPHPhine\SeraPHPhine:
+        $config: { api_key: 'RGAPI-431bbcb2-6cc1-4d7b-a2c4-9dc3709022e1' }

@@ -26,7 +26,7 @@ final class Connection implements ConnectionInterface
     private RequestFactoryInterface $requestFactory;
     private StreamFactoryInterface $streamFactory;
     private ?CacheItemPoolInterface $cache;
-    private ?CallCacheControl $ccc;
+    private ?CallCacheControl $ccc = null;
     private Configuration $config;
 
     private array $callbacksBefore = [];

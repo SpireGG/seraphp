@@ -15,7 +15,7 @@ final class Account extends AbstractApi
     public function getByPuuid(string $puuid, GeoRegionEnum $geoRegion): AccountDTO
     {
         $response = $this->riotConnection
-            ->setResource(Configuration::RESOURCE_CHAMPION)
+//            ->setResource(Configuration::RESOURCE_CHAMPION)
             ->get(
                 $geoRegion->getValue(),
                 sprintf('riot/account/v1/accounts/by-puuid/%s', $puuid),

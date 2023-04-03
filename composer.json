@@ -1,5 +1,6 @@
 {
   "name": "spiregg/seraphphine",
+  "version": "0.0.1",
   "description": "Wrapper around Riot Games APIs.",
   "keywords": [
     "riot", "riot games", "lol", "league of legends", "valorant", "teamfight tactics", "tft",

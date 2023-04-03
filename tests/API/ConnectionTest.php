@@ -11,6 +11,7 @@ use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamFactoryInterface;
+use Psr\Http\Message\UriInterface;
 use SeraPHPhine\API\Configuration;
 use SeraPHPhine\API\Connection;
 use SeraPHPhine\API\ResponseDecoderInterface;
@@ -28,11 +29,18 @@ final class ConnectionTest extends TestCase
 
     public function setUp(): void
     {
+        $uri = $this->createMock(UriInterface::class);
+        $uri->expects(self::once())
+            ->method('getPath')
+            ->willReturn('https://region.api.riotgames.com/path');
         $this->request = $this->createMock(RequestInterface::class);
         $this->request->expects(self::once())
             ->method('withAddedHeader')
             ->with(self::equalTo('X-Riot-Token'), self::equalTo('my-api-token'))
             ->willReturnSelf();
+        $this->request->expects(self::once())
+            ->method('getUri')
+            ->willReturn($uri);
 
         $this->requestFactory = $this->createMock(RequestFactoryInterface::class);
         $this->response = $this->createMock(ResponseInterface::class);
@@ -121,7 +129,7 @@ final class ConnectionTest extends TestCase
 
         $client = $this->createMock(ClientInterface::class);
         $client->expects(self::once())
-            ->method('_makeCall')
+            ->method('sendRequest')
             ->willReturn($this->response);
 
         $connection = new Connection(

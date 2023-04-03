@@ -4,89 +4,104 @@ declare(strict_types=1);
 
 namespace SeraPHPhine;
 
-use SeraPHPhine\API\AbstractAPIFactory;
-use SeraPHPhine\API\Configuration;
-use SeraPHPhine\API\Connection;
-use SeraPHPhine\API\ConnectionInterface;
 use SeraPHPhine\API\Endpoints\Version1;
 use SeraPHPhine\API\Endpoints\Version3;
 use SeraPHPhine\API\Endpoints\Version4;
-use SeraPHPhine\DTO as Dto;
-use SeraPHPhine\Enum\GeoRegionEnum;
-use SeraPHPhine\Exceptions\Riot\InvalidApiVersionException;
 
-class SeraPHPhine
+class SeraPHPhine extends ASeraPHPhine
 {
-    private const VERSION_1 = 'version1';
-    private const VERSION_3 = 'version3';
-    private const VERSION_4 = 'version4';
-
-    private ConnectionInterface $connection;
-
-    /** @var array<string, AbstractAPIFactory> */
-    private array $factories;
-
-    public function __construct(array|Configuration $config)
+    public function getAccount(): Version1\Account
     {
-        $config = is_array($config) ? new Configuration($config) : $config;
-        $config->validate();
-        $this->connection = new Connection($config);
+        return $this->getVersion1()->getAccount();
     }
 
-    public function getByPuuid(string $puuid, GeoRegionEnum $geoRegion): Dto\AccountDTO
+    public function getLorRanked(): Version1\LorRanked
     {
-        return $this->getVersion1()->getAccount()->getByPuuid($puuid, $geoRegion);
+        return $this->getVersion1()->getLorRanked();
     }
 
-    public function getByGameNameAndTagLine(string $gameName, string $tagLine, GeoRegionEnum $geoRegion): Dto\AccountDTO
+    public function getLorMatch(): Version1\LorMatch
     {
-        return $this->getVersion1()->getAccount()->getByGameNameAndTagLine($gameName, $tagLine, $geoRegion);
+        return $this->getVersion1()->getLorMatch();
     }
 
-    public function getByGameAndPuuid(string $game, string $puuid, GeoRegionEnum $geoRegion): Dto\ActiveShardDTO
+    public function getClash(): Version1\Clash
     {
-        return $this->getVersion1()->getAccount()->getByGameAndPuuid($game, $puuid, $geoRegion);
+        return $this->getVersion1()->getClash();
     }
 
-    private function createFactory(string $key): AbstractAPIFactory
+    public function getTftSummoner(): Version1\TftSummoner
     {
-        if (isset($this->factories[$key])) {
-            return $this->factories[$key];
-        }
-
-        $api = match ($key) {
-            self::VERSION_1 => new Version1($this->connection),
-            self::VERSION_3 => new Version3($this->connection),
-            self::VERSION_4 => new Version4($this->connection),
-            default => throw new InvalidApiVersionException(),
-        };
-
-        $this->factories[$key] = $api;
-
-        return $this->factories[$key];
+        return $this->getVersion1()->getTftSummoner();
     }
 
-    public function getVersion1(): Version1
+    public function getTftLeague(): Version1\TftLeague
     {
-        /** @var Version1 $factory */
-        $factory = $this->createFactory(self::VERSION_1);
-
-        return $factory;
+        return $this->getVersion1()->getTftLeague();
     }
 
-    public function getVersion3(): Version3
+    public function getTftMatch(): Version1\TftMatch
     {
-        /** @var Version3 $factory */
-        $factory = $this->createFactory(self::VERSION_3);
-
-        return $factory;
+        return $this->getVersion1()->getTftMatch();
     }
 
-    public function getVersion4(): Version4
+    public function getValContent(): Version1\ValContent
     {
-        /** @var Version4 $factory */
-        $factory = $this->createFactory(self::VERSION_4);
+        return $this->getVersion1()->getValContent();
+    }
 
-        return $factory;
+    public function getChampion(): Version3\Champion
+    {
+        return $this->getVersion3()->getChampion();
+    }
+
+    public function getSummoner(): Version4\Summoner
+    {
+        return $this->getVersion4()->getSummoner();
+    }
+
+    public function getThirdPartyCode(): Version4\ThirdPartyCode
+    {
+        return $this->getVersion4()->getThirdPartyCode();
+    }
+
+    public function getChampionMastery(): Version4\ChampionMastery
+    {
+        return $this->getVersion4()->getChampionMastery();
+    }
+
+    public function getSpectator(): Version4\Spectator
+    {
+        return $this->getVersion4()->getSpectator();
+    }
+
+    public function getLeague(): Version4\League
+    {
+        return $this->getVersion4()->getLeague();
+    }
+
+    public function getMatch(): Version4\Match_
+    {
+        return $this->getVersion4()->getMatch();
+    }
+
+    public function getTournamentStub(): Version4\TournamentStub
+    {
+        return $this->getVersion4()->getTournamentStub();
+    }
+
+    public function getTournament(): Version4\Tournament
+    {
+        return $this->getVersion4()->getTournament();
+    }
+
+    public function getLeagueExp(): Version4\LeagueExp
+    {
+        return $this->getVersion4()->getLeagueExp();
+    }
+
+    public function getLolStatus(): Version4\LolStatus
+    {
+        return $this->getVersion4()->getLolStatus();
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace SeraPHPhine\API;
 
+use SeraPHPhine\Enum\GeoRegionEnum;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 
 class Configuration
@@ -14,13 +15,13 @@ class Configuration
     private string $apiKeyMethod = self::API_KEY_METHOD_HEADER;
     private string $cacheProvider = FilesystemAdapter::class;
     private array $cacheProviderParams = [];
-    private string $cacheRateLimit;
     /** @var array<string, int>|int */
     private array|int $cacheCallsLength = 60;
     private string $baseUrl = '.api.riotgames.com';
 
     public const API_KEY_METHOD_PARAM = 'query';
     public const API_KEY_METHOD_HEADER = 'header';
+    private string $cacheCalls;
 
     public const RESOURCE_CHAMPION = '1237:champion';
     public const RESOURCE_CHAMPIONMASTERY = '1418:champion-mastery';
@@ -37,7 +38,9 @@ class Configuration
     public function __construct(array $config = [])
     {
         $this->apiKey = $config['api_key'];
-        $this->cacheCallLength = [
+        $this->region = $config['region'] ?? GeoRegionEnum::EUROPE()->getValue();
+        $this->platform = $config['platform'] ?? GeoRegionEnum::EUROPE()->getValue();
+        $this->cacheCallsLength = [
             self::RESOURCE_CHAMPION => 60 * 10,
             self::RESOURCE_CHAMPIONMASTERY => 60 * 60,
             self::RESOURCE_LEAGUE => 60 * 10,
@@ -92,11 +95,6 @@ class Configuration
         }
 
         return $this->cacheProviderParams;
-    }
-
-    public function getCacheRateLimit(): string
-    {
-        return $this->cacheRateLimit;
     }
 
     public function getCacheCalls(): string
