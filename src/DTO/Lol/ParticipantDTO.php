@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO\Lol;
+namespace SeraPHP\DTO\Lol;
 
-use SeraPHPhine\Collection\Lol\MasteryDTOCollection;
-use SeraPHPhine\Collection\Lol\RuneDTOCollection;
-use SeraPHPhine\DTO\DTOInterface;
+use SeraPHP\Collection\Lol\MasteryDTOCollection;
+use SeraPHP\Collection\Lol\RuneDTOCollection;
+use SeraPHP\DTO\DTOInterface;
 
 final class ParticipantDTO implements DTOInterface
 {

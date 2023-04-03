@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\API;
+namespace SeraPHP\Tests\API;
 
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
@@ -12,10 +12,10 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 use Psr\Http\Message\UriInterface;
-use SeraPHPhine\API\Configuration;
-use SeraPHPhine\API\Connection;
-use SeraPHPhine\API\ResponseDecoderInterface;
-use SeraPHPhine\Exceptions as SeraPHPhineException;
+use SeraPHP\API\Configuration;
+use SeraPHP\API\Connection;
+use SeraPHP\API\ResponseDecoderInterface;
+use SeraPHP\Exceptions as SeraPHPException;
 
 final class ConnectionTest extends TestCase
 {
@@ -212,17 +212,17 @@ final class ConnectionTest extends TestCase
     public function statusCodesAndExceptionsProvider(): array
     {
         return [
-            [400, SeraPHPhineException\Riot\BadRequestException::class],
-            [401, SeraPHPhineException\Riot\UnauthorizedException::class],
-            [403, SeraPHPhineException\Riot\ForbiddenException::class],
-            [404, SeraPHPhineException\Riot\DataNotFoundException::class],
-            [405, SeraPHPhineException\Riot\MethodNotAllowedException::class],
-            [415, SeraPHPhineException\Riot\UnsupportedMediaTypeException::class],
-            [429, SeraPHPhineException\Riot\RateLimitExceededException::class],
-            [500, SeraPHPhineException\Riot\InternalServerErrorException::class],
-            [502, SeraPHPhineException\Riot\BadGatewayException::class],
-            [503, SeraPHPhineException\Riot\ServiceUnavailableException::class],
-            [504, SeraPHPhineException\Riot\GatewayTimeoutException::class],
+            [400, SeraPHPException\Riot\BadRequestException::class],
+            [401, SeraPHPException\Riot\UnauthorizedException::class],
+            [403, SeraPHPException\Riot\ForbiddenException::class],
+            [404, SeraPHPException\Riot\DataNotFoundException::class],
+            [405, SeraPHPException\Riot\MethodNotAllowedException::class],
+            [415, SeraPHPException\Riot\UnsupportedMediaTypeException::class],
+            [429, SeraPHPException\Riot\RateLimitExceededException::class],
+            [500, SeraPHPException\Riot\InternalServerErrorException::class],
+            [502, SeraPHPException\Riot\BadGatewayException::class],
+            [503, SeraPHPException\Riot\ServiceUnavailableException::class],
+            [504, SeraPHPException\Riot\GatewayTimeoutException::class],
         ];
     }
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Filter;
+namespace SeraPHP\Filter;
 
 use Webmozart\Assert\Assert;
 

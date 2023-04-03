@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\API;
+namespace SeraPHP\Tests\API;
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
-use SeraPHPhine\API\ResponseDecoder;
+use SeraPHP\API\ResponseDecoder;
 
 final class ResponseDecoderTest extends TestCase
 {

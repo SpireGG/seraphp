@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO;
+namespace SeraPHP\Tests\DTO;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\Collection\StatusDTOCollection;
-use SeraPHPhine\DTO\PlatformDataDTO;
+use SeraPHP\Collection\StatusDTOCollection;
+use SeraPHP\DTO\PlatformDataDTO;
 
 final class PlatformDataDTOTest extends TestCase
 {

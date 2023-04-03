@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO\Lol;
+namespace SeraPHP\DTO\Lol;
 
-use SeraPHPhine\Collection\Lol\TeamBansDTOCollection;
-use SeraPHPhine\DTO\DTOInterface;
-use SeraPHPhine\Enum\TeamEnum;
-use SeraPHPhine\Enum\WinEnum;
+use SeraPHP\Collection\Lol\TeamBansDTOCollection;
+use SeraPHP\DTO\DTOInterface;
+use SeraPHP\Enum\TeamEnum;
+use SeraPHP\Enum\WinEnum;
 
 final class TeamStatsDTO implements DTOInterface
 {

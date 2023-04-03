@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO\Lol;
+namespace SeraPHP\DTO\Lol;
 
-use SeraPHPhine\DTO\DTOInterface;
+use SeraPHP\DTO\DTOInterface;
 
 final class MasteryDTO implements DTOInterface
 {

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO\Lol;
+namespace SeraPHP\Tests\DTO\Lol;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\Collection\Lol\MatchFrameDTOCollection;
-use SeraPHPhine\DTO\Lol\MatchFrameDTO;
+use SeraPHP\Collection\Lol\MatchFrameDTOCollection;
+use SeraPHP\DTO\Lol\MatchFrameDTO;
 
 final class MatchFrameDTOCollectionTest extends TestCase
 {

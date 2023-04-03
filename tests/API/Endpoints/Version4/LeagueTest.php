@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\API\Endpoints\Version4;
+namespace SeraPHP\Tests\API\Endpoints\Version4;
 
-use SeraPHPhine\API\Endpoints\Version4\League;
-use SeraPHPhine\Collection\LeagueEntryDTOCollection;
-use SeraPHPhine\DTO\LeagueListDTO;
-use SeraPHPhine\Enum\DivisionEnum;
-use SeraPHPhine\Enum\QueueEnum;
-use SeraPHPhine\Enum\RegionEnum;
-use SeraPHPhine\Enum\TierEnum;
-use SeraPHPhine\Tests\APITestCase;
+use SeraPHP\API\Endpoints\Version4\League;
+use SeraPHP\Collection\LeagueEntryDTOCollection;
+use SeraPHP\DTO\LeagueListDTO;
+use SeraPHP\Enum\DivisionEnum;
+use SeraPHP\Enum\QueueEnum;
+use SeraPHP\Enum\RegionEnum;
+use SeraPHP\Enum\TierEnum;
+use SeraPHP\Tests\APITestCase;
 
 final class LeagueTest extends APITestCase
 {

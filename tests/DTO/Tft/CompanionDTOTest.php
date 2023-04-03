@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO\Tft;
+namespace SeraPHP\Tests\DTO\Tft;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\DTO\Tft\CompanionDTO;
+use SeraPHP\DTO\Tft\CompanionDTO;
 
 final class CompanionDTOTest extends TestCase
 {

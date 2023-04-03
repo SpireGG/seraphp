@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO;
+namespace SeraPHP\DTO;
 
-use SeraPHPhine\Collection\BannedChampionDTOCollection;
-use SeraPHPhine\Collection\CurrentGameParticipantDTOCollection;
+use SeraPHP\Collection\BannedChampionDTOCollection;
+use SeraPHP\Collection\CurrentGameParticipantDTOCollection;
 
 final class CurrentGameInfoDTO implements DTOInterface
 {

@@ -1,5 +1,5 @@
 {
-  "name": "spiregg/seraphphine",
+  "name": "spiregg/seraphp",
   "version": "0.0.1",
   "description": "Wrapper around Riot Games APIs.",
   "keywords": [
@@ -53,12 +53,12 @@
   },
   "autoload": {
     "psr-4": {
-      "SeraPHPhine\\": "src"
+      "SeraPHP\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "SeraPHPhine\\Tests\\": "tests"
+      "SeraPHP\\Tests\\": "tests"
     }
   },
   "replace": {

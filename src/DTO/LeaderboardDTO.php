@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO;
+namespace SeraPHP\DTO;
 
-use SeraPHPhine\Collection\PlayerDTOCollection;
+use SeraPHP\Collection\PlayerDTOCollection;
 
 final class LeaderboardDTO implements DTOInterface
 {

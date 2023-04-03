@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\API\Endpoints\Version4;
+namespace SeraPHP\API\Endpoints\Version4;
 
-use SeraPHPhine\API\AbstractApi;
-use SeraPHPhine\Collection\LeagueEntryDTOCollection;
-use SeraPHPhine\Enum\DivisionEnum;
-use SeraPHPhine\Enum\QueueEnum;
-use SeraPHPhine\Enum\RegionEnum;
-use SeraPHPhine\Enum\TierExpEnum;
+use SeraPHP\API\AbstractApi;
+use SeraPHP\Collection\LeagueEntryDTOCollection;
+use SeraPHP\Enum\DivisionEnum;
+use SeraPHP\Enum\QueueEnum;
+use SeraPHP\Enum\RegionEnum;
+use SeraPHP\Enum\TierExpEnum;
 
 final class LeagueExp extends AbstractApi
 {

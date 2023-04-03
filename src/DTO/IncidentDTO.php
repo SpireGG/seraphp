@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO;
+namespace SeraPHP\DTO;
 
-use SeraPHPhine\Collection\MessageDTOCollection;
+use SeraPHP\Collection\MessageDTOCollection;
 
 final class IncidentDTO implements DTOInterface
 {

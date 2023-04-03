@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Collection\Val;
+namespace SeraPHP\Collection\Val;
 
 use Ramsey\Collection\AbstractCollection;
-use SeraPHPhine\DTO\Val\ContentItemDTO;
+use SeraPHP\DTO\Val\ContentItemDTO;
 
 final class ContentItemDTOCollection extends AbstractCollection
 {

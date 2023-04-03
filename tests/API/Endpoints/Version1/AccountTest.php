@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\API\Endpoints\Version1;
+namespace SeraPHP\Tests\API\Endpoints\Version1;
 
-use SeraPHPhine\API\Endpoints\Version1\Account;
-use SeraPHPhine\DTO\AccountDTO;
-use SeraPHPhine\DTO\ActiveShardDTO;
-use SeraPHPhine\Enum\GeoRegionEnum;
-use SeraPHPhine\Tests\APITestCase;
+use SeraPHP\API\Endpoints\Version1\Account;
+use SeraPHP\DTO\AccountDTO;
+use SeraPHP\DTO\ActiveShardDTO;
+use SeraPHP\Enum\GeoRegionEnum;
+use SeraPHP\Tests\APITestCase;
 
 final class AccountTest extends APITestCase
 {

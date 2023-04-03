@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO;
+namespace SeraPHP\Tests\DTO;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\Collection\LeagueItemDTOCollection;
-use SeraPHPhine\DTO\LeagueListDTO;
+use SeraPHP\Collection\LeagueItemDTOCollection;
+use SeraPHP\DTO\LeagueListDTO;
 
 final class LeagueListDTOTest extends TestCase
 {

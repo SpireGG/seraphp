@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\API\Endpoints\Version1;
+namespace SeraPHP\API\Endpoints\Version1;
 
-use SeraPHPhine\API\AbstractApi;
-use SeraPHPhine\Collection\Clash\PlayerDTOCollection;
-use SeraPHPhine\Collection\Clash\TournamentDTOCollection;
-use SeraPHPhine\DTO\Clash\TeamDTO;
-use SeraPHPhine\DTO\Clash\TournamentDTO;
-use SeraPHPhine\Enum\RegionEnum;
+use SeraPHP\API\AbstractApi;
+use SeraPHP\Collection\Clash\PlayerDTOCollection;
+use SeraPHP\Collection\Clash\TournamentDTOCollection;
+use SeraPHP\DTO\Clash\TeamDTO;
+use SeraPHP\DTO\Clash\TournamentDTO;
+use SeraPHP\Enum\RegionEnum;
 
 final class Clash extends AbstractApi
 {

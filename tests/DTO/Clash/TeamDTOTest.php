@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO\Clash;
+namespace SeraPHP\Tests\DTO\Clash;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\Collection\Clash\PlayerDTOCollection;
-use SeraPHPhine\DTO\Clash\TeamDTO;
+use SeraPHP\Collection\Clash\PlayerDTOCollection;
+use SeraPHP\DTO\Clash\TeamDTO;
 
 final class TeamDTOTest extends TestCase
 {

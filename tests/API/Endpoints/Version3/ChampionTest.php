@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\API\Endpoints\Version3;
+namespace SeraPHP\Tests\API\Endpoints\Version3;
 
-use SeraPHPhine\API\Endpoints\Version3\Champion;
-use SeraPHPhine\DTO\ChampionInfoDTO;
-use SeraPHPhine\Enum\RegionEnum;
-use SeraPHPhine\Tests\APITestCase;
+use SeraPHP\API\Endpoints\Version3\Champion;
+use SeraPHP\DTO\ChampionInfoDTO;
+use SeraPHP\Enum\RegionEnum;
+use SeraPHP\Tests\APITestCase;
 
 final class ChampionTest extends APITestCase
 {

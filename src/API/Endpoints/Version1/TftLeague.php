@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\API\Endpoints\Version1;
+namespace SeraPHP\API\Endpoints\Version1;
 
-use SeraPHPhine\API\AbstractApi;
-use SeraPHPhine\Collection\LeagueEntryDTOCollection;
-use SeraPHPhine\DTO\LeagueListDTO;
-use SeraPHPhine\Enum\DivisionEnum;
-use SeraPHPhine\Enum\RegionEnum;
-use SeraPHPhine\Enum\TierEnum;
+use SeraPHP\API\AbstractApi;
+use SeraPHP\Collection\LeagueEntryDTOCollection;
+use SeraPHP\DTO\LeagueListDTO;
+use SeraPHP\Enum\DivisionEnum;
+use SeraPHP\Enum\RegionEnum;
+use SeraPHP\Enum\TierEnum;
 
 final class TftLeague extends AbstractApi
 {

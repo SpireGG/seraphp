@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\API;
+namespace SeraPHP\API;
 
 use Koriym\HttpConstants\Method;
 use Koriym\HttpConstants\StatusCode;
@@ -12,10 +12,10 @@ use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamFactoryInterface;
-use SeraPHPhine\API\Cache\CallCacheControl;
-use SeraPHPhine\Exceptions\RequestException;
-use SeraPHPhine\Exceptions\Riot;
-use SeraPHPhine\Exceptions\SettingsException;
+use SeraPHP\API\Cache\CallCacheControl;
+use SeraPHP\Exceptions\RequestException;
+use SeraPHP\Exceptions\Riot;
+use SeraPHP\Exceptions\SettingsException;
 use Symfony\Component\HttpClient\Psr18Client;
 
 final class Connection implements ConnectionInterface

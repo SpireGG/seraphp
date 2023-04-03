@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\API\Endpoints;
+namespace SeraPHP\API\Endpoints;
 
-use SeraPHPhine\API\AbstractApi;
-use SeraPHPhine\API\AbstractAPIFactory;
-use SeraPHPhine\API\Endpoints\Version4\ChampionMastery;
-use SeraPHPhine\API\Endpoints\Version4\League;
-use SeraPHPhine\API\Endpoints\Version4\LeagueExp;
-use SeraPHPhine\API\Endpoints\Version4\LolStatus;
-use SeraPHPhine\API\Endpoints\Version4\Match_;
-use SeraPHPhine\API\Endpoints\Version4\Spectator;
-use SeraPHPhine\API\Endpoints\Version4\Summoner;
-use SeraPHPhine\API\Endpoints\Version4\ThirdPartyCode;
-use SeraPHPhine\API\Endpoints\Version4\Tournament;
-use SeraPHPhine\API\Endpoints\Version4\TournamentStub;
-use SeraPHPhine\Exceptions\Riot\InvalidApiEndpointException;
+use SeraPHP\API\AbstractApi;
+use SeraPHP\API\AbstractAPIFactory;
+use SeraPHP\API\Endpoints\Version4\ChampionMastery;
+use SeraPHP\API\Endpoints\Version4\League;
+use SeraPHP\API\Endpoints\Version4\LeagueExp;
+use SeraPHP\API\Endpoints\Version4\LolStatus;
+use SeraPHP\API\Endpoints\Version4\Match_;
+use SeraPHP\API\Endpoints\Version4\Spectator;
+use SeraPHP\API\Endpoints\Version4\Summoner;
+use SeraPHP\API\Endpoints\Version4\ThirdPartyCode;
+use SeraPHP\API\Endpoints\Version4\Tournament;
+use SeraPHP\API\Endpoints\Version4\TournamentStub;
+use SeraPHP\Exceptions\Riot\InvalidApiEndpointException;
 
 final class Version4 extends AbstractAPIFactory
 {

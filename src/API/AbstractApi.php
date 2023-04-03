@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\API;
+namespace SeraPHP\API;
 
 abstract class AbstractApi
 {

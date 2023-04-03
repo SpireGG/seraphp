@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\API\Endpoints\Version4;
+namespace SeraPHP\Tests\API\Endpoints\Version4;
 
-use SeraPHPhine\API\Endpoints\Version4\Spectator;
-use SeraPHPhine\Collection\FeaturedGameInfoDTOCollection;
-use SeraPHPhine\DTO\CurrentGameInfoDTO;
-use SeraPHPhine\Enum\RegionEnum;
-use SeraPHPhine\Tests\APITestCase;
+use SeraPHP\API\Endpoints\Version4\Spectator;
+use SeraPHP\Collection\FeaturedGameInfoDTOCollection;
+use SeraPHP\DTO\CurrentGameInfoDTO;
+use SeraPHP\Enum\RegionEnum;
+use SeraPHP\Tests\APITestCase;
 
 final class SpectatorTest extends APITestCase
 {

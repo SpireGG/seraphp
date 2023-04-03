@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\API\Endpoints;
+namespace SeraPHP\API\Endpoints;
 
-use SeraPHPhine\API\AbstractApi;
-use SeraPHPhine\API\AbstractAPIFactory;
-use SeraPHPhine\API\Endpoints\Version1\Account;
-use SeraPHPhine\API\Endpoints\Version1\Clash;
-use SeraPHPhine\API\Endpoints\Version1\LorMatch;
-use SeraPHPhine\API\Endpoints\Version1\LorRanked;
-use SeraPHPhine\API\Endpoints\Version1\TftLeague;
-use SeraPHPhine\API\Endpoints\Version1\TftMatch;
-use SeraPHPhine\API\Endpoints\Version1\TftSummoner;
-use SeraPHPhine\API\Endpoints\Version1\ValContent;
-use SeraPHPhine\Exceptions\Riot\InvalidApiEndpointException;
+use SeraPHP\API\AbstractApi;
+use SeraPHP\API\AbstractAPIFactory;
+use SeraPHP\API\Endpoints\Version1\Account;
+use SeraPHP\API\Endpoints\Version1\Clash;
+use SeraPHP\API\Endpoints\Version1\LorMatch;
+use SeraPHP\API\Endpoints\Version1\LorRanked;
+use SeraPHP\API\Endpoints\Version1\TftLeague;
+use SeraPHP\API\Endpoints\Version1\TftMatch;
+use SeraPHP\API\Endpoints\Version1\TftSummoner;
+use SeraPHP\API\Endpoints\Version1\ValContent;
+use SeraPHP\Exceptions\Riot\InvalidApiEndpointException;
 
 final class Version1 extends AbstractAPIFactory
 {

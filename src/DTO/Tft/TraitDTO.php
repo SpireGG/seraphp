@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO\Tft;
+namespace SeraPHP\DTO\Tft;
 
-use SeraPHPhine\DTO\DTOInterface;
-use SeraPHPhine\Enum\Tft\TraitStyleEnum;
+use SeraPHP\DTO\DTOInterface;
+use SeraPHP\Enum\Tft\TraitStyleEnum;
 
 final class TraitDTO implements DTOInterface
 {

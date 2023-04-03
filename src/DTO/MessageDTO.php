@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO;
+namespace SeraPHP\DTO;
 
-use SeraPHPhine\Collection\TranslationDTOCollection;
+use SeraPHP\Collection\TranslationDTOCollection;
 
 final class MessageDTO implements DTOInterface
 {

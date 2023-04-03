@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\API\Endpoints\Version4;
+namespace SeraPHP\Tests\API\Endpoints\Version4;
 
-use SeraPHPhine\API\Endpoints\Version4\ChampionMastery;
-use SeraPHPhine\Collection\ChampionMasteryDTOCollection;
-use SeraPHPhine\DTO\ChampionMasteryDTO;
-use SeraPHPhine\Enum\RegionEnum;
-use SeraPHPhine\Tests\APITestCase;
+use SeraPHP\API\Endpoints\Version4\ChampionMastery;
+use SeraPHP\Collection\ChampionMasteryDTOCollection;
+use SeraPHP\DTO\ChampionMasteryDTO;
+use SeraPHP\Enum\RegionEnum;
+use SeraPHP\Tests\APITestCase;
 
 final class ChampionMasteryTest extends APITestCase
 {

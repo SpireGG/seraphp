@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO;
+namespace SeraPHP\DTO;
 
-use SeraPHPhine\Collection\FeaturedGameInfoDTOCollection;
+use SeraPHP\Collection\FeaturedGameInfoDTOCollection;
 
 final class FeaturedGamesDTO implements DTOInterface
 {

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\Collection;
+namespace SeraPHP\Tests\Collection;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\Collection\ContentDTOCollection;
-use SeraPHPhine\DTO\ContentDTO;
+use SeraPHP\Collection\ContentDTOCollection;
+use SeraPHP\DTO\ContentDTO;
 
 final class ContentDTOCollectionTest extends TestCase
 {

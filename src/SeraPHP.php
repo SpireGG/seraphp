@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine;
+namespace SeraPHP;
 
-use SeraPHPhine\API\Endpoints\Version1;
-use SeraPHPhine\API\Endpoints\Version3;
-use SeraPHPhine\API\Endpoints\Version4;
+use SeraPHP\API\Endpoints\Version1;
+use SeraPHP\API\Endpoints\Version3;
+use SeraPHP\API\Endpoints\Version4;
 
-class SeraPHPhine extends ASeraPHPhine
+class SeraPHP extends ASeraPHP
 {
     public function getAccount(): Version1\Account
     {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Collection;
+namespace SeraPHP\Collection;
 
 use Ramsey\Collection\AbstractCollection;
-use SeraPHPhine\DTO\MessageDTO;
+use SeraPHP\DTO\MessageDTO;
 
 final class MessageDTOCollection extends AbstractCollection
 {

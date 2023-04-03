@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Collection;
+namespace SeraPHP\Collection;
 
 use Ramsey\Collection\AbstractCollection;
-use SeraPHPhine\DTO\PlayerDTO;
+use SeraPHP\DTO\PlayerDTO;
 
 final class PlayerDTOCollection extends AbstractCollection
 {

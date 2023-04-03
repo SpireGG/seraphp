@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO;
+namespace SeraPHP\DTO;
 
-use SeraPHPhine\Collection\GameCustomizationObjectDTOCollection;
+use SeraPHP\Collection\GameCustomizationObjectDTOCollection;
 
 final class CurrentGameParticipantDTO implements DTOInterface
 {

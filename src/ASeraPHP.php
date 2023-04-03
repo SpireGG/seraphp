@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine;
-use SeraPHPhine\API\AbstractAPIFactory;
-use SeraPHPhine\API\Configuration;
-use SeraPHPhine\API\Connection;
-use SeraPHPhine\API\ConnectionInterface;
-use SeraPHPhine\API\Endpoints\Version1;
-use SeraPHPhine\API\Endpoints\Version3;
-use SeraPHPhine\API\Endpoints\Version4;
-use SeraPHPhine\Exceptions\Riot\InvalidApiVersionException;
+namespace SeraPHP;
+use SeraPHP\API\AbstractAPIFactory;
+use SeraPHP\API\Configuration;
+use SeraPHP\API\Connection;
+use SeraPHP\API\ConnectionInterface;
+use SeraPHP\API\Endpoints\Version1;
+use SeraPHP\API\Endpoints\Version3;
+use SeraPHP\API\Endpoints\Version4;
+use SeraPHP\Exceptions\Riot\InvalidApiVersionException;
 
-abstract class ASeraPHPhine
+abstract class ASeraPHP
 {
     private const VERSION_1 = 'version1';
     private const VERSION_3 = 'version3';

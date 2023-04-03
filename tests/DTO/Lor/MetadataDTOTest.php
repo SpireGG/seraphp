@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO\Lor;
+namespace SeraPHP\Tests\DTO\Lor;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\DTO\Lor\MetadataDTO;
+use SeraPHP\DTO\Lor\MetadataDTO;
 
 final class MetadataDTOTest extends TestCase
 {

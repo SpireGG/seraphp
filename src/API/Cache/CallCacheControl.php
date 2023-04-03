@@ -1,6 +1,6 @@
 <?php
 
-namespace SeraPHPhine\API\Cache;
+namespace SeraPHP\API\Cache;
 
 /**
  *   Class CallCacheControl.

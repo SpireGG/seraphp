@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO\Tft;
+namespace SeraPHP\Tests\DTO\Tft;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\DTO\Tft\InfoDTO;
-use SeraPHPhine\DTO\Tft\MatchDTO;
-use SeraPHPhine\DTO\Tft\MetadataDTO;
+use SeraPHP\DTO\Tft\InfoDTO;
+use SeraPHP\DTO\Tft\MatchDTO;
+use SeraPHP\DTO\Tft\MetadataDTO;
 
 final class MatchDTOTest extends TestCase
 {

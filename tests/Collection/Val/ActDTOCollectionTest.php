@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO\Val;
+namespace SeraPHP\Tests\DTO\Val;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\Collection\Val\ActDTOCollection;
-use SeraPHPhine\DTO\Val\ActDTO;
+use SeraPHP\Collection\Val\ActDTOCollection;
+use SeraPHP\DTO\Val\ActDTO;
 
 final class ActDTOCollectionTest extends TestCase
 {

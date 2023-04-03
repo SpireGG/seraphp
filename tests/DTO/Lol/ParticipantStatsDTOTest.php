@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO\Lol;
+namespace SeraPHP\Tests\DTO\Lol;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\DTO\Lol\ParticipantStatsDTO;
+use SeraPHP\DTO\Lol\ParticipantStatsDTO;
 
 final class ParticipantStatsDTOTest extends TestCase
 {

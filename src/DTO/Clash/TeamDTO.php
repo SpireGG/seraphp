@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO\Clash;
+namespace SeraPHP\DTO\Clash;
 
-use SeraPHPhine\Collection\Clash\PlayerDTOCollection;
-use SeraPHPhine\DTO\DTOInterface;
+use SeraPHP\Collection\Clash\PlayerDTOCollection;
+use SeraPHP\DTO\DTOInterface;
 
 final class TeamDTO implements DTOInterface
 {

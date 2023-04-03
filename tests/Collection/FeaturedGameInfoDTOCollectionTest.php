@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\Collection;
+namespace SeraPHP\Tests\Collection;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\Collection\FeaturedGameInfoDTOCollection;
-use SeraPHPhine\DTO\FeaturedGameInfoDTO;
+use SeraPHP\Collection\FeaturedGameInfoDTOCollection;
+use SeraPHP\DTO\FeaturedGameInfoDTO;
 
 final class FeaturedGameInfoDTOCollectionTest extends TestCase
 {

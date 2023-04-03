@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO\Clash;
+namespace SeraPHP\DTO\Clash;
 
-use SeraPHPhine\DTO\DTOInterface;
+use SeraPHP\DTO\DTOInterface;
 
 final class TournamentPhaseDTO implements DTOInterface
 {

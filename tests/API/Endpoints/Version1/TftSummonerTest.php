@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\API\Endpoints\Version1;
+namespace SeraPHP\Tests\API\Endpoints\Version1;
 
-use SeraPHPhine\API\Endpoints\Version1\TftSummoner;
-use SeraPHPhine\DTO\SummonerDTO;
-use SeraPHPhine\Enum\RegionEnum;
-use SeraPHPhine\Tests\APITestCase;
+use SeraPHP\API\Endpoints\Version1\TftSummoner;
+use SeraPHP\DTO\SummonerDTO;
+use SeraPHP\Enum\RegionEnum;
+use SeraPHP\Tests\APITestCase;
 
 final class TftSummonerTest extends APITestCase
 {

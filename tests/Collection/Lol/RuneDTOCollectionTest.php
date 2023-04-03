@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO\Lol;
+namespace SeraPHP\Tests\DTO\Lol;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\Collection\Lol\RuneDTOCollection;
-use SeraPHPhine\DTO\Lol\RuneDTO;
+use SeraPHP\Collection\Lol\RuneDTOCollection;
+use SeraPHP\DTO\Lol\RuneDTO;
 
 final class RuneDTOCollectionTest extends TestCase
 {

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO;
+namespace SeraPHP\Tests\DTO;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\Collection\IncidentDTOCollection;
-use SeraPHPhine\DTO\ServiceDTO;
+use SeraPHP\Collection\IncidentDTOCollection;
+use SeraPHP\DTO\ServiceDTO;
 
 final class ServiceDTOTest extends TestCase
 {

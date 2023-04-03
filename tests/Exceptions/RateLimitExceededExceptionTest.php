@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\Exceptions;
+namespace SeraPHP\Tests\Exceptions;
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
-use SeraPHPhine\Exceptions\Riot\RateLimitExceededException;
+use SeraPHP\Exceptions\Riot\RateLimitExceededException;
 
 final class RateLimitExceededExceptionTest extends TestCase
 {

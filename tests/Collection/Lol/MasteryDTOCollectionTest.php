@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO\Lol;
+namespace SeraPHP\Tests\DTO\Lol;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\Collection\Lol\MasteryDTOCollection;
-use SeraPHPhine\DTO\Lol\MasteryDTO;
+use SeraPHP\Collection\Lol\MasteryDTOCollection;
+use SeraPHP\DTO\Lol\MasteryDTO;
 
 final class MasteryDTOCollectionTest extends TestCase
 {

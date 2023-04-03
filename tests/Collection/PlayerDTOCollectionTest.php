@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\Collection;
+namespace SeraPHP\Tests\Collection;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\Collection\PlayerDTOCollection;
-use SeraPHPhine\DTO\PlayerDTO;
+use SeraPHP\Collection\PlayerDTOCollection;
+use SeraPHP\DTO\PlayerDTO;
 
 final class PlayerDTOCollectionTest extends TestCase
 {

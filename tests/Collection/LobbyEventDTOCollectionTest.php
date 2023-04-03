@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\Collection;
+namespace SeraPHP\Tests\Collection;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\Collection\LobbyEventDTOCollection;
-use SeraPHPhine\DTO\LobbyEventDTO;
+use SeraPHP\Collection\LobbyEventDTOCollection;
+use SeraPHP\DTO\LobbyEventDTO;
 
 final class LobbyEventDTOCollectionTest extends TestCase
 {

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\API\Endpoints\Version4;
+namespace SeraPHP\Tests\API\Endpoints\Version4;
 
-use SeraPHPhine\API\Endpoints\Version4\ThirdPartyCode;
-use SeraPHPhine\Enum\RegionEnum;
-use SeraPHPhine\Tests\APITestCase;
+use SeraPHP\API\Endpoints\Version4\ThirdPartyCode;
+use SeraPHP\Enum\RegionEnum;
+use SeraPHP\Tests\APITestCase;
 
 final class ThirdPartyCodeTest extends APITestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace SeraPHPhine\Exceptions;
+namespace SeraPHP\Exceptions;
 
 class RequestException extends \Exception
 {

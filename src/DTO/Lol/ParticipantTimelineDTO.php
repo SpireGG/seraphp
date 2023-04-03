@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO\Lol;
+namespace SeraPHP\DTO\Lol;
 
-use SeraPHPhine\DTO\DTOInterface;
-use SeraPHPhine\Enum\LaneEnum;
-use SeraPHPhine\Enum\RoleEnum;
+use SeraPHP\DTO\DTOInterface;
+use SeraPHP\Enum\LaneEnum;
+use SeraPHP\Enum\RoleEnum;
 
 final class ParticipantTimelineDTO implements DTOInterface
 {

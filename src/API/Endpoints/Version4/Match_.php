@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\API\Endpoints\Version4;
+namespace SeraPHP\API\Endpoints\Version4;
 
-use SeraPHPhine\API\AbstractApi;
-use SeraPHPhine\DTO\Lol\MatchDTO;
-use SeraPHPhine\DTO\Lol\MatchlistDTO;
-use SeraPHPhine\DTO\Lol\MatchTimelineDTO;
-use SeraPHPhine\Enum\RegionEnum;
-use SeraPHPhine\Filter\MatchlistFilter;
+use SeraPHP\API\AbstractApi;
+use SeraPHP\DTO\Lol\MatchDTO;
+use SeraPHP\DTO\Lol\MatchlistDTO;
+use SeraPHP\DTO\Lol\MatchTimelineDTO;
+use SeraPHP\Enum\RegionEnum;
+use SeraPHP\Filter\MatchlistFilter;
 
 final class Match_ extends AbstractApi
 {

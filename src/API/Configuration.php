@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\API;
+namespace SeraPHP\API;
 
-use SeraPHPhine\Enum\GeoRegionEnum;
+use SeraPHP\Enum\GeoRegionEnum;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 
 class Configuration

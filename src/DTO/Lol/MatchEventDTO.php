@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO\Lol;
+namespace SeraPHP\DTO\Lol;
 
-use SeraPHPhine\DTO\DTOInterface;
-use SeraPHPhine\Enum\MatchType;
-use SeraPHPhine\Enum\TeamEnum;
+use SeraPHP\DTO\DTOInterface;
+use SeraPHP\Enum\MatchType;
+use SeraPHP\Enum\TeamEnum;
 
 final class MatchEventDTO implements DTOInterface
 {

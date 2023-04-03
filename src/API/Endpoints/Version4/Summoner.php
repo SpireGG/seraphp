@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\API\Endpoints\Version4;
+namespace SeraPHP\API\Endpoints\Version4;
 
-use SeraPHPhine\API\AbstractApi;
-use SeraPHPhine\DTO\SummonerDTO;
-use SeraPHPhine\Enum\RegionEnum;
+use SeraPHP\API\AbstractApi;
+use SeraPHP\DTO\SummonerDTO;
+use SeraPHP\Enum\RegionEnum;
 
 final class Summoner extends AbstractApi
 {

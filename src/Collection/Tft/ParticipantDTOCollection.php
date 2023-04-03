@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Collection\Tft;
+namespace SeraPHP\Collection\Tft;
 
 use Ramsey\Collection\AbstractCollection;
-use SeraPHPhine\DTO\Tft\ParticipantDTO;
+use SeraPHP\DTO\Tft\ParticipantDTO;
 
 /**
  * @codeCoverageIgnore

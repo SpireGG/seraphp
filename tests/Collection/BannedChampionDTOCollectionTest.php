@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\Collection;
+namespace SeraPHP\Tests\Collection;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\Collection\BannedChampionDTOCollection;
-use SeraPHPhine\DTO\BannedChampionDTO;
+use SeraPHP\Collection\BannedChampionDTOCollection;
+use SeraPHP\DTO\BannedChampionDTO;
 
 final class BannedChampionDTOCollectionTest extends TestCase
 {

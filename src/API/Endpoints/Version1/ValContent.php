@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\API\Endpoints\Version1;
+namespace SeraPHP\API\Endpoints\Version1;
 
-use SeraPHPhine\API\AbstractApi;
-use SeraPHPhine\DTO\Val\ContentDTO;
-use SeraPHPhine\Enum\ValRegionEnum;
+use SeraPHP\API\AbstractApi;
+use SeraPHP\DTO\Val\ContentDTO;
+use SeraPHP\Enum\ValRegionEnum;
 
 final class ValContent extends AbstractApi
 {

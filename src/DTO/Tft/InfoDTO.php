@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO\Tft;
+namespace SeraPHP\DTO\Tft;
 
-use SeraPHPhine\Collection\Tft\ParticipantDTOCollection;
-use SeraPHPhine\DTO\DTOInterface;
+use SeraPHP\Collection\Tft\ParticipantDTOCollection;
+use SeraPHP\DTO\DTOInterface;
 
 final class InfoDTO implements DTOInterface
 {

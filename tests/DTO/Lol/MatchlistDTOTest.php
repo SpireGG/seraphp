@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO\Lol;
+namespace SeraPHP\Tests\DTO\Lol;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\Collection\Lol\MatchReferenceDTOCollection;
-use SeraPHPhine\DTO\Lol\MatchlistDTO;
+use SeraPHP\Collection\Lol\MatchReferenceDTOCollection;
+use SeraPHP\DTO\Lol\MatchlistDTO;
 
 final class MatchlistDTOTest extends TestCase
 {

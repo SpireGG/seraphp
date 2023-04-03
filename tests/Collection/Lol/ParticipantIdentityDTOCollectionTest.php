@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO\Lol;
+namespace SeraPHP\Tests\DTO\Lol;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\Collection\Lol\ParticipantIdentityDTOCollection;
-use SeraPHPhine\DTO\Lol\ParticipantIdentityDTO;
+use SeraPHP\Collection\Lol\ParticipantIdentityDTOCollection;
+use SeraPHP\DTO\Lol\ParticipantIdentityDTO;
 
 final class ParticipantIdentityDTOCollectionTest extends TestCase
 {

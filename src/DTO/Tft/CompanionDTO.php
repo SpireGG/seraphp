@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO\Tft;
+namespace SeraPHP\DTO\Tft;
 
-use SeraPHPhine\DTO\DTOInterface;
+use SeraPHP\DTO\DTOInterface;
 
 final class CompanionDTO implements DTOInterface
 {

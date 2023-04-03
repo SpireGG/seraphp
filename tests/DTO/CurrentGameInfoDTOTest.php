@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO;
+namespace SeraPHP\Tests\DTO;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\Collection\BannedChampionDTOCollection;
-use SeraPHPhine\Collection\CurrentGameParticipantDTOCollection;
-use SeraPHPhine\DTO\CurrentGameInfoDTO;
-use SeraPHPhine\DTO\ObserverDTO;
+use SeraPHP\Collection\BannedChampionDTOCollection;
+use SeraPHP\Collection\CurrentGameParticipantDTOCollection;
+use SeraPHP\DTO\CurrentGameInfoDTO;
+use SeraPHP\DTO\ObserverDTO;
 
 final class CurrentGameInfoDTOTest extends TestCase
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Collection\Lol;
+namespace SeraPHP\Collection\Lol;
 
 use Ramsey\Collection\AbstractCollection;
-use SeraPHPhine\DTO\Lol\MatchEventDTO;
+use SeraPHP\DTO\Lol\MatchEventDTO;
 
 final class MatchEventDTOCollection extends AbstractCollection
 {

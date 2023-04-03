@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Collection\Val;
+namespace SeraPHP\Collection\Val;
 
 use Ramsey\Collection\AbstractCollection;
-use SeraPHPhine\DTO\Val\ActDTO;
+use SeraPHP\DTO\Val\ActDTO;
 
 final class ActDTOCollection extends AbstractCollection
 {

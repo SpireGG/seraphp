@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO\Lol;
+namespace SeraPHP\DTO\Lol;
 
-use SeraPHPhine\Collection\Lol\MatchEventDTOCollection;
-use SeraPHPhine\DTO\DTOInterface;
+use SeraPHP\Collection\Lol\MatchEventDTOCollection;
+use SeraPHP\DTO\DTOInterface;
 
 final class MatchFrameDTO implements DTOInterface
 {

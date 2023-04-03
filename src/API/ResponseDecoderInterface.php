@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\API;
+namespace SeraPHP\API;
 
 use Psr\Http\Message\ResponseInterface;
 

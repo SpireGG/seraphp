@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO\Clash;
+namespace SeraPHP\Tests\DTO\Clash;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\DTO\Clash\PlayerDTO;
-use SeraPHPhine\Enum\PositionEnum;
-use SeraPHPhine\Enum\TeamRoleEnum;
+use SeraPHP\DTO\Clash\PlayerDTO;
+use SeraPHP\Enum\PositionEnum;
+use SeraPHP\Enum\TeamRoleEnum;
 
 final class PlayerDTOTest extends TestCase
 {

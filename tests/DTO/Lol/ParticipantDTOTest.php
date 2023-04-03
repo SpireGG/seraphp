@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO\Lol;
+namespace SeraPHP\Tests\DTO\Lol;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\Collection\Lol\MasteryDTOCollection;
-use SeraPHPhine\Collection\Lol\RuneDTOCollection;
-use SeraPHPhine\DTO\Lol\ParticipantDTO;
-use SeraPHPhine\DTO\Lol\ParticipantStatsDTO;
-use SeraPHPhine\DTO\Lol\ParticipantTimelineDTO;
+use SeraPHP\Collection\Lol\MasteryDTOCollection;
+use SeraPHP\Collection\Lol\RuneDTOCollection;
+use SeraPHP\DTO\Lol\ParticipantDTO;
+use SeraPHP\DTO\Lol\ParticipantStatsDTO;
+use SeraPHP\DTO\Lol\ParticipantTimelineDTO;
 
 final class ParticipantDTOTest extends TestCase
 {

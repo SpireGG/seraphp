@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Collection\Lor;
+namespace SeraPHP\Collection\Lor;
 
 use Ramsey\Collection\AbstractCollection;
-use SeraPHPhine\DTO\Lor\PlayerDTO;
+use SeraPHP\DTO\Lor\PlayerDTO;
 
 /**
  * @codeCoverageIgnore

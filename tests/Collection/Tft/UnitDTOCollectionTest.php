@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO\Tft;
+namespace SeraPHP\Tests\DTO\Tft;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\Collection\Tft\UnitDTOCollection;
-use SeraPHPhine\DTO\Tft\UnitDTO;
+use SeraPHP\Collection\Tft\UnitDTOCollection;
+use SeraPHP\DTO\Tft\UnitDTO;
 
 final class UnitDTOCollectionTest extends TestCase
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Collection\Lol;
+namespace SeraPHP\Collection\Lol;
 
 use Ramsey\Collection\AbstractCollection;
-use SeraPHPhine\DTO\Lol\ParticipantIdentityDTO;
+use SeraPHP\DTO\Lol\ParticipantIdentityDTO;
 
 final class ParticipantIdentityDTOCollection extends AbstractCollection
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Enum\Tft;
+namespace SeraPHP\Enum\Tft;
 
 use MyCLabs\Enum\Enum;
 

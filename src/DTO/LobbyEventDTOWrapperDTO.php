@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO;
+namespace SeraPHP\DTO;
 
-use SeraPHPhine\Collection\LobbyEventDTOCollection;
+use SeraPHP\Collection\LobbyEventDTOCollection;
 
 final class LobbyEventDTOWrapperDTO implements DTOInterface
 {

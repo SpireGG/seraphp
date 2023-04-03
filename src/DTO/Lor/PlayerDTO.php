@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO\Lor;
+namespace SeraPHP\DTO\Lor;
 
-use SeraPHPhine\DTO\DTOInterface;
+use SeraPHP\DTO\DTOInterface;
 
 final class PlayerDTO implements DTOInterface
 {

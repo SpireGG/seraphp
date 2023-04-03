@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Enum;
+namespace SeraPHP\Enum;
 
 use MyCLabs\Enum\Enum;
 

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO;
+namespace SeraPHP\Tests\DTO;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\DTO\ChampionInfoDTO;
+use SeraPHP\DTO\ChampionInfoDTO;
 
 final class ChampionInfoDTOTest extends TestCase
 {

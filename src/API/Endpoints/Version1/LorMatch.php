@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\API\Endpoints\Version1;
+namespace SeraPHP\API\Endpoints\Version1;
 
-use SeraPHPhine\API\AbstractApi;
-use SeraPHPhine\DTO\Lor\MatchDTO;
-use SeraPHPhine\Enum\GeoRegionEnum;
+use SeraPHP\API\AbstractApi;
+use SeraPHP\DTO\Lor\MatchDTO;
+use SeraPHP\Enum\GeoRegionEnum;
 
 final class LorMatch extends AbstractApi
 {

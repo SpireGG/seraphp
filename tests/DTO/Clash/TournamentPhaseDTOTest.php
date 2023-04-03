@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO\Clash;
+namespace SeraPHP\Tests\DTO\Clash;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\DTO\Clash\TournamentPhaseDTO;
+use SeraPHP\DTO\Clash\TournamentPhaseDTO;
 
 final class TournamentPhaseDTOTest extends TestCase
 {

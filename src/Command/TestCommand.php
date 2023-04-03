@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Command;
+namespace SeraPHP\Command;
 
-use SeraPHPhine\Enum\RegionEnum;
-use SeraPHPhine\SeraPHPhine;
+use SeraPHP\Enum\RegionEnum;
+use SeraPHP\SeraPHP;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -17,9 +17,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 )]
 class TestCommand extends Command
 {
-    private SeraPHPhine $seraphine;
+    private SeraPHP $seraphine;
 
-    public function __construct(SeraPHPhine $seraphine)
+    public function __construct(SeraPHP $seraphine)
     {
         parent::__construct();
         $this->seraphine = $seraphine;

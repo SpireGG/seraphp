@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\Collection;
+namespace SeraPHP\Tests\Collection;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\Collection\UpdateDTOCollection;
-use SeraPHPhine\DTO\UpdateDTO;
+use SeraPHP\Collection\UpdateDTOCollection;
+use SeraPHP\DTO\UpdateDTO;
 
 final class UpdateDTOCollectionTest extends TestCase
 {

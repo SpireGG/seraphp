@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO\Tft;
+namespace SeraPHP\DTO\Tft;
 
-use SeraPHPhine\Collection\Tft\TraitDTOCollection;
-use SeraPHPhine\Collection\Tft\UnitDTOCollection;
-use SeraPHPhine\DTO\DTOInterface;
+use SeraPHP\Collection\Tft\TraitDTOCollection;
+use SeraPHP\Collection\Tft\UnitDTOCollection;
+use SeraPHP\DTO\DTOInterface;
 
 final class ParticipantDTO implements DTOInterface
 {

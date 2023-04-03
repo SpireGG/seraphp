@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO\Tft;
+namespace SeraPHP\Tests\DTO\Tft;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\DTO\Tft\TraitDTO;
-use SeraPHPhine\Enum\Tft\TraitStyleEnum;
+use SeraPHP\DTO\Tft\TraitDTO;
+use SeraPHP\Enum\Tft\TraitStyleEnum;
 
 final class TraitDTOTest extends TestCase
 {

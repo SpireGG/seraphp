@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\Filter;
+namespace SeraPHP\Tests\Filter;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\Filter\MatchlistFilter;
+use SeraPHP\Filter\MatchlistFilter;
 
 final class MatchlistFilterTest extends TestCase
 {

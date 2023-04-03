@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO\Lor;
+namespace SeraPHP\DTO\Lor;
 
-use SeraPHPhine\Collection\Lor\PlayerDTOCollection;
-use SeraPHPhine\DTO\DTOInterface;
+use SeraPHP\Collection\Lor\PlayerDTOCollection;
+use SeraPHP\DTO\DTOInterface;
 
 final class InfoDTO implements DTOInterface
 {

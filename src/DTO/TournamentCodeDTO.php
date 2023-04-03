@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO;
+namespace SeraPHP\DTO;
 
-use SeraPHPhine\Enum\MapTypeEnum;
-use SeraPHPhine\Enum\PickTypeEnum;
-use SeraPHPhine\Enum\SpectatorTypeEnum;
-use SeraPHPhine\Enum\TournamentRegionEnum;
+use SeraPHP\Enum\MapTypeEnum;
+use SeraPHP\Enum\PickTypeEnum;
+use SeraPHP\Enum\SpectatorTypeEnum;
+use SeraPHP\Enum\TournamentRegionEnum;
 use Webmozart\Assert\Assert;
 
 final class TournamentCodeDTO implements DTOInterface

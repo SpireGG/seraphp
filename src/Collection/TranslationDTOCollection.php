@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Collection;
+namespace SeraPHP\Collection;
 
 use Ramsey\Collection\AbstractCollection;
-use SeraPHPhine\DTO\TranslationDTO;
+use SeraPHP\DTO\TranslationDTO;
 
 final class TranslationDTOCollection extends AbstractCollection
 {

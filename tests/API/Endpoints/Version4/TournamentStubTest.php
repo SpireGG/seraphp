@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\API\Endpoints\Version4;
+namespace SeraPHP\Tests\API\Endpoints\Version4;
 
-use SeraPHPhine\API\Endpoints\Version4\TournamentStub;
-use SeraPHPhine\DTO\LobbyEventDTOWrapperDTO;
-use SeraPHPhine\Enum\MapTypeEnum;
-use SeraPHPhine\Enum\PickTypeEnum;
-use SeraPHPhine\Enum\SpectatorTypeEnum;
-use SeraPHPhine\Enum\TournamentRegionEnum;
-use SeraPHPhine\Tests\APITestCase;
+use SeraPHP\API\Endpoints\Version4\TournamentStub;
+use SeraPHP\DTO\LobbyEventDTOWrapperDTO;
+use SeraPHP\Enum\MapTypeEnum;
+use SeraPHP\Enum\PickTypeEnum;
+use SeraPHP\Enum\SpectatorTypeEnum;
+use SeraPHP\Enum\TournamentRegionEnum;
+use SeraPHP\Tests\APITestCase;
 
 final class TournamentStubTest extends APITestCase
 {

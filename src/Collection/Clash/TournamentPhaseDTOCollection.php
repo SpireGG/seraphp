@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Collection\Clash;
+namespace SeraPHP\Collection\Clash;
 
 use Ramsey\Collection\AbstractCollection;
-use SeraPHPhine\DTO\Clash\TournamentPhaseDTO;
+use SeraPHP\DTO\Clash\TournamentPhaseDTO;
 
 final class TournamentPhaseDTOCollection extends AbstractCollection
 {

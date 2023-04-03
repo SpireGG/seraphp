@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\API\Endpoints\Version1;
+namespace SeraPHP\API\Endpoints\Version1;
 
-use SeraPHPhine\API\AbstractApi;
-use SeraPHPhine\DTO\Tft\MatchDTO;
-use SeraPHPhine\Enum\GeoRegionEnum;
+use SeraPHP\API\AbstractApi;
+use SeraPHP\DTO\Tft\MatchDTO;
+use SeraPHP\Enum\GeoRegionEnum;
 
 final class TftMatch extends AbstractApi
 {

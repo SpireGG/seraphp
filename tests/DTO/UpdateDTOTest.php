@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO;
+namespace SeraPHP\Tests\DTO;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\Collection\ContentDTOCollection;
-use SeraPHPhine\DTO\UpdateDTO;
+use SeraPHP\Collection\ContentDTOCollection;
+use SeraPHP\DTO\UpdateDTO;
 
 final class UpdateDTOTest extends TestCase
 {

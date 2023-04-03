@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\API\Endpoints;
+namespace SeraPHP\API\Endpoints;
 
-use SeraPHPhine\API\AbstractApi;
-use SeraPHPhine\API\AbstractAPIFactory;
-use SeraPHPhine\API\Endpoints\Version3\Champion;
-use SeraPHPhine\Exceptions\Riot\InvalidApiEndpointException;
+use SeraPHP\API\AbstractApi;
+use SeraPHP\API\AbstractAPIFactory;
+use SeraPHP\API\Endpoints\Version3\Champion;
+use SeraPHP\Exceptions\Riot\InvalidApiEndpointException;
 
 final class Version3 extends AbstractAPIFactory
 {

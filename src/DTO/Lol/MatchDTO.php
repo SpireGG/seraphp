@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO\Lol;
+namespace SeraPHP\DTO\Lol;
 
-use SeraPHPhine\Collection\Lol\ParticipantDTOCollection;
-use SeraPHPhine\Collection\Lol\ParticipantIdentityDTOCollection;
-use SeraPHPhine\Collection\Lol\TeamStatsDTOCollection;
-use SeraPHPhine\DTO\DTOInterface;
+use SeraPHP\Collection\Lol\ParticipantDTOCollection;
+use SeraPHP\Collection\Lol\ParticipantIdentityDTOCollection;
+use SeraPHP\Collection\Lol\TeamStatsDTOCollection;
+use SeraPHP\DTO\DTOInterface;
 
 final class MatchDTO implements DTOInterface
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\API\Endpoints\Version4;
+namespace SeraPHP\API\Endpoints\Version4;
 
-use SeraPHPhine\API\AbstractApi;
-use SeraPHPhine\Enum\RegionEnum;
+use SeraPHP\API\AbstractApi;
+use SeraPHP\Enum\RegionEnum;
 
 final class ThirdPartyCode extends AbstractApi
 {

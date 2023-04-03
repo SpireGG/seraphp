@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Collection;
+namespace SeraPHP\Collection;
 
 use Ramsey\Collection\AbstractCollection;
-use SeraPHPhine\DTO\ChampionMasteryDTO;
+use SeraPHP\DTO\ChampionMasteryDTO;
 
 /**
  * @codeCoverageIgnore

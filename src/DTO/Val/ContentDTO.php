@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO\Val;
+namespace SeraPHP\DTO\Val;
 
-use SeraPHPhine\Collection\Val\ActDTOCollection;
-use SeraPHPhine\Collection\Val\ContentItemDTOCollection;
-use SeraPHPhine\DTO\DTOInterface;
+use SeraPHP\Collection\Val\ActDTOCollection;
+use SeraPHP\Collection\Val\ContentItemDTOCollection;
+use SeraPHP\DTO\DTOInterface;
 
 final class ContentDTO implements DTOInterface
 {

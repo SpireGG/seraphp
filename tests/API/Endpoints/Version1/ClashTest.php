@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\API\Endpoints\Version1;
+namespace SeraPHP\Tests\API\Endpoints\Version1;
 
-use SeraPHPhine\API\Endpoints\Version1\Clash;
-use SeraPHPhine\Collection\Clash\PlayerDTOCollection;
-use SeraPHPhine\Collection\Clash\TournamentDTOCollection;
-use SeraPHPhine\DTO\Clash\TeamDTO;
-use SeraPHPhine\DTO\Clash\TournamentDTO;
-use SeraPHPhine\Enum\RegionEnum;
-use SeraPHPhine\Tests\APITestCase;
+use SeraPHP\API\Endpoints\Version1\Clash;
+use SeraPHP\Collection\Clash\PlayerDTOCollection;
+use SeraPHP\Collection\Clash\TournamentDTOCollection;
+use SeraPHP\DTO\Clash\TeamDTO;
+use SeraPHP\DTO\Clash\TournamentDTO;
+use SeraPHP\Enum\RegionEnum;
+use SeraPHP\Tests\APITestCase;
 
 final class ClashTest extends APITestCase
 {

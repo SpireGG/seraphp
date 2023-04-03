@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO\Clash;
+namespace SeraPHP\DTO\Clash;
 
-use SeraPHPhine\DTO\DTOInterface;
-use SeraPHPhine\Enum\PositionEnum;
-use SeraPHPhine\Enum\TeamRoleEnum;
+use SeraPHP\DTO\DTOInterface;
+use SeraPHP\Enum\PositionEnum;
+use SeraPHP\Enum\TeamRoleEnum;
 
 final class PlayerDTO implements DTOInterface
 {

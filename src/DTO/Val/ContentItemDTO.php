@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO\Val;
+namespace SeraPHP\DTO\Val;
 
-use SeraPHPhine\DTO\DTOInterface;
+use SeraPHP\DTO\DTOInterface;
 
 final class ContentItemDTO implements DTOInterface
 {

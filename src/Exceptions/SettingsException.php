@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Exceptions;
+namespace SeraPHP\Exceptions;
 
 class SettingsException extends \Exception
 {

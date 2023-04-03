@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\API\Endpoints\Version1;
+namespace SeraPHP\Tests\API\Endpoints\Version1;
 
-use SeraPHPhine\API\Endpoints\Version1\LorRanked;
-use SeraPHPhine\DTO\LeaderboardDTO;
-use SeraPHPhine\Enum\GeoRegionEnum;
-use SeraPHPhine\Tests\APITestCase;
+use SeraPHP\API\Endpoints\Version1\LorRanked;
+use SeraPHP\DTO\LeaderboardDTO;
+use SeraPHP\Enum\GeoRegionEnum;
+use SeraPHP\Tests\APITestCase;
 
 final class LorRankedTest extends APITestCase
 {

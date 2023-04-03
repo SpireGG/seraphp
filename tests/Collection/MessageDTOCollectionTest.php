@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\Collection;
+namespace SeraPHP\Tests\Collection;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\Collection\MessageDTOCollection;
-use SeraPHPhine\DTO\MessageDTO;
+use SeraPHP\Collection\MessageDTOCollection;
+use SeraPHP\DTO\MessageDTO;
 
 final class MessageDTOCollectionTest extends TestCase
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO;
+namespace SeraPHP\DTO;
 
-use SeraPHPhine\Collection\ServiceDTOCollection;
+use SeraPHP\Collection\ServiceDTOCollection;
 
 final class ShardStatusDTO implements DTOInterface
 {

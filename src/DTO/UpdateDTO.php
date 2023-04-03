@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\DTO;
+namespace SeraPHP\DTO;
 
-use SeraPHPhine\Collection\ContentDTOCollection;
+use SeraPHP\Collection\ContentDTOCollection;
 
 final class UpdateDTO implements DTOInterface
 {

@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\API\Endpoints\Version4;
+namespace SeraPHP\API\Endpoints\Version4;
 
-use SeraPHPhine\API\AbstractApi;
-use SeraPHPhine\DTO\LobbyEventDTOWrapperDTO;
-use SeraPHPhine\DTO\TournamentCodeDTO;
-use SeraPHPhine\Enum\GeoRegionEnum;
-use SeraPHPhine\Enum\MapTypeEnum;
-use SeraPHPhine\Enum\PickTypeEnum;
-use SeraPHPhine\Enum\SpectatorTypeEnum;
-use SeraPHPhine\Enum\TournamentRegionEnum;
+use SeraPHP\API\AbstractApi;
+use SeraPHP\DTO\LobbyEventDTOWrapperDTO;
+use SeraPHP\DTO\TournamentCodeDTO;
+use SeraPHP\Enum\GeoRegionEnum;
+use SeraPHP\Enum\MapTypeEnum;
+use SeraPHP\Enum\PickTypeEnum;
+use SeraPHP\Enum\SpectatorTypeEnum;
+use SeraPHP\Enum\TournamentRegionEnum;
 use Webmozart\Assert\Assert;
 
 final class Tournament extends AbstractApi

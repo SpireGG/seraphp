@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests\DTO\Val;
+namespace SeraPHP\Tests\DTO\Val;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\DTO\Val\LocalizedNamesDTO;
+use SeraPHP\DTO\Val\LocalizedNamesDTO;
 
 final class LocalizedINamesDTOTest extends TestCase
 {

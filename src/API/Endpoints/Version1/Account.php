@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\API\Endpoints\Version1;
+namespace SeraPHP\API\Endpoints\Version1;
 
-use SeraPHPhine\API\AbstractApi;
-use SeraPHPhine\API\Configuration;
-use SeraPHPhine\DTO\AccountDTO;
-use SeraPHPhine\DTO\ActiveShardDTO;
-use SeraPHPhine\Enum\GeoRegionEnum;
+use SeraPHP\API\AbstractApi;
+use SeraPHP\API\Configuration;
+use SeraPHP\DTO\AccountDTO;
+use SeraPHP\DTO\ActiveShardDTO;
+use SeraPHP\Enum\GeoRegionEnum;
 
 final class Account extends AbstractApi
 {

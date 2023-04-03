@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Exceptions\Riot;
+namespace SeraPHP\Exceptions\Riot;
 
 final class BadGatewayException extends RiotException
 {

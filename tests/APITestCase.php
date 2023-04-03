@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHPhine\Tests;
+namespace SeraPHP\Tests;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHPhine\API\ConnectionInterface;
-use SeraPHPhine\API\ResponseDecoderInterface;
+use SeraPHP\API\ConnectionInterface;
+use SeraPHP\API\ResponseDecoderInterface;
 
 class APITestCase extends TestCase
 {
