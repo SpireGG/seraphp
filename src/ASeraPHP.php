@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace SeraPHP;
+
 use SeraPHP\API\AbstractAPIFactory;
 use SeraPHP\API\Configuration;
 use SeraPHP\API\Connection;

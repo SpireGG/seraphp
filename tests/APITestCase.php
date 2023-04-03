@@ -31,9 +31,9 @@ class APITestCase extends TestCase
             ->with(self::equalTo($region), self::equalTo($path))
             ->willReturn($response)
         ;
-//        $riotConnection->expects(self::once())
-//            ->method('setResource')
-//            ->willReturnSelf();
+        //        $riotConnection->expects(self::once())
+        //            ->method('setResource')
+        //            ->willReturnSelf();
 
         return $riotConnection;
     }

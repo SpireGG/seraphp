@@ -203,6 +203,7 @@ final class Connection implements ConnectionInterface
 
         return $this;
     }
+
     private function getResource(): string
     {
         return $this->resource;

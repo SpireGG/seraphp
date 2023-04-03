@@ -97,6 +97,13 @@ class Configuration
         return $this->cacheProviderParams;
     }
 
+    public function setCacheCalls(string $cacheCall): self
+    {
+        $this->cacheCalls = $cacheCall;
+
+        return $this;
+    }
+
     public function getCacheCalls(): string
     {
         return $this->cacheCalls;
