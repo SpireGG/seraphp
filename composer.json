@@ -1,6 +1,6 @@
 {
   "name": "lolprosgg/seraphp",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Wrapper around Riot Games APIs.",
   "keywords": [
     "riot", "riot games", "lol", "league of legends", "valorant", "teamfight tactics", "tft",
@@ -26,7 +26,7 @@
     "psr/http-client": "^1.0",
     "psr/http-factory": "^1.0",
     "psr/http-message": "^1.0",
-    "ramsey/collection": "^1.3",
+    "ramsey/collection": "^2.0",
     "symfony/cache": "^6.2",
     "webmozart/assert": "^1.11"
   },
