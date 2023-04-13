@@ -16,6 +16,7 @@ use SeraPHP\API\Configuration;
 use SeraPHP\API\Connection;
 use SeraPHP\API\ResponseDecoderInterface;
 use SeraPHP\Exceptions as SeraPHPException;
+use Symfony\Component\Cache\Adapter\NullAdapter;
 
 final class ConnectionTest extends TestCase
 {
@@ -52,13 +53,17 @@ final class ConnectionTest extends TestCase
         $this->mockCreateRequestMethod('GET');
 
         $connection = new Connection(
-            new Configuration(['api_key' => 'my-api-token']),
+            new Configuration([
+                'api_key' => 'my-api-token',
+                'cacheCallsLength' => ['resource' => 5],
+                'cacheProvider' => NullAdapter::class,
+            ]),
             $this->createMock(ClientInterface::class),
             $this->requestFactory,
             $this->streamFactory,
         );
 
-        $connection->get('region', 'path');
+        $connection->get('region', 'path', 'resource');
     }
 
     /**
@@ -72,13 +77,17 @@ final class ConnectionTest extends TestCase
             ->willReturnSelf();
 
         $connection = new Connection(
-            new Configuration(['api_key' => 'my-api-token']),
+            new Configuration([
+                'api_key' => 'my-api-token',
+                'cacheCallsLength' => ['resource' => 5],
+                'cacheProvider' => NullAdapter::class,
+            ]),
             $this->createMock(ClientInterface::class),
             $this->requestFactory,
             $this->streamFactory,
         );
 
-        $connection->$method('region', 'path', []);
+        $connection->$method('region', 'path', 'resource', []);
     }
 
     /**
@@ -133,21 +142,25 @@ final class ConnectionTest extends TestCase
             ->willReturn($this->response);
 
         $connection = new Connection(
-            new Configuration(['api_key' => 'my-api-token']),
+            new Configuration([
+                'api_key' => 'my-api-token',
+                'cacheCallsLength' => ['resource' => 5],
+                'cacheProvider' => NullAdapter::class,
+            ]),
             $client,
             $this->requestFactory,
             $this->streamFactory,
         );
         switch ($method) {
             case 'GET':
-                $connection->get('region', 'path');
+                $connection->get('region', 'path', 'resource');
                 break;
             case 'PUT':
             case 'POST':
                 $this->request->expects(self::once())
                     ->method('withBody')
                     ->willReturnSelf();
-                $connection->$method('region', 'path', []);
+                $connection->$method('region', 'path', 'resource', []);
                 break;
         }
     }
@@ -166,12 +179,16 @@ final class ConnectionTest extends TestCase
             ->willReturn($this->response);
 
         $connection = new Connection(
-            new Configuration(['api_key' => 'my-api-token']),
+            new Configuration([
+                'api_key' => 'my-api-token',
+                'cacheCallsLength' => ['resource' => 5],
+                'cacheProvider' => NullAdapter::class,
+            ]),
             $client,
             $this->requestFactory,
             $this->streamFactory,
         );
-        $result = $connection->get('region', 'path');
+        $result = $connection->get('region', 'path', 'resource');
 
         self::assertInstanceOf(ResponseDecoderInterface::class, $result);
     }
@@ -196,12 +213,16 @@ final class ConnectionTest extends TestCase
             ->willReturn($this->response);
 
         $connection = new Connection(
-            new Configuration(['api_key' => 'my-api-token']),
+            new Configuration([
+                'api_key' => 'my-api-token',
+                'cacheCallsLength' => ['resource' => 5],
+                'cacheProvider' => NullAdapter::class,
+            ]),
             $client,
             $this->requestFactory,
             $this->streamFactory,
         );
-        $result = $connection->$method('region', 'path', []);
+        $result = $connection->$method('region', 'path', 'resource', []);
 
         self::assertInstanceOf(ResponseDecoderInterface::class, $result);
     }

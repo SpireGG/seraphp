@@ -11,11 +11,14 @@ use SeraPHP\Enum\RegionEnum;
 
 final class ChampionMastery extends AbstractApi
 {
+    public const RESOURCE_CHAMPIONMASTERY = '1418:champion-mastery';
+
     public function getBySummonerId(string $encryptedSummonerId, RegionEnum $region): ChampionMasteryDTOCollection
     {
         $response = $this->riotConnection->get(
             $region->getValue(),
-            sprintf('lol/champion-mastery/v4/champion-masteries/by-summoner/%s', $encryptedSummonerId),
+            "lol/champion-mastery/v4/champion-masteries/by-summoner/{$encryptedSummonerId}",
+            $this->getResource()
         );
 
         $championMasteries = $response->getBodyContentsDecodedAsArray();
@@ -34,11 +37,8 @@ final class ChampionMastery extends AbstractApi
     ): ChampionMasteryDTO {
         $response = $this->riotConnection->get(
             $region->getValue(),
-            sprintf(
-                'lol/champion-mastery/v4/champion-masteries/by-summoner/%s/by-champion/%s',
-                $encryptedSummonerId,
-                $championId,
-            ),
+            "lol/champion-mastery/v4/champion-masteries/by-summoner/{$encryptedSummonerId}/by-champion/{$championId}",
+            $this->getResource()
         );
 
         return ChampionMasteryDTO::createFromArray($response->getBodyContentsDecodedAsArray());
@@ -48,12 +48,15 @@ final class ChampionMastery extends AbstractApi
     {
         $response = $this->riotConnection->get(
             $region->getValue(),
-            sprintf(
-                'lol/champion-mastery/v4/scores/by-summoner/%s',
-                $encryptedSummonerId,
-            ),
+            "lol/champion-mastery/v4/scores/by-summoner/{$encryptedSummonerId}",
+            $this->getResource()
         );
 
         return $response->getBodyContentsDecodedAsInt();
+    }
+
+    protected function getResource(): string
+    {
+        return self::RESOURCE_CHAMPIONMASTERY;
     }
 }

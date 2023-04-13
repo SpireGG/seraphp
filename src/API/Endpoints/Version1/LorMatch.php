@@ -15,6 +15,7 @@ final class LorMatch extends AbstractApi
         $response = $this->riotConnection->get(
             $geoRegion->getValue(),
             sprintf('lor/match/v1/matches/by-puuid/%s/ids', $puuid),
+            $this->getResource()
         );
 
         return $response->getBodyContentsDecodedAsArray();
@@ -25,8 +26,14 @@ final class LorMatch extends AbstractApi
         $response = $this->riotConnection->get(
             $geoRegion->getValue(),
             sprintf('lor/match/v1/matches/%s', $matchId),
+            $this->getResource()
         );
 
         return MatchDTO::createFromArray($response->getBodyContentsDecodedAsArray());
+    }
+
+    protected function getResource(): string
+    {
+        return 'val';
     }
 }

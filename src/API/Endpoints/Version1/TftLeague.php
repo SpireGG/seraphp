@@ -15,7 +15,7 @@ final class TftLeague extends AbstractApi
 {
     public function getChallenger(RegionEnum $region): LeagueListDTO
     {
-        $response = $this->riotConnection->get($region->getValue(), 'tft/league/v1/challenger');
+        $response = $this->riotConnection->get($region->getValue(), 'tft/league/v1/challenger', $this->getResource());
 
         return LeagueListDTO::createFromArray($response->getBodyContentsDecodedAsArray());
     }
@@ -25,6 +25,7 @@ final class TftLeague extends AbstractApi
         $response = $this->riotConnection->get(
             $region->getValue(),
             sprintf('tft/league/v1/entries/by-summoner/%s', $encryptedSummonerId),
+            $this->getResource()
         );
 
         return LeagueEntryDTOCollection::createFromArray($response->getBodyContentsDecodedAsArray());
@@ -44,6 +45,7 @@ final class TftLeague extends AbstractApi
                 $division->getValue(),
                 $page
             ),
+            $this->getResource()
         );
 
         return LeagueEntryDTOCollection::createFromArray($response->getBodyContentsDecodedAsArray());
@@ -51,7 +53,7 @@ final class TftLeague extends AbstractApi
 
     public function getGrandmaster(RegionEnum $region): LeagueListDTO
     {
-        $response = $this->riotConnection->get($region->getValue(), 'tft/league/v1/grandmaster');
+        $response = $this->riotConnection->get($region->getValue(), 'tft/league/v1/grandmaster', $this->getResource());
 
         return LeagueListDTO::createFromArray($response->getBodyContentsDecodedAsArray());
     }
@@ -61,6 +63,7 @@ final class TftLeague extends AbstractApi
         $response = $this->riotConnection->get(
             $region->getValue(),
             sprintf('tft/league/v1/leagues/%s', $id),
+            $this->getResource()
         );
 
         return LeagueListDTO::createFromArray($response->getBodyContentsDecodedAsArray());
@@ -68,8 +71,13 @@ final class TftLeague extends AbstractApi
 
     public function getMaster(RegionEnum $region): LeagueListDTO
     {
-        $response = $this->riotConnection->get($region->getValue(), 'tft/league/v1/master');
+        $response = $this->riotConnection->get($region->getValue(), 'tft/league/v1/master', $this->getResource());
 
         return LeagueListDTO::createFromArray($response->getBodyContentsDecodedAsArray());
+    }
+
+    protected function getResource(): string
+    {
+        return 'val';
     }
 }

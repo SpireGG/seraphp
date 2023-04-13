@@ -15,6 +15,7 @@ final class TftSummoner extends AbstractApi
         $response = $this->riotConnection->get(
             $region->getValue(),
             sprintf('tft/summoner/v1/summoners/by-account/%s', $encryptedAccountId),
+            $this->getResource()
         );
 
         return SummonerDTO::createFromArray($response->getBodyContentsDecodedAsArray());
@@ -25,6 +26,7 @@ final class TftSummoner extends AbstractApi
         $response = $this->riotConnection->get(
             $region->getValue(),
             sprintf('tft/summoner/v1/summoners/by-name/%s', $summonerName),
+            $this->getResource()
         );
 
         return SummonerDTO::createFromArray($response->getBodyContentsDecodedAsArray());
@@ -35,6 +37,7 @@ final class TftSummoner extends AbstractApi
         $response = $this->riotConnection->get(
             $region->getValue(),
             sprintf('tft/summoner/v1/summoners/by-puuid/%s', $encryptedPuuid),
+            $this->getResource()
         );
 
         return SummonerDTO::createFromArray($response->getBodyContentsDecodedAsArray());
@@ -45,8 +48,14 @@ final class TftSummoner extends AbstractApi
         $response = $this->riotConnection->get(
             $region->getValue(),
             sprintf('tft/summoner/v1/summoners/%s', $id),
+            $this->getResource()
         );
 
         return SummonerDTO::createFromArray($response->getBodyContentsDecodedAsArray());
+    }
+
+    protected function getResource(): string
+    {
+        return 'val';
     }
 }

@@ -12,4 +12,6 @@ abstract class AbstractApi
     {
         $this->riotConnection = $riotConnection;
     }
+
+    abstract protected function getResource(): string;
 }

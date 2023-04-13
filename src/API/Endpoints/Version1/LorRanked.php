@@ -15,8 +15,14 @@ final class LorRanked extends AbstractApi
         $response = $this->riotConnection->get(
             $geoRegion->getValue(),
             'lor/ranked/v1/leaderboards',
+            $this->getResource()
         );
 
         return LeaderboardDTO::createFromArray($response->getBodyContentsDecodedAsArray());
+    }
+
+    protected function getResource(): string
+    {
+        return 'val';
     }
 }

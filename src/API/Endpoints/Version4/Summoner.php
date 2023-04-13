@@ -10,11 +10,14 @@ use SeraPHP\Enum\RegionEnum;
 
 final class Summoner extends AbstractApi
 {
+    public const RESOURCE_SUMMONER = '1416:summoner';
+
     public function getByName(string $summonerName, RegionEnum $region): SummonerDTO
     {
         $response = $this->riotConnection->get(
             $region->getValue(),
-            sprintf('lol/summoner/v4/summoners/by-name/%s', $summonerName),
+            "lol/summoner/v4/summoners/by-name/{$summonerName}",
+            $this->getResource()
         );
 
         return SummonerDTO::createFromArray($response->getBodyContentsDecodedAsArray());
@@ -24,7 +27,8 @@ final class Summoner extends AbstractApi
     {
         $response = $this->riotConnection->get(
             $region->getValue(),
-            sprintf('lol/summoner/v4/summoners/by-account/%s', $encryptedAccountId),
+            "lol/summoner/v4/summoners/by-account/{$encryptedAccountId}",
+            $this->getResource()
         );
 
         return SummonerDTO::createFromArray($response->getBodyContentsDecodedAsArray());
@@ -34,7 +38,8 @@ final class Summoner extends AbstractApi
     {
         $response = $this->riotConnection->get(
             $region->getValue(),
-            sprintf('lol/summoner/v4/summoners/by-puuid/%s', $encryptedPuuid),
+            "lol/summoner/v4/summoners/by-puuid/{$encryptedPuuid}",
+            $this->getResource()
         );
 
         return SummonerDTO::createFromArray($response->getBodyContentsDecodedAsArray());
@@ -44,9 +49,15 @@ final class Summoner extends AbstractApi
     {
         $response = $this->riotConnection->get(
             $region->getValue(),
-            sprintf('lol/summoner/v4/summoners/%s', $id),
+            "lol/summoner/v4/summoners/{$id}",
+            $this->getResource()
         );
 
         return SummonerDTO::createFromArray($response->getBodyContentsDecodedAsArray());
+    }
+
+    protected function getResource(): string
+    {
+        return self::RESOURCE_SUMMONER;
     }
 }

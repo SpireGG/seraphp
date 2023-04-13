@@ -18,6 +18,7 @@ final class Clash extends AbstractApi
         $response = $this->riotConnection->get(
             $region->getValue(),
             sprintf('lol/clash/v1/players/by-summoner/%s', $encryptedSummonerId),
+            $this->getResource()
         );
 
         return PlayerDTOCollection::createFromArray($response->getBodyContentsDecodedAsArray());
@@ -28,6 +29,7 @@ final class Clash extends AbstractApi
         $response = $this->riotConnection->get(
             $region->getValue(),
             sprintf('lol/clash/v1/teams/%s', $teamid),
+            $this->getResource()
         );
 
         return TeamDTO::createFromArray($response->getBodyContentsDecodedAsArray());
@@ -38,6 +40,7 @@ final class Clash extends AbstractApi
         $response = $this->riotConnection->get(
             $region->getValue(),
             'lol/clash/v1/tournaments',
+            $this->getResource()
         );
 
         return TournamentDTOCollection::createFromArray($response->getBodyContentsDecodedAsArray());
@@ -48,6 +51,7 @@ final class Clash extends AbstractApi
         $response = $this->riotConnection->get(
             $region->getValue(),
             sprintf('lol/clash/v1/tournaments/by-team/%s', $teamId),
+            $this->getResource()
         );
 
         return TournamentDTO::createFromArray($response->getBodyContentsDecodedAsArray());
@@ -58,8 +62,14 @@ final class Clash extends AbstractApi
         $response = $this->riotConnection->get(
             $region->getValue(),
             sprintf('lol/clash/v1/tournaments/%s', $tournamentId),
+            $this->getResource()
         );
 
         return TournamentDTO::createFromArray($response->getBodyContentsDecodedAsArray());
+    }
+
+    protected function getResource(): string
+    {
+        return 'val';
     }
 }

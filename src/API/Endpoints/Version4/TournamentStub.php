@@ -15,6 +15,8 @@ use Webmozart\Assert\Assert;
 
 final class TournamentStub extends AbstractApi
 {
+    public const RESOURCE_TOURNAMENT_STUB = '1435:tournament-stub';
+
     /**
      * @param array<string> $allowedSummonerIds
      *
@@ -36,7 +38,8 @@ final class TournamentStub extends AbstractApi
 
         $response = $this->riotConnection->post(
             GeoRegionEnum::AMERICAS()->getValue(),
-            sprintf('lol/tournament-stub/v4/codes?count=%d&tournamentId=%d', $count, $tournamentId),
+            "lol/tournament-stub/v4/codes?count={$count}&tournamentId={$tournamentId}",
+            $this->getResource(),
             [
                 'allowedSummonerIds' => $allowedSummonerIds,
                 'metadata' => $metadata,
@@ -54,7 +57,8 @@ final class TournamentStub extends AbstractApi
     {
         $response = $this->riotConnection->get(
             GeoRegionEnum::AMERICAS()->getValue(),
-            sprintf('lol/tournament-stub/v4/lobby-events/by-code/%s', $tournamentCode),
+            "lol/tournament-stub/v4/lobby-events/by-code/{$tournamentCode}",
+            $this->getResource()
         );
 
         return LobbyEventDTOWrapperDTO::createFromArray($response->getBodyContentsDecodedAsArray());
@@ -65,6 +69,7 @@ final class TournamentStub extends AbstractApi
         $response = $this->riotConnection->post(
             GeoRegionEnum::AMERICAS()->getValue(),
             'lol/tournament-stub/v4/providers',
+            $this->getResource(),
             [
                 'region' => $region->getValue(),
                 'url' => $url,
@@ -79,6 +84,7 @@ final class TournamentStub extends AbstractApi
         $response = $this->riotConnection->post(
             GeoRegionEnum::AMERICAS()->getValue(),
             'lol/tournament-stub/v4/tournaments',
+            $this->getResource(),
             [
                 'providerId' => $providerId,
                 'name' => $name,
@@ -86,5 +92,10 @@ final class TournamentStub extends AbstractApi
         );
 
         return $response->getBodyContentsDecodedAsInt();
+    }
+
+    protected function getResource(): string
+    {
+        return self::RESOURCE_TOURNAMENT_STUB;
     }
 }

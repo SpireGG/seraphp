@@ -11,11 +11,14 @@ use SeraPHP\Enum\RegionEnum;
 
 final class Spectator extends AbstractApi
 {
+    public const RESOURCE_SPECTATOR = '1419:spectator';
+
     public function getActiveGamesBySummonerId(string $encryptedSummonerId, RegionEnum $region): CurrentGameInfoDTO
     {
         $response = $this->riotConnection->get(
             $region->getValue(),
-            sprintf('lol/spectator/v4/active-games/by-summoner/%s', $encryptedSummonerId),
+            "lol/spectator/v4/active-games/by-summoner/{$encryptedSummonerId}",
+            $this->getResource()
         );
 
         return CurrentGameInfoDTO::createFromArray($response->getBodyContentsDecodedAsArray());
@@ -26,8 +29,14 @@ final class Spectator extends AbstractApi
         $response = $this->riotConnection->get(
             $region->getValue(),
             'lol/spectator/v4/featured-games',
+            $this->getResource()
         );
 
         return FeaturedGamesDTO::createFromArray($response->getBodyContentsDecodedAsArray());
+    }
+
+    protected function getResource(): string
+    {
+        return self::RESOURCE_SPECTATOR;
     }
 }

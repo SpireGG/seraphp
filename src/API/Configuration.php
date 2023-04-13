@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace SeraPHP\API;
 
+use SeraPHP\API\Endpoints\Version3 as V3;
+use SeraPHP\API\Endpoints\Version4 as V4;
 use SeraPHP\Enum\GeoRegionEnum;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 
@@ -13,7 +15,7 @@ class Configuration
     private string $platform;
     private string $apiKey;
     private string $apiKeyMethod = self::API_KEY_METHOD_HEADER;
-    private string $cacheProvider = FilesystemAdapter::class;
+    private string $cacheProvider;
     private array $cacheProviderParams = [];
     /** @var array<string, int>|int */
     private array|int $cacheCallsLength = 60;
@@ -23,36 +25,15 @@ class Configuration
     public const API_KEY_METHOD_HEADER = 'header';
     private string $cacheCalls;
 
-    public const RESOURCE_CHAMPION = '1237:champion';
-    public const RESOURCE_CHAMPIONMASTERY = '1418:champion-mastery';
-    public const RESOURCE_LEAGUE = '1424:league';
-    public const RESOURCE_SPECTATOR = '1419:spectator';
     public const RESOURCE_STATICDATA = '1351:lol-static-data';
-    public const RESOURCE_STATUS = '1514:lol-status';
-    public const RESOURCE_SUMMONER = '1416:summoner';
-    public const RESOURCE_THIRD_PARTY_CODE = '1426:third-party-code';
-    public const RESOURCE_TOURNAMENT = '1436:tournament';
-    public const RESOURCE_TOURNAMENT_STUB = '1435:tournament-stub';
-    public const RESOURCE_MATCH = '1530:match';
 
     public function __construct(array $config = [])
     {
         $this->apiKey = $config['api_key'];
         $this->region = $config['region'] ?? GeoRegionEnum::EUROPE()->getValue();
         $this->platform = $config['platform'] ?? GeoRegionEnum::EUROPE()->getValue();
-        $this->cacheCallsLength = [
-            self::RESOURCE_CHAMPION => 60 * 10,
-            self::RESOURCE_CHAMPIONMASTERY => 60 * 60,
-            self::RESOURCE_LEAGUE => 60 * 10,
-            self::RESOURCE_MATCH => 0,
-            self::RESOURCE_SPECTATOR => 0,
-            self::RESOURCE_STATICDATA => 60 * 60 * 24,
-            self::RESOURCE_STATUS => 60,
-            self::RESOURCE_SUMMONER => 60 * 60,
-            self::RESOURCE_THIRD_PARTY_CODE => 0,
-            self::RESOURCE_TOURNAMENT => 0,
-            self::RESOURCE_TOURNAMENT_STUB => 0,
-        ];
+        $this->cacheProvider = $config['cacheProvider'] ?? FilesystemAdapter::class;
+        $this->setCacheCallsLength($config['cacheCallsLength'] ?? null);
     }
 
     public function validate(): void
@@ -117,5 +98,36 @@ class Configuration
     public function getBaseUrl(): string
     {
         return $this->baseUrl;
+    }
+
+    public function setCacheCallsLength(array|int|null $cacheCallsLength): self
+    {
+        $defaultCallsLength = [
+            V3\Champion::RESOURCE_CHAMPION => 60 * 10,
+            V4\ChampionMastery::RESOURCE_CHAMPIONMASTERY => 60 * 60,
+            V4\League::RESOURCE_LEAGUE => 60 * 10,
+            V4\Match_::RESOURCE_MATCH => 0,
+            V4\Spectator::RESOURCE_SPECTATOR => 0,
+            self::RESOURCE_STATICDATA => 60 * 60 * 24,
+            V4\LolStatus::RESOURCE_STATUS => 60,
+            V4\Summoner::RESOURCE_SUMMONER => 60 * 60,
+            V4\ThirdPartyCode::RESOURCE_THIRD_PARTY_CODE => 0,
+            V4\Tournament::RESOURCE_TOURNAMENT => 0,
+            V4\TournamentStub::RESOURCE_TOURNAMENT_STUB => 0,
+        ];
+
+        if (!$cacheCallsLength) {
+            $this->cacheCallsLength = $defaultCallsLength;
+            return $this;
+        }
+
+        if (is_int($cacheCallsLength)) {
+            $this->cacheCallsLength = $cacheCallsLength;
+            return $this;
+        }
+
+        $this->cacheCallsLength = array_merge($defaultCallsLength, $cacheCallsLength);
+
+        return $this;
     }
 }

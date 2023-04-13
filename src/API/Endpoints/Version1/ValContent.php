@@ -19,8 +19,14 @@ final class ValContent extends AbstractApi
         $response = $this->riotConnection->get(
             $valRegion->getValue(),
             sprintf('val/content/v1/contents%s', $locale),
+            $this->getResource()
         );
 
         return ContentDTO::createFromArray($response->getBodyContentsDecodedAsArray());
+    }
+
+    protected function getResource(): string
+    {
+        return 'val';
     }
 }

@@ -13,6 +13,8 @@ use SeraPHP\Enum\TierExpEnum;
 
 final class LeagueExp extends AbstractApi
 {
+    public const RESOURCE_LEAGUE = '1424:league';
+
     public function getByQueueAndTierAndDivision(
         QueueEnum $queue,
         TierExpEnum $tier,
@@ -22,15 +24,15 @@ final class LeagueExp extends AbstractApi
     ): LeagueEntryDTOCollection {
         $response = $this->riotConnection->get(
             $region->getValue(),
-            sprintf(
-                'lol/league/v4/entries/%s/%s/%s?page=%d',
-                $queue->getValue(),
-                $tier->getValue(),
-                $division->getValue(),
-                $page
-            ),
+            "lol/league/v4/entries/{$queue->getValue()}/{$tier->getValue()}/{$division->getValue()}?page={$page}",
+            $this->getResource()
         );
 
         return LeagueEntryDTOCollection::createFromArray($response->getBodyContentsDecodedAsArray());
+    }
+
+    protected function getResource(): string
+    {
+        return self::RESOURCE_LEAGUE;
     }
 }

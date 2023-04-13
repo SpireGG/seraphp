@@ -17,7 +17,8 @@ final class TftMatch extends AbstractApi
     {
         $response = $this->riotConnection->get(
             $geoRegion->getValue(),
-            sprintf('tft/match/v1/matches/by-puuid/%s/ids?count=%d', $puuid, $count)
+            sprintf('tft/match/v1/matches/by-puuid/%s/ids?count=%d', $puuid, $count),
+            $this->getResource()
         );
 
         return $response->getBodyContentsDecodedAsArray();
@@ -28,8 +29,14 @@ final class TftMatch extends AbstractApi
         $response = $this->riotConnection->get(
             $geoRegion->getValue(),
             sprintf('tft/match/v1/matches/%s', $matchId),
+            $this->getResource()
         );
 
         return MatchDTO::createFromArray($response->getBodyContentsDecodedAsArray());
+    }
+
+    protected function getResource(): string
+    {
+        return 'val';
     }
 }

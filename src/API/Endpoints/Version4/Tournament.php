@@ -16,6 +16,8 @@ use Webmozart\Assert\Assert;
 
 final class Tournament extends AbstractApi
 {
+    public const RESOURCE_TOURNAMENT = '1436:tournament';
+
     /**
      * @param array<string> $allowedSummonerIds
      *
@@ -37,7 +39,8 @@ final class Tournament extends AbstractApi
 
         $response = $this->riotConnection->post(
             GeoRegionEnum::AMERICAS()->getValue(),
-            sprintf('lol/tournament/v4/codes?count=%d&tournamentId=%d', $count, $tournamentId),
+            "lol/tournament/v4/codes?count={$count}&tournamentId={$tournamentId}",
+            $this->getResource(),
             [
                 'allowedSummonerIds' => $allowedSummonerIds,
                 'metadata' => $metadata,
@@ -66,7 +69,8 @@ final class Tournament extends AbstractApi
 
         $this->riotConnection->put(
             GeoRegionEnum::AMERICAS()->getValue(),
-            sprintf('lol/tournament/v4/codes/%s', $tournamentCode),
+            "lol/tournament/v4/codes/{$tournamentCode}",
+            $this->getResource(),
             [
                 'allowedSummonerIds' => $allowedSummonerIds,
                 'pickType' => $pickType->getValue(),
@@ -82,7 +86,8 @@ final class Tournament extends AbstractApi
     {
         $response = $this->riotConnection->get(
             GeoRegionEnum::AMERICAS()->getValue(),
-            sprintf('lol/tournament/v4/codes/%s', $tournamentCode),
+            "lol/tournament/v4/codes/{$tournamentCode}",
+            $this->getResource()
         );
 
         return TournamentCodeDTO::createFromArray($response->getBodyContentsDecodedAsArray());
@@ -92,7 +97,8 @@ final class Tournament extends AbstractApi
     {
         $response = $this->riotConnection->get(
             GeoRegionEnum::AMERICAS()->getValue(),
-            sprintf('lol/tournament/v4/lobby-events/by-code/%s', $tournamentCode),
+            "lol/tournament/v4/lobby-events/by-code/{$tournamentCode}",
+            $this->getResource()
         );
 
         return LobbyEventDTOWrapperDTO::createFromArray($response->getBodyContentsDecodedAsArray());
@@ -103,6 +109,7 @@ final class Tournament extends AbstractApi
         $response = $this->riotConnection->post(
             GeoRegionEnum::AMERICAS()->getValue(),
             'lol/tournament/v4/providers',
+            $this->getResource(),
             [
                 'region' => $region->getValue(),
                 'url' => $url,
@@ -117,6 +124,7 @@ final class Tournament extends AbstractApi
         $response = $this->riotConnection->post(
             GeoRegionEnum::AMERICAS()->getValue(),
             'lol/tournament/v4/tournaments',
+            $this->getResource(),
             [
                 'providerId' => $providerId,
                 'name' => $name,
@@ -124,5 +132,10 @@ final class Tournament extends AbstractApi
         );
 
         return $response->getBodyContentsDecodedAsInt();
+    }
+
+    protected function getResource(): string
+    {
+        return self::RESOURCE_TOURNAMENT;
     }
 }

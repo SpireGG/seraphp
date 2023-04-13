@@ -6,11 +6,11 @@ namespace SeraPHP\API;
 
 interface ConnectionInterface
 {
-    public function get(string $region, string $path): ResponseDecoderInterface;
+    public function get(string $region, string $path, string $resource): ResponseDecoderInterface;
 
-    public function post(string $region, string $path, array $data): ResponseDecoderInterface;
+    public function post(string $region, string $path, string $resource, array $data): ResponseDecoderInterface;
 
-    public function put(string $region, string $path, array $data): ResponseDecoderInterface;
+    public function put(string $region, string $path, string $resource, array $data): ResponseDecoderInterface;
 
-    public function setResource(string $resource): self;
+    public function setResource(string $resource, string $endpoint): self;
 }

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace SeraPHP\API\Endpoints\Version1;
 
 use SeraPHP\API\AbstractApi;
-use SeraPHP\API\Configuration;
 use SeraPHP\DTO\AccountDTO;
 use SeraPHP\DTO\ActiveShardDTO;
 use SeraPHP\Enum\GeoRegionEnum;
@@ -14,12 +13,11 @@ final class Account extends AbstractApi
 {
     public function getByPuuid(string $puuid, GeoRegionEnum $geoRegion): AccountDTO
     {
-        $response = $this->riotConnection
-//            ->setResource(Configuration::RESOURCE_CHAMPION)
-            ->get(
-                $geoRegion->getValue(),
-                sprintf('riot/account/v1/accounts/by-puuid/%s', $puuid),
-            );
+        $response = $this->riotConnection->get(
+            $geoRegion->getValue(),
+            sprintf('riot/account/v1/accounts/by-puuid/%s', $puuid),
+            $this->getResource()
+        );
 
         return AccountDTO::createFromArray($response->getBodyContentsDecodedAsArray());
     }
@@ -29,6 +27,7 @@ final class Account extends AbstractApi
         $response = $this->riotConnection->get(
             $geoRegion->getValue(),
             sprintf('riot/account/v1/accounts/by-riot-id/%s/%s', $gameName, $tagLine),
+            $this->getResource()
         );
 
         return AccountDTO::createFromArray($response->getBodyContentsDecodedAsArray());
@@ -39,8 +38,14 @@ final class Account extends AbstractApi
         $response = $this->riotConnection->get(
             $geoRegion->getValue(),
             sprintf('riot/account/v1/active-shards/by-game/%s/by-puuid/%s', $game, $puuid),
+            $this->getResource()
         );
 
         return ActiveShardDTO::createFromArray($response->getBodyContentsDecodedAsArray());
+    }
+
+    protected function getResource(): string
+    {
+        return 'val';
     }
 }

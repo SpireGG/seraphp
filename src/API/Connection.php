@@ -6,6 +6,7 @@ namespace SeraPHP\API;
 
 use Koriym\HttpConstants\Method;
 use Koriym\HttpConstants\StatusCode;
+use Nyholm\Psr7\Response;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
@@ -13,6 +14,11 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 use SeraPHP\API\Cache\CallCacheControl;
+use SeraPHP\API\Cache\ICallCacheControl;
+use SeraPHP\API\RateLimit\IRateLimitControl;
+use SeraPHP\API\RateLimit\RateLimitControl;
+use SeraPHP\Enum\RiotHeadersEnum;
+use SeraPHP\Exceptions\RateLimitException;
 use SeraPHP\Exceptions\RequestException;
 use SeraPHP\Exceptions\Riot;
 use SeraPHP\Exceptions\SettingsException;
@@ -26,12 +32,14 @@ final class Connection implements ConnectionInterface
     private RequestFactoryInterface $requestFactory;
     private StreamFactoryInterface $streamFactory;
     private ?CacheItemPoolInterface $cache;
-    private ?CallCacheControl $ccc = null;
+    private ?ICallCacheControl $ccc = null;
+    private ?IRateLimitControl $rlc = null;
     private Configuration $config;
 
     private array $callbacksBefore = [];
     private array $callbacksAfter = [];
     private string $resource;
+    private string $endpoint;
 
     public function __construct(
         Configuration $config,
@@ -49,15 +57,17 @@ final class Connection implements ConnectionInterface
         $this->setupCallbacks();
     }
 
-    public function get(string $region, string $path): ResponseDecoderInterface
+    public function get(string $region, string $path, string $resource): ResponseDecoderInterface
     {
-        return $this->_makeCall($this->requestFactory->createRequest(
-            Method::GET,
-            sprintf('https://%s.%s/%s', $region, self::API_URL, $path),
-        ));
+        return $this
+            ->setResource($resource, $path)
+            ->_makeCall($this->requestFactory->createRequest(
+                Method::GET,
+                sprintf('https://%s.%s/%s', $region, self::API_URL, $path),
+            ));
     }
 
-    public function post(string $region, string $path, array $data): ResponseDecoderInterface
+    public function post(string $region, string $path, string $resource, array $data): ResponseDecoderInterface
     {
         $request = $this->requestFactory->createRequest(
             Method::POST,
@@ -68,10 +78,12 @@ final class Connection implements ConnectionInterface
             JSON_THROW_ON_ERROR,
         )));
 
-        return $this->_makeCall($request);
+        return $this
+            ->setResource($resource, $path)
+            ->_makeCall($request);
     }
 
-    public function put(string $region, string $path, array $data): ResponseDecoderInterface
+    public function put(string $region, string $path, string $resource, array $data): ResponseDecoderInterface
     {
         $request = $this->requestFactory->createRequest(
             Method::PUT,
@@ -82,7 +94,9 @@ final class Connection implements ConnectionInterface
             JSON_THROW_ON_ERROR,
         )));
 
-        return $this->_makeCall($request);
+        return $this
+            ->setResource($resource, $path)
+            ->_makeCall($request);
     }
 
     private function _makeCall(RequestInterface $request): ResponseDecoder
@@ -96,7 +110,7 @@ final class Connection implements ConnectionInterface
             return new ResponseDecoder($this->ccc->loadCallData($requestHash));
         }
 
-        $request = $request->withAddedHeader('X-Riot-Token', $this->apiKey);
+        $request = $request->withAddedHeader(RiotHeadersEnum::HEADER_API_KEY()->getValue(), $this->apiKey);
 
         $response = $this->client->sendRequest($request);
         if (StatusCode::OK !== $response->getStatusCode()) {
@@ -145,6 +159,12 @@ final class Connection implements ConnectionInterface
             }
 
             $this->cache = $cacheProvider->newInstanceArgs($this->config->getCacheProviderParams());
+
+            $rlc = $this->cache->getItem('rate-limit.cache');
+            $this->rlc = $rlc->isHit() ? $rlc->get() : new RateLimitControl();
+
+            $ccc = $this->cache->getItem('api-calls.cache');
+            $this->ccc = $ccc->isHit() ? $ccc->get() : new CallCacheControl();
         } catch (\ReflectionException $ex) {
             //  probably problem when instantiating the class
             throw new SettingsException("Failed to initialize CacheProvider class: {$ex->getMessage()}.");
@@ -160,6 +180,11 @@ final class Connection implements ConnectionInterface
             return false;
         }
 
+        $rlc = $this->cache->getItem('rate-limit.cache');
+        $rlc->set($this->rlc);
+        $rlc->expiresAfter(3600);
+        $this->cache->saveDeferred($rlc);
+
         $ccc = $this->cache->getItem('api-calls.cache');
         $ccc->set($this->ccc);
         $ccc->expiresAfter(60);
@@ -169,18 +194,46 @@ final class Connection implements ConnectionInterface
         return $this->cache->commit();
     }
 
+    public function clearCache(): bool
+    {
+        $this->rlc?->clear();
+        $this->ccc?->clear();
+
+        return $this->cache->clear();
+    }
+
     private function setupCallbacks(): void
     {
-        $this->callbacksBefore[] = static function () {
-            //            if ($this->getCacheRateLimit() && $this->rlc != false) {
-            //                if ($this->rlc->canCall($this->getSetting($this->used_key), $this->getRegion(), $this->getResource(), $this->getResourceEndpoint()) == false) {
-            //                    throw new RateLimitException('API call rate limit would be exceeded by this call.');
-            //                }
-            //            }
+        $this->callbacksBefore[] = function () {
+            if ($this->rlc && !$this->rlc->canCall($this->config->getApiKey(), $this->config->getRegion(), $this->getResource(), $this->getEndpoint())) {
+                throw new RateLimitException('API call rate limit would be exceeded by this call.');
+            }
+        };
+
+        $this->callbacksAfter[] = function () {
+            /** @var Response $response */
+            $response = func_get_arg(3);
+            if ($this->rlc) {
+                $this->rlc->registerLimits(
+                    $this->config->getApiKey(),
+                    $this->config->getRegion(),
+                    $this->getEndpoint(),
+                    $response->getHeaderLine(RiotHeadersEnum::HEADER_APP_RATELIMIT()->getValue()),
+                    $response->getHeaderLine(RiotHeadersEnum::HEADER_METHOD_RATELIMIT()->getValue())
+                );
+                $this->rlc->registerCall(
+                    $this->config->getApiKey(),
+                    $this->config->getRegion(),
+                    $this->getEndpoint(),
+                    $response->getHeaderLine(RiotHeadersEnum::HEADER_APP_RATELIMIT_COUNT()->getValue()),
+                    $response->getHeaderLine(RiotHeadersEnum::HEADER_METHOD_RATELIMIT_COUNT()->getValue())
+                );
+            }
         };
 
         $this->callbacksAfter[] = function () {
             $requestHash = func_get_arg(2);
+            /** @var Response $response */
             $response = func_get_arg(3);
             if ($this->ccc && !$this->ccc->isCallCached($requestHash)) {
                 if (is_int($this->config->getCacheCallsLength())) {
@@ -197,9 +250,10 @@ final class Connection implements ConnectionInterface
         };
     }
 
-    public function setResource(string $resource): self
+    public function setResource(string $resource, string $endpoint): self
     {
         $this->resource = $resource;
+        $this->endpoint = $endpoint;
 
         return $this;
     }
@@ -207,6 +261,11 @@ final class Connection implements ConnectionInterface
     private function getResource(): string
     {
         return $this->resource;
+    }
+
+    private function getEndpoint(): string
+    {
+        return $this->endpoint;
     }
 
     private function _beforeCall(string $url, string $requestHash): void

@@ -13,11 +13,14 @@ use SeraPHP\Filter\MatchlistFilter;
 
 final class Match_ extends AbstractApi
 {
+    public const RESOURCE_MATCH = '1530:match';
+
     public function getByMatchId(int $matchId, RegionEnum $region): MatchDTO
     {
         $response = $this->riotConnection->get(
             $region->getValue(),
-            sprintf('lol/match/v4/matches/%s', $matchId),
+            "lol/match/v4/matches/{$matchId}",
+            $this->getResource()
         );
 
         return MatchDTO::createFromArray($response->getBodyContentsDecodedAsArray());
@@ -33,8 +36,9 @@ final class Match_ extends AbstractApi
             sprintf(
                 'lol/match/v4/matchlists/by-account/%s?%s',
                 $encryptedAccountId,
-                $filter ? $filter->getAsHttpQuery() : '',
+                $filter ? $filter->getAsHttpQuery() : ''
             ),
+            $this->getResource()
         );
 
         return MatchlistDTO::createFromArray($response->getBodyContentsDecodedAsArray());
@@ -44,7 +48,8 @@ final class Match_ extends AbstractApi
     {
         $response = $this->riotConnection->get(
             $region->getValue(),
-            sprintf('lol/match/v4/timelines/by-match/%s', $matchId),
+            "lol/match/v4/timelines/by-match/{$matchId}",
+            $this->getResource()
         );
 
         return MatchTimelineDTO::createFromArray($response->getBodyContentsDecodedAsArray());
@@ -57,7 +62,8 @@ final class Match_ extends AbstractApi
     {
         $response = $this->riotConnection->get(
             $region->getValue(),
-            sprintf('lol/match/v4/matches/by-tournament-code/%s/ids', $tournamentCode),
+            "lol/match/v4/matches/by-tournament-code/{$tournamentCode}/ids",
+            $this->getResource()
         );
 
         return $response->getBodyContentsDecodedAsArray();
@@ -67,9 +73,15 @@ final class Match_ extends AbstractApi
     {
         $response = $this->riotConnection->get(
             $region->getValue(),
-            sprintf('lol/match/v4/matches/%s/by-tournament-code/%s', $matchId, $tournamentCode),
+            "lol/match/v4/matches/{$matchId}/by-tournament-code/{$tournamentCode}",
+            $this->getResource()
         );
 
         return MatchDTO::createFromArray($response->getBodyContentsDecodedAsArray());
+    }
+
+    protected function getResource(): string
+    {
+        return self::RESOURCE_MATCH;
     }
 }
