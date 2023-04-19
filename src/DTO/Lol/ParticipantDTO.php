@@ -4,128 +4,231 @@ declare(strict_types=1);
 
 namespace SeraPHP\DTO\Lol;
 
-use SeraPHP\Collection\Lol\MasteryDTOCollection;
-use SeraPHP\Collection\Lol\RuneDTOCollection;
 use SeraPHP\DTO\DTOInterface;
 
 final class ParticipantDTO implements DTOInterface
 {
-    private int $participantId;
-
-    private int $championId;
-
-    private RuneDTOCollection $runes;
-
-    private ParticipantStatsDTO $stats;
-
-    private int $teamId;
-
-    private ParticipantTimelineDTO $timeline;
-
-    private int $spell1Id;
-
-    private int $spell2Id;
-
-    private ?string $highestAchievedSeasonTier;
-
-    private MasteryDTOCollection $masteries;
-
     public function __construct(
-        int $participantId,
-        int $championId,
-        RuneDTOCollection $runes,
-        ParticipantStatsDTO $stats,
-        int $teamId,
-        ParticipantTimelineDTO $timeline,
-        int $spell1Id,
-        int $spell2Id,
-        ?string $highestAchievedSeasonTier,
-        MasteryDTOCollection $masteries
+        public int $assists,
+        public int $baronKills,
+        public int $bountyLevel,
+        public int $champExperience,
+        public int $champLevel,
+        /** Prior to patch 11.4, on Feb 18th, 2021, this field returned invalid championIds. We recommend determining the champion based on the championName field for matches played prior to patch 11.4. */
+        public int $championId,
+        public string $championName,
+        /** This field is currently only utilized for Kayn's transformations. (Legal values: 0 - None, 1 - Slayer, 2 - Assassin) */
+        public int $championTransform,
+        public int $consumablesPurchased,
+        public int $damageDealtToBuildings,
+        public int $damageDealtToObjectives,
+        public int $damageDealtToTurrets,
+        public int $damageSelfMitigated,
+        public int $deaths,
+        public int $detectorWardsPlaced,
+        public int $doubleKills,
+        public int $dragonKills,
+        public bool $firstBloodAssist,
+        public bool $firstBloodKill,
+        public bool $firstTowerAssist,
+        public bool $firstTowerKill,
+        public bool $gameEndedInEarlySurrender,
+        public bool $gameEndedInSurrender,
+        public int $goldEarned,
+        public int $goldSpent,
+        /** Both individualPosition and teamPosition are computed by the game server and are different versions of the most likely position played by a player. The individualPosition is the best guess for which position the player actually played in isolation of anything else. The teamPosition is the best guess for which position the player actually played if we add the constraint that each team must have one top player, one jungle, one middle, etc. Generally the recommendation is to use the teamPosition field over the individualPosition field. */
+        public string $individualPosition,
+        public int $inhibitorKills,
+        public int $inhibitorTakedowns,
+        public int $inhibitorsLost,
+        public int $item0,
+        public int $item1,
+        public int $item2,
+        public int $item3,
+        public int $item4,
+        public int $item5,
+        public int $item6,
+        public int $itemsPurchased,
+        public int $killingSprees,
+        public int $kills,
+        public string $lane,
+        public int $largestCriticalStrike,
+        public int $largestKillingSpree,
+        public int $largestMultiKill,
+        public int $longestTimeSpentLiving,
+        public int $magicDamageDealt,
+        public int $magicDamageDealtToChampions,
+        public int $magicDamageTaken,
+        public int $neutralMinionsKilled,
+        public int $nexusKills,
+        public int $nexusTakedowns,
+        public int $nexusLost,
+        public int $objectivesStolen,
+        public int $objectivesStolenAssists,
+        public int $participantId,
+        public int $pentaKills,
+        public PerksDTO $perks,
+        public int $physicalDamageDealt,
+        public int $physicalDamageDealtToChampions,
+        public int $physicalDamageTaken,
+        public int $profileIcon,
+        public string $puuid,
+        public int $quadraKills,
+        public string $riotIdName,
+        public string $riotIdTagline,
+        public string $role,
+        public int $sightWardsBoughtInGame,
+        public int $spell1Casts,
+        public int $spell2Casts,
+        public int $spell3Casts,
+        public int $spell4Casts,
+        public int $summoner1Casts,
+        public int $summoner1Id,
+        public int $summoner2Casts,
+        public int $summoner2Id,
+        public string $summonerId,
+        public int $summonerLevel,
+        public string $summonerName,
+        public bool $teamEarlySurrendered,
+        public int $teamId,
+        /** Both individualPosition and teamPosition are computed by the game server and are different versions of the most likely position played by a player. The individualPosition is the best guess for which position the player actually played in isolation of anything else. The teamPosition is the best guess for which position the player actually played if we add the constraint that each team must have one top player, one jungle, one middle, etc. Generally the recommendation is to use the teamPosition field over the individualPosition field. */
+        public string $teamPosition,
+        public int $timeCCingOthers,
+        public int $timePlayed,
+        public int $totalDamageDealt,
+        public int $totalDamageDealtToChampions,
+        public int $totalDamageShieldedOnTeammates,
+        public int $totalDamageTaken,
+        public int $totalHeal,
+        public int $totalHealsOnTeammates,
+        public int $totalMinionsKilled,
+        public int $totalTimeCCDealt,
+        public int $totalTimeSpentDead,
+        public int $totalUnitsHealed,
+        public int $tripleKills,
+        public int $trueDamageDealt,
+        public int $trueDamageDealtToChampions,
+        public int $trueDamageTaken,
+        public int $turretKills,
+        public int $turretTakedowns,
+        public int $turretsLost,
+        public int $unrealKills,
+        public int $visionScore,
+        public int $visionWardsBoughtInGame,
+        public int $wardsKilled,
+        public int $wardsPlaced,
+        public bool $win
     ) {
-        $this->participantId = $participantId;
-        $this->championId = $championId;
-        $this->runes = $runes;
-        $this->stats = $stats;
-        $this->teamId = $teamId;
-        $this->timeline = $timeline;
-        $this->spell1Id = $spell1Id;
-        $this->spell2Id = $spell2Id;
-        $this->highestAchievedSeasonTier = $highestAchievedSeasonTier;
-        $this->masteries = $masteries;
     }
 
-    public function getParticipantId(): int
+    public static function createFromArray(array $data): DTOInterface
     {
-        return $this->participantId;
-    }
-
-    public function getChampionId(): int
-    {
-        return $this->championId;
-    }
-
-    /**
-     * @return RuneDTOCollection<RuneDTO>
-     */
-    public function getRunes(): RuneDTOCollection
-    {
-        return $this->runes;
-    }
-
-    public function getStats(): ParticipantStatsDTO
-    {
-        return $this->stats;
-    }
-
-    public function getTeamId(): int
-    {
-        return $this->teamId;
-    }
-
-    public function getTimeline(): ParticipantTimelineDTO
-    {
-        return $this->timeline;
-    }
-
-    public function getSpell1Id(): int
-    {
-        return $this->spell1Id;
-    }
-
-    public function getSpell2Id(): int
-    {
-        return $this->spell2Id;
-    }
-
-    public function getHighestAchievedSeasonTier(): ?string
-    {
-        return $this->highestAchievedSeasonTier;
-    }
-
-    /**
-     * @return MasteryDTOCollection<MasteryDTO>
-     */
-    public function getMasteries(): MasteryDTOCollection
-    {
-        return $this->masteries;
-    }
-
-    public static function createFromArray(array $data): self
-    {
-        $runes = $data['runes'] ?? [];
-        $masteries = $data['masteries'] ?? [];
-
         return new self(
-            $data['participantId'],
+            $data['assists'],
+            $data['baronKills'],
+            $data['bountyLevel'],
+            $data['champExperience'],
+            $data['champLevel'],
             $data['championId'],
-            RuneDTOCollection::createFromArray($runes),
-            ParticipantStatsDTO::createFromArray($data['stats']),
+            $data['championName'],
+            $data['championTransform'],
+            $data['consumablesPurchased'],
+            $data['damageDealtToBuildings'],
+            $data['damageDealtToObjectives'],
+            $data['damageDealtToTurrets'],
+            $data['damageSelfMitigated'],
+            $data['deaths'],
+            $data['detectorWardsPlaced'],
+            $data['doubleKills'],
+            $data['dragonKills'],
+            $data['firstBloodAssist'],
+            $data['firstBloodKill'],
+            $data['firstTowerAssist'],
+            $data['firstTowerKill'],
+            $data['gameEndedInEarlySurrender'],
+            $data['gameEndedInSurrender'],
+            $data['goldEarned'],
+            $data['goldSpent'],
+            $data['individualPosition'],
+            $data['inhibitorKills'],
+            $data['inhibitorTakedowns'],
+            $data['inhibitorsLost'],
+            $data['item0'],
+            $data['item1'],
+            $data['item2'],
+            $data['item3'],
+            $data['item4'],
+            $data['item5'],
+            $data['item6'],
+            $data['itemsPurchased'],
+            $data['killingSprees'],
+            $data['kills'],
+            $data['lane'],
+            $data['largestCriticalStrike'],
+            $data['largestKillingSpree'],
+            $data['largestMultiKill'],
+            $data['longestTimeSpentLiving'],
+            $data['magicDamageDealt'],
+            $data['magicDamageDealtToChampions'],
+            $data['magicDamageTaken'],
+            $data['neutralMinionsKilled'],
+            $data['nexusKills'],
+            $data['nexusTakedowns'],
+            $data['nexusLost'],
+            $data['objectivesStolen'],
+            $data['objectivesStolenAssists'],
+            $data['participantId'],
+            $data['pentaKills'],
+            PerksDTO::createFromArray($data['perks']),
+            $data['physicalDamageDealt'],
+            $data['physicalDamageDealtToChampions'],
+            $data['physicalDamageTaken'],
+            $data['profileIcon'],
+            $data['puuid'],
+            $data['quadraKills'],
+            $data['riotIdName'],
+            $data['riotIdTagline'],
+            $data['role'],
+            $data['sightWardsBoughtInGame'],
+            $data['spell1Casts'],
+            $data['spell2Casts'],
+            $data['spell3Casts'],
+            $data['spell4Casts'],
+            $data['summoner1Casts'],
+            $data['summoner1Id'],
+            $data['summoner2Casts'],
+            $data['summoner2Id'],
+            $data['summonerId'],
+            $data['summonerLevel'],
+            $data['summonerName'],
+            $data['teamEarlySurrendered'],
             $data['teamId'],
-            ParticipantTimelineDTO::createFromArray($data['timeline']),
-            $data['spell1Id'],
-            $data['spell2Id'],
-            $data['highestAchievedSeasonTier'] ?? null,
-            MasteryDTOCollection::createFromArray($masteries),
+            $data['teamPosition'],
+            $data['timeCCingOthers'],
+            $data['timePlayed'],
+            $data['totalDamageDealt'],
+            $data['totalDamageDealtToChampions'],
+            $data['totalDamageShieldedOnTeammates'],
+            $data['totalDamageTaken'],
+            $data['totalHeal'],
+            $data['totalHealsOnTeammates'],
+            $data['totalMinionsKilled'],
+            $data['totalTimeCCDealt'],
+            $data['totalTimeSpentDead'],
+            $data['totalUnitsHealed'],
+            $data['tripleKills'],
+            $data['trueDamageDealt'],
+            $data['trueDamageDealtToChampions'],
+            $data['trueDamageTaken'],
+            $data['turretKills'],
+            $data['turretTakedowns'],
+            $data['turretsLost'],
+            $data['unrealKills'],
+            $data['visionScore'],
+            $data['visionWardsBoughtInGame'],
+            $data['wardsKilled'],
+            $data['wardsPlaced'],
+            $data['win'],
         );
     }
 }

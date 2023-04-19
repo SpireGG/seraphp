@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace SeraPHP\Tests\DTO\Lol;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHP\Collection\Lol\ParticipantIdentityDTOCollection;
-use SeraPHP\DTO\Lol\ParticipantIdentityDTO;
+use SeraPHP\Collection\Lol\Deprecated\ParticipantIdentityDTOCollection;
+use SeraPHP\DTO\Lol\Deprecated\ParticipantIdentityDTO;
 
 final class ParticipantIdentityDTOCollectionTest extends TestCase
 {

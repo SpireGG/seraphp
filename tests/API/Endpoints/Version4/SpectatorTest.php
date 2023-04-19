@@ -6,7 +6,7 @@ namespace SeraPHP\Tests\API\Endpoints\Version4;
 
 use SeraPHP\API\Endpoints\Version4\Spectator;
 use SeraPHP\Collection\FeaturedGameInfoDTOCollection;
-use SeraPHP\DTO\CurrentGameInfoDTO;
+use SeraPHP\DTO\Lol\CurrentGameInfoDTO;
 use SeraPHP\Enum\RegionEnum;
 use SeraPHP\Tests\APITestCase;
 

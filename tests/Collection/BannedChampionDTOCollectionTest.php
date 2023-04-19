@@ -6,7 +6,7 @@ namespace SeraPHP\Tests\Collection;
 
 use PHPUnit\Framework\TestCase;
 use SeraPHP\Collection\BannedChampionDTOCollection;
-use SeraPHP\DTO\BannedChampionDTO;
+use SeraPHP\DTO\Lol\BannedChampionDTO;
 
 final class BannedChampionDTOCollectionTest extends TestCase
 {

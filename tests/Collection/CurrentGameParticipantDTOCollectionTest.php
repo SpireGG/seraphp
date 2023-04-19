@@ -6,7 +6,7 @@ namespace SeraPHP\Tests\Collection;
 
 use PHPUnit\Framework\TestCase;
 use SeraPHP\Collection\CurrentGameParticipantDTOCollection;
-use SeraPHP\DTO\CurrentGameParticipantDTO;
+use SeraPHP\DTO\Lol\CurrentGameParticipantDTO;
 
 final class CurrentGameParticipantDTOCollectionTest extends TestCase
 {

@@ -6,7 +6,7 @@ namespace SeraPHP\Tests\DTO\Lol;
 
 use PHPUnit\Framework\TestCase;
 use SeraPHP\Collection\Lol\MatchReferenceDTOCollection;
-use SeraPHP\DTO\Lol\MatchReferenceDTO;
+use SeraPHP\DTO\Lol\Deprecated\MatchReferenceDTO;
 
 final class MatchReferenceDTOCollectionTest extends TestCase
 {

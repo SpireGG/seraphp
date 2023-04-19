@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace SeraPHP\Collection\Lol;
 
 use Ramsey\Collection\AbstractCollection;
-use SeraPHP\DTO\Lol\MatchReferenceDTO;
+use SeraPHP\DTO\Lol\Deprecated\MatchReferenceDTO;
 
 final class MatchReferenceDTOCollection extends AbstractCollection
 {

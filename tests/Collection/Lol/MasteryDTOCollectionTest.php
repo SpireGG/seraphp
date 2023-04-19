@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace SeraPHP\Tests\DTO\Lol;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHP\Collection\Lol\MasteryDTOCollection;
-use SeraPHP\DTO\Lol\MasteryDTO;
+use SeraPHP\Collection\Lol\Deprecated\MasteryDTOCollection;
+use SeraPHP\DTO\Lol\Deprecated\MasteryDTO;
 
 final class MasteryDTOCollectionTest extends TestCase
 {

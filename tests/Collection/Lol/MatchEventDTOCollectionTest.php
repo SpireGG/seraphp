@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace SeraPHP\Tests\DTO\Lol;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHP\Collection\Lol\MatchEventDTOCollection;
-use SeraPHP\DTO\Lol\MatchEventDTO;
+use SeraPHP\Collection\Lol\Deprecated\MatchEventDTOCollection;
+use SeraPHP\DTO\Lol\Deprecated\MatchEventDTO;
 
 final class MatchEventDTOCollectionTest extends TestCase
 {

@@ -6,7 +6,7 @@ namespace SeraPHP\Tests\Collection;
 
 use PHPUnit\Framework\TestCase;
 use SeraPHP\Collection\GameCustomizationObjectDTOCollection;
-use SeraPHP\DTO\GameCustomizationObjectDTO;
+use SeraPHP\DTO\Lol\GameCustomizationObjectDTO;
 
 final class GameCustomizationObjectDTOCollectionTest extends TestCase
 {

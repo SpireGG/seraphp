@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace SeraPHP\Collection;
 
 use Ramsey\Collection\AbstractCollection;
-use SeraPHP\DTO\BannedChampionDTO;
+use SeraPHP\DTO\Lol\BannedChampionDTO;
 
 final class BannedChampionDTOCollection extends AbstractCollection
 {

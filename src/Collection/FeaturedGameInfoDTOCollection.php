@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace SeraPHP\Collection;
 
 use Ramsey\Collection\AbstractCollection;
-use SeraPHP\DTO\FeaturedGameInfoDTO;
+use SeraPHP\DTO\Lol\FeaturedGameInfoDTO;
 
 final class FeaturedGameInfoDTOCollection extends AbstractCollection
 {

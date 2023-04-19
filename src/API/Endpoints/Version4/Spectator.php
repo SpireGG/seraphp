@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace SeraPHP\API\Endpoints\Version4;
 
 use SeraPHP\API\AbstractApi;
-use SeraPHP\DTO\CurrentGameInfoDTO;
-use SeraPHP\DTO\FeaturedGamesDTO;
+use SeraPHP\DTO\Lol\CurrentGameInfoDTO;
+use SeraPHP\DTO\Lol\FeaturedGamesDTO;
 use SeraPHP\Enum\RegionEnum;
 
 final class Spectator extends AbstractApi

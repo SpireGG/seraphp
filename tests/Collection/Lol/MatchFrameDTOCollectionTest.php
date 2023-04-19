@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace SeraPHP\Tests\DTO\Lol;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHP\Collection\Lol\MatchFrameDTOCollection;
-use SeraPHP\DTO\Lol\MatchFrameDTO;
+use SeraPHP\Collection\Lol\Deprecated\MatchFrameDTOCollection;
+use SeraPHP\DTO\Lol\Deprecated\MatchFrameDTO;
 
 final class MatchFrameDTOCollectionTest extends TestCase
 {

@@ -15,9 +15,9 @@ final class ParticipantDTOCollection extends AbstractCollection
     }
 
     /**
-     * @param array<array<string, int|string|bool|array>> $data
+     * @param array<array<string, int>> $data
      *
-     * @return ParticipantDTOCollection<ParticipantDTO>
+     * @return self<ParticipantDTO>
      */
     public static function createFromArray(array $data): self
     {

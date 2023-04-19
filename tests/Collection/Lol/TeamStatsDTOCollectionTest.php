@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace SeraPHP\Tests\DTO\Lol;
 
 use PHPUnit\Framework\TestCase;
-use SeraPHP\Collection\Lol\TeamStatsDTOCollection;
-use SeraPHP\DTO\Lol\TeamStatsDTO;
+use SeraPHP\Collection\Lol\Deprecated\TeamStatsDTOCollection;
+use SeraPHP\DTO\Lol\Deprecated\TeamStatsDTO;
 
 final class TeamStatsDTOCollectionTest extends TestCase
 {

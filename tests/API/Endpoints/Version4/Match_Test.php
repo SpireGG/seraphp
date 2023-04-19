@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace SeraPHP\Tests\API\Endpoints\Version4;
 
 use SeraPHP\API\Endpoints\Version4\Match_;
-use SeraPHP\DTO\Lol\MatchDTO;
-use SeraPHP\DTO\Lol\MatchlistDTO;
-use SeraPHP\DTO\Lol\MatchTimelineDTO;
+use SeraPHP\DTO\Lol\Deprecated\MatchDTO;
+use SeraPHP\DTO\Lol\Deprecated\MatchlistDTO;
+use SeraPHP\DTO\Lol\Deprecated\MatchTimelineDTO;
 use SeraPHP\Enum\RegionEnum;
 use SeraPHP\Filter\MatchlistFilter;
 use SeraPHP\Tests\APITestCase;
