@@ -11,7 +11,7 @@ use SeraPHP\DTO\Val\ContentDTO;
 
 final class ContentDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'version' => 'release-01.12',

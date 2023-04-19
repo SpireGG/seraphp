@@ -11,7 +11,7 @@ use SeraPHP\DTO\StatusDTO;
 
 final class StatusDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'id' => 2163,

@@ -9,7 +9,7 @@ use SeraPHP\DTO\Tft\CompanionDTO;
 
 final class CompanionDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'content_ID' => '1234ad9f-4665-4372-8f3e-6c878adb8918',

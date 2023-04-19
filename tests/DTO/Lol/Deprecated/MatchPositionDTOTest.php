@@ -9,7 +9,7 @@ use SeraPHP\DTO\Lol\Deprecated\MatchPositionDTO;
 
 final class MatchPositionDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'x' => 12871,

@@ -11,7 +11,7 @@ use SeraPHP\Enum\RoleEnum;
 
 final class ParticipantTimelineDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'participantId' => 1,

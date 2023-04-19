@@ -9,7 +9,7 @@ use SeraPHP\DTO\TranslationDTO;
 
 final class TranslationDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'updated_at' => 'a',

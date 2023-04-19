@@ -11,7 +11,7 @@ use SeraPHP\DTO\Lor\MetadataDTO;
 
 final class MatchDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'metadata' => [

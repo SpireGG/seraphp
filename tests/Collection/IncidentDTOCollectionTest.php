@@ -10,7 +10,7 @@ use SeraPHP\DTO\IncidentDTO;
 
 final class IncidentDTOCollectionTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             [

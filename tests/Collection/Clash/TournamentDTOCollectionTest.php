@@ -10,7 +10,7 @@ use SeraPHP\DTO\Clash\TournamentDTO;
 
 final class TournamentDTOCollectionTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             [

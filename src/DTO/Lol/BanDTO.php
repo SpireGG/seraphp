@@ -9,8 +9,8 @@ use SeraPHP\DTO\DTOInterface;
 final class BanDTO implements DTOInterface
 {
     public function __construct(
-        public int $championId,
-        public int $pickTurn
+        private readonly int $championId,
+        private readonly int $pickTurn
     ) {
     }
 
@@ -20,5 +20,15 @@ final class BanDTO implements DTOInterface
             $data['championId'],
             $data['pickTurn']
         );
+    }
+
+    public function getChampionId(): int
+    {
+        return $this->championId;
+    }
+
+    public function getPickTurn(): int
+    {
+        return $this->pickTurn;
     }
 }

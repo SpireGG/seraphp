@@ -9,7 +9,7 @@ use SeraPHP\DTO\Lor\MetadataDTO;
 
 final class MetadataDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'data_version' => '2',

@@ -10,7 +10,7 @@ use SeraPHP\DTO\Lol\Deprecated\PlayerDTO;
 
 final class ParticipantIdentityDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'participantId' => 1,

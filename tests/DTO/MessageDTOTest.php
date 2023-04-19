@@ -10,7 +10,7 @@ use SeraPHP\DTO\MessageDTO;
 
 final class MessageDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'id' => '5e27b2f68d0391127f333f21',

@@ -11,6 +11,7 @@ use SeraPHP\API\ConnectionInterface;
 use SeraPHP\API\Endpoints\Version1;
 use SeraPHP\API\Endpoints\Version3;
 use SeraPHP\API\Endpoints\Version4;
+use SeraPHP\API\Endpoints\Version5;
 use SeraPHP\Exceptions\Riot\InvalidApiVersionException;
 
 abstract class ASeraPHP
@@ -18,6 +19,7 @@ abstract class ASeraPHP
     private const VERSION_1 = 'version1';
     private const VERSION_3 = 'version3';
     private const VERSION_4 = 'version4';
+    private const VERSION_5 = 'version5';
 
     private ConnectionInterface $connection;
 
@@ -41,6 +43,7 @@ abstract class ASeraPHP
             self::VERSION_1 => new Version1($this->connection),
             self::VERSION_3 => new Version3($this->connection),
             self::VERSION_4 => new Version4($this->connection),
+            self::VERSION_5 => new Version5($this->connection),
             default => throw new InvalidApiVersionException(),
         };
 
@@ -69,6 +72,14 @@ abstract class ASeraPHP
     {
         /** @var Version4 $factory */
         $factory = $this->createFactory(self::VERSION_4);
+
+        return $factory;
+    }
+
+    protected function getVersion5(): Version5
+    {
+        /** @var Version5 $factory */
+        $factory = $this->createFactory(self::VERSION_5);
 
         return $factory;
     }

@@ -9,12 +9,12 @@ use SeraPHP\DTO\DTOInterface;
 final class ObjectivesDTO implements DTOInterface
 {
     public function __construct(
-        public ObjectiveDTO $baron,
-        public ObjectiveDTO $champion,
-        public ObjectiveDTO $dragon,
-        public ObjectiveDTO $inhibitor,
-        public ObjectiveDTO $riftHerald,
-        public ObjectiveDTO $tower,
+        private readonly ObjectiveDTO $baron,
+        private readonly ObjectiveDTO $champion,
+        private readonly ObjectiveDTO $dragon,
+        private readonly ObjectiveDTO $inhibitor,
+        private readonly ObjectiveDTO $riftHerald,
+        private readonly ObjectiveDTO $tower,
     ) {
     }
 
@@ -28,5 +28,35 @@ final class ObjectivesDTO implements DTOInterface
             ObjectiveDTO::createFromArray($data['riftHerald']),
             ObjectiveDTO::createFromArray($data['tower']),
         );
+    }
+
+    public function getBaron(): ObjectiveDTO
+    {
+        return $this->baron;
+    }
+
+    public function getChampion(): ObjectiveDTO
+    {
+        return $this->champion;
+    }
+
+    public function getDragon(): ObjectiveDTO
+    {
+        return $this->dragon;
+    }
+
+    public function getInhibitor(): ObjectiveDTO
+    {
+        return $this->inhibitor;
+    }
+
+    public function getRiftHerald(): ObjectiveDTO
+    {
+        return $this->riftHerald;
+    }
+
+    public function getTower(): ObjectiveDTO
+    {
+        return $this->tower;
     }
 }

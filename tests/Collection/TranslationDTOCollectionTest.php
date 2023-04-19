@@ -10,7 +10,7 @@ use SeraPHP\DTO\TranslationDTO;
 
 final class TranslationDTOCollectionTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             [

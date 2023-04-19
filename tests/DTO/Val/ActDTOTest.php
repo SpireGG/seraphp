@@ -9,7 +9,7 @@ use SeraPHP\DTO\Val\ActDTO;
 
 final class ActDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'id' => '1234adb9-4dcb-6899-1306-3e9860661dd3',

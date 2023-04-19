@@ -10,7 +10,7 @@ use SeraPHP\DTO\PlayerDTO;
 
 final class PlayerDTOCollectionTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'players' => [

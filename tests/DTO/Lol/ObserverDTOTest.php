@@ -9,7 +9,7 @@ use SeraPHP\DTO\Lol\ObserverDTO;
 
 final class ObserverDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'encryptionKey' => 'CY5UAf0ML7+VfXWAivAYV4ZTfWOXPzA1',

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace SeraPHP\API\Endpoints\Version5;
 
 use SeraPHP\API\AbstractApi;
+use SeraPHP\DTO\Lol\MatchDTO;
+use SeraPHP\DTO\Lol\MatchTimelineDTO;
 use SeraPHP\Enum\GeoRegionEnum;
 use SeraPHP\Enum\RegionEnum;
 
@@ -38,7 +40,7 @@ final class Match_ extends AbstractApi
         return $response->getBodyContentsDecodedAsArray();
     }
 
-    public function getMatch(string $match_id, RegionEnum $region)
+    public function getMatch(string $match_id, RegionEnum $region): MatchDTO
     {
         $response = $this->riotConnection->get(
             $region->getValue(),
@@ -46,7 +48,18 @@ final class Match_ extends AbstractApi
             $this->getResource()
         );
 
-        return MatchDTO::createFromArray();
+        return MatchDTO::createFromArray($response->getBodyContentsDecodedAsArray());
+    }
+
+    public function getTimeline(string $match_id, RegionEnum $region): MatchDTO
+    {
+        $response = $this->riotConnection->get(
+            $region->getValue(),
+            "lol/match/v5/matches/{$match_id}/timeline",
+            $this->getResource()
+        );
+
+        return MatchTimelineDTO::createFromArray($response->getBodyContentsDecodedAsArray());
     }
 
     protected function getResource(): string

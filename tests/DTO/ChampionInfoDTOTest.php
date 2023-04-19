@@ -9,7 +9,7 @@ use SeraPHP\DTO\ChampionInfoDTO;
 
 final class ChampionInfoDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'maxNewPlayerLevel' => 10,

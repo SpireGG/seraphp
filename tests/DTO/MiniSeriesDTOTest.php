@@ -9,7 +9,7 @@ use SeraPHP\DTO\MiniSeriesDTO;
 
 final class MiniSeriesDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'losses' => 1,

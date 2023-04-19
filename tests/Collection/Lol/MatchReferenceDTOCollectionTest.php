@@ -10,7 +10,7 @@ use SeraPHP\DTO\Lol\Deprecated\MatchReferenceDTO;
 
 final class MatchReferenceDTOCollectionTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             [

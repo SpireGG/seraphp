@@ -11,10 +11,10 @@ use SeraPHP\DTO\DTOInterface;
 final class TeamDTO implements DTOInterface
 {
     public function __construct(
-        private BanDTOCollection $bans,
-        private ObjectiveDTOCollection $objectives,
-        private int $teamId,
-        private bool $win,
+        private readonly BanDTOCollection $bans,
+        private readonly ObjectiveDTOCollection $objectives,
+        private readonly int $teamId,
+        private readonly bool $win,
     ) {
     }
 

@@ -9,7 +9,7 @@ use SeraPHP\DTO\Lol\Deprecated\PerksDTO;
 
 final class PerksDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'perkIds' => [

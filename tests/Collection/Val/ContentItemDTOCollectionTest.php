@@ -10,7 +10,7 @@ use SeraPHP\DTO\Val\ContentItemDTO;
 
 final class ContentItemDTOCollectionTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             [

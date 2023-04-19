@@ -9,7 +9,7 @@ use SeraPHP\DTO\Val\LocalizedNamesDTO;
 
 final class LocalizedINamesDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'ar-AE' => 'رايز',

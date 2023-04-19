@@ -11,7 +11,7 @@ use SeraPHP\DTO\Lol\Deprecated\MatchParticipantFrameDTO;
 
 final class MatchFrameDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'participantFrames' => [

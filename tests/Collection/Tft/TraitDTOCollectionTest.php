@@ -10,7 +10,7 @@ use SeraPHP\DTO\Tft\TraitDTO;
 
 final class TraitDTOCollectionTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             [

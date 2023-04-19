@@ -11,7 +11,7 @@ use SeraPHP\Enum\TeamRoleEnum;
 
 final class PlayerDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'summonerId' => '1',

@@ -12,7 +12,7 @@ use SeraPHP\DTO\Lol\Deprecated\MatchDTO;
 
 final class MatchDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'gameId' => 1234567890,

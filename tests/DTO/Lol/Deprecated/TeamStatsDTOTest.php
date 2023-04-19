@@ -10,7 +10,7 @@ use SeraPHP\DTO\Lol\Deprecated\TeamStatsDTO;
 
 final class TeamStatsDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'teamId' => 100,

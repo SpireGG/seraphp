@@ -10,7 +10,7 @@ use SeraPHP\DTO\Lol\Deprecated\TeamBansDTO;
 
 final class TeamBansDTOCollectionTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             [

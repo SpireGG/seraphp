@@ -10,7 +10,7 @@ use SeraPHP\DTO\Lol\Deprecated\MasteryDTO;
 
 final class MasteryDTOCollectionTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             [

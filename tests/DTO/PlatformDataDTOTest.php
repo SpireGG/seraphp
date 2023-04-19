@@ -10,7 +10,7 @@ use SeraPHP\DTO\PlatformDataDTO;
 
 final class PlatformDataDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'id' => 'EUN1',

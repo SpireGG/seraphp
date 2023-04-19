@@ -9,7 +9,7 @@ use SeraPHP\DTO\SummonerDTO;
 
 final class SummonerDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'accountId' => '1',

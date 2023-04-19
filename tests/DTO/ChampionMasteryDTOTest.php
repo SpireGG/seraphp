@@ -9,7 +9,7 @@ use SeraPHP\DTO\ChampionMasteryDTO;
 
 final class ChampionMasteryDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'championId' => 80,

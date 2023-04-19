@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SeraPHP\DTO\Lol;
 
-use SeraPHP\Collection\Lol\ParticipantDTOCollection;
 use SeraPHP\Collection\Lol\TeamDTOCollection;
+use SeraPHP\Collection\Lol\ParticipantDTOCollection;
+use SeraPHP\DTO\DTOInterface;
 
-class InfoDto
+final class InfoDTO implements DTOInterface
 {
     public function __construct(
         /** Unix timestamp for when the game is created on the game server (i.e., the loading screen). */

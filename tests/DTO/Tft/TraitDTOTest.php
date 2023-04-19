@@ -10,7 +10,7 @@ use SeraPHP\Enum\Tft\TraitStyleEnum;
 
 final class TraitDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'name' => 'Duelist',

@@ -9,7 +9,7 @@ use SeraPHP\DTO\Lol\Deprecated\MatchReferenceDTO;
 
 final class MatchReferenceDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'platformId' => 'EUN1',

@@ -10,7 +10,7 @@ use SeraPHP\DTO\Lol\Deprecated\RuneDTO;
 
 final class RuneDTOCollectionTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             [

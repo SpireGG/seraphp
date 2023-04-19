@@ -12,7 +12,7 @@ use SeraPHP\DTO\Tft\ParticipantDTO;
 
 final class ParticipantDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'companion' => [

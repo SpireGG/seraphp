@@ -9,7 +9,7 @@ use SeraPHP\DTO\ActiveShardDTO;
 
 final class ActiveShardDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'puuid' => 'a1',

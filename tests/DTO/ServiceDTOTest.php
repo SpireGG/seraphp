@@ -10,7 +10,7 @@ use SeraPHP\DTO\ServiceDTO;
 
 final class ServiceDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'name' => 'Game',

@@ -9,7 +9,7 @@ use SeraPHP\DTO\TournamentCodeDTO;
 
 final class TournamentCodeDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'code' => 'TOURNAMENT-CODE',

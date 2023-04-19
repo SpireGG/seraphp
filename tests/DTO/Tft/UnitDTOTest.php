@@ -9,7 +9,7 @@ use SeraPHP\DTO\Tft\UnitDTO;
 
 final class UnitDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'character_id' => 'TFT4_Elise',

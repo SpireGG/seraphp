@@ -9,7 +9,7 @@ use SeraPHP\DTO\Lol\Deprecated\RuneDTO;
 
 final class RuneDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'runeId' => 1,

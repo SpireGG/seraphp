@@ -6,6 +6,7 @@ namespace SeraPHP\API;
 
 use SeraPHP\API\Endpoints\Version3 as V3;
 use SeraPHP\API\Endpoints\Version4 as V4;
+use SeraPHP\API\Endpoints\Version5 as V5;
 use SeraPHP\Enum\GeoRegionEnum;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 
@@ -114,15 +115,18 @@ class Configuration
             V4\ThirdPartyCode::RESOURCE_THIRD_PARTY_CODE => 0,
             V4\Tournament::RESOURCE_TOURNAMENT => 0,
             V4\TournamentStub::RESOURCE_TOURNAMENT_STUB => 0,
+            V5\Match_::RESOURCE_MATCH => 0,
         ];
 
         if (!$cacheCallsLength) {
             $this->cacheCallsLength = $defaultCallsLength;
+
             return $this;
         }
 
         if (is_int($cacheCallsLength)) {
             $this->cacheCallsLength = $cacheCallsLength;
+
             return $this;
         }
 

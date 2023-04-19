@@ -12,7 +12,7 @@ use SeraPHP\DTO\Lol\ObserverDTO;
 
 final class CurrentGameInfoDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'gameId' => 1234567890,

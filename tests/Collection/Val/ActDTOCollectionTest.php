@@ -10,7 +10,7 @@ use SeraPHP\DTO\Val\ActDTO;
 
 final class ActDTOCollectionTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             [

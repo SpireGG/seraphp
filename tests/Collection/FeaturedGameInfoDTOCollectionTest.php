@@ -10,7 +10,7 @@ use SeraPHP\DTO\Lol\FeaturedGameInfoDTO;
 
 final class FeaturedGameInfoDTOCollectionTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             [

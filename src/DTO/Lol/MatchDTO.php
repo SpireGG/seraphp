@@ -9,16 +9,26 @@ use SeraPHP\DTO\DTOInterface;
 final class MatchDTO implements DTOInterface
 {
     public function __construct(
-        MetadataDTO $metadata,
-        InfoDto $info,
+        private readonly MetadataDTO $metadata,
+        private readonly InfoDTO $info,
     ) {
     }
 
-    public static function createFromArray(array $data): DTOInterface
+    public static function createFromArray(array $data): self
     {
         return new self(
             MetadataDTO::createFromArray($data['metadata']),
-            InfoDto::createFromArray($data['info'])
+            InfoDTO::createFromArray($data['info'])
         );
+    }
+
+    public function getMetadata(): MetadataDTO
+    {
+        return $this->metadata;
+    }
+
+    public function getInfo(): InfoDTO
+    {
+        return $this->info;
     }
 }

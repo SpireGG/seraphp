@@ -10,9 +10,9 @@ use SeraPHP\DTO\DTOInterface;
 final class PerkStyleDTO implements DTOInterface
 {
     public function __construct(
-        public string $description,
-        public PerkStyleSelectionDTOCollection $selections,
-        public int $style
+        private readonly string $description,
+        private readonly PerkStyleSelectionDTOCollection $selections,
+        private readonly int $style
     ) {
     }
 
@@ -23,5 +23,20 @@ final class PerkStyleDTO implements DTOInterface
             PerkStyleSelectionDTOCollection::createFromArray($data['selections']),
             $data['style']
         );
+    }
+
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    public function getSelections(): PerkStyleSelectionDTOCollection
+    {
+        return $this->selections;
+    }
+
+    public function getStyle(): int
+    {
+        return $this->style;
     }
 }

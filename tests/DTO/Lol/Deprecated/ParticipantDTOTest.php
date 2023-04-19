@@ -13,7 +13,7 @@ use SeraPHP\DTO\Lol\Deprecated\ParticipantTimelineDTO;
 
 final class ParticipantDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'participantId' => 1,

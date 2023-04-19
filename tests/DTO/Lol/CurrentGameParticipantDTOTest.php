@@ -11,7 +11,7 @@ use SeraPHP\DTO\Lol\Deprecated\PerksDTO;
 
 final class CurrentGameParticipantDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'teamId' => 100,

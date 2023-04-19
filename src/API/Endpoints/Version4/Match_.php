@@ -13,7 +13,7 @@ use SeraPHP\Filter\MatchlistFilter;
 
 final class Match_ extends AbstractApi
 {
-    public const RESOURCE_MATCH = '1530:match';
+    public const RESOURCE_MATCH = '1520:match';
 
     public function getByMatchId(int $matchId, RegionEnum $region): MatchDTO
     {

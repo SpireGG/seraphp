@@ -10,7 +10,7 @@ use SeraPHP\DTO\Lol\Deprecated\MatchEventDTO;
 
 final class MatchEventDTOCollectionTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             [

@@ -9,7 +9,7 @@ use SeraPHP\DTO\LeagueEntryDTO;
 
 final class LeagueEntryDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'leagueId' => 'some-league-id',

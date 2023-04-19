@@ -10,7 +10,7 @@ use SeraPHP\DTO\StatusDTO;
 
 final class StatusDTOCollectionTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             [

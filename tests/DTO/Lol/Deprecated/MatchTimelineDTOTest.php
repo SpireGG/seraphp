@@ -10,7 +10,7 @@ use SeraPHP\DTO\Lol\Deprecated\MatchTimelineDTO;
 
 final class MatchTimelineDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'frames' => [],

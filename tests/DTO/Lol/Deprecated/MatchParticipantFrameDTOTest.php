@@ -10,7 +10,7 @@ use SeraPHP\DTO\Lol\Deprecated\MatchPositionDTO;
 
 final class MatchParticipantFrameDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'participantId' => 1,

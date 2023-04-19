@@ -10,7 +10,7 @@ use SeraPHP\DTO\ShardStatusDTO;
 
 final class ShardStatusDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'locales' => [

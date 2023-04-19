@@ -9,7 +9,7 @@ use SeraPHP\DTO\Lol\Deprecated\TeamBansDTO;
 
 final class TeamBansDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'championId' => 555,

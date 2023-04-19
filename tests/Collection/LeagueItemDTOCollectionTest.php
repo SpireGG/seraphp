@@ -10,7 +10,7 @@ use SeraPHP\DTO\LeagueItemDTO;
 
 final class LeagueItemDTOCollectionTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             [

@@ -10,7 +10,7 @@ use SeraPHP\DTO\Lol\Deprecated\MatchFrameDTO;
 
 final class MatchFrameDTOCollectionTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             [

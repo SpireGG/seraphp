@@ -9,8 +9,8 @@ use SeraPHP\DTO\DTOInterface;
 final class ObjectiveDTO implements DTOInterface
 {
     public function __construct(
-        public bool $first,
-        public int $kills
+        private readonly bool $first,
+        private readonly int $kills
     ) {
     }
 
@@ -20,5 +20,15 @@ final class ObjectiveDTO implements DTOInterface
             $data['first'],
             $data['kills']
         );
+    }
+
+    public function isFirst(): bool
+    {
+        return $this->first;
+    }
+
+    public function getKills(): int
+    {
+        return $this->kills;
     }
 }

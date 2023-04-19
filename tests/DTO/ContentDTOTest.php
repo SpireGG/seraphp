@@ -9,7 +9,7 @@ use SeraPHP\DTO\ContentDTO;
 
 final class ContentDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'locale' => 'en_US',

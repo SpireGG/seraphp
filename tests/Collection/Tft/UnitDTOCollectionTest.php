@@ -10,7 +10,7 @@ use SeraPHP\DTO\Tft\UnitDTO;
 
 final class UnitDTOCollectionTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             [

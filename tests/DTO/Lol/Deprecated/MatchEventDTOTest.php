@@ -11,7 +11,7 @@ use SeraPHP\Enum\TeamEnum;
 
 final class MatchEventDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObjectOnItemPurchased(): void
+    public function testCreateFromArrayOnItemPurchased(): void
     {
         $data = [
             'type' => 'ITEM_PURCHASED',
@@ -26,7 +26,7 @@ final class MatchEventDTOTest extends TestCase
         self::assertSame(3340, $object->getItemId());
     }
 
-    public function testCreateFromArrayCreatesProperObjectOnSkillLevelUp(): void
+    public function testCreateFromArrayOnSkillLevelUp(): void
     {
         $data = [
             'type' => 'SKILL_LEVEL_UP',
@@ -43,7 +43,7 @@ final class MatchEventDTOTest extends TestCase
         self::assertSame('NORMAL', $object->getLevelUpType());
     }
 
-    public function testCreateFromArrayCreatesProperObjectOnWardPlaced(): void
+    public function testCreateFromArrayOnWardPlaced(): void
     {
         $data = [
             'type' => 'WARD_PLACED',
@@ -58,7 +58,7 @@ final class MatchEventDTOTest extends TestCase
         self::assertSame(7, $object->getCreatorId());
     }
 
-    public function testCreateFromArrayCreatesProperObjectOnItemDestroyed(): void
+    public function testCreateFromArrayOnItemDestroyed(): void
     {
         $data = [
             'type' => 'ITEM_DESTROYED',
@@ -73,7 +73,7 @@ final class MatchEventDTOTest extends TestCase
         self::assertSame(2003, $object->getItemId());
     }
 
-    public function testCreateFromArrayCreatesProperObjectOnChampionKill(): void
+    public function testCreateFromArrayOnChampionKill(): void
     {
         $data = [
             'type' => 'CHAMPION_KILL',
@@ -99,7 +99,7 @@ final class MatchEventDTOTest extends TestCase
         self::assertSame(8, $object->getAssistingParticipantIds()[0]);
     }
 
-    public function testCreateFromArrayCreatesProperObjectOnItemUndo(): void
+    public function testCreateFromArrayOnItemUndo(): void
     {
         $data = [
             'type' => 'ITEM_UNDO',
@@ -116,7 +116,7 @@ final class MatchEventDTOTest extends TestCase
         self::assertSame(1042, $object->getBeforeId());
     }
 
-    public function testCreateFromArrayCreatesProperObjectOnEliteMonsterKill(): void
+    public function testCreateFromArrayOnEliteMonsterKill(): void
     {
         $data = [
             'type' => 'ELITE_MONSTER_KILL',
@@ -138,7 +138,7 @@ final class MatchEventDTOTest extends TestCase
         self::assertSame('WATER_DRAGON', $object->getMonsterSubType());
     }
 
-    public function testCreateFromArrayCreatesProperObjectOnWardKill(): void
+    public function testCreateFromArrayOnWardKill(): void
     {
         $data = [
             'type' => 'WARD_KILL',
@@ -153,7 +153,7 @@ final class MatchEventDTOTest extends TestCase
         self::assertSame(8, $object->getKillerId());
     }
 
-    public function testCreateFromArrayCreatesProperObjectOnBuildingKill(): void
+    public function testCreateFromArrayOnBuildingKill(): void
     {
         $data = [
             'type' => 'BUILDING_KILL',
@@ -182,7 +182,7 @@ final class MatchEventDTOTest extends TestCase
         self::assertSame('OUTER_TURRET', $object->getTowerType());
     }
 
-    public function testCreateFromArrayCreatesProperObjectOnItemSold(): void
+    public function testCreateFromArrayOnItemSold(): void
     {
         $data = [
             'type' => 'ITEM_SOLD',

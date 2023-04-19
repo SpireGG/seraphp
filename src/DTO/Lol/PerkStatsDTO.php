@@ -9,9 +9,9 @@ use SeraPHP\DTO\DTOInterface;
 final class PerkStatsDTO implements DTOInterface
 {
     public function __construct(
-        public int $defense,
-        public int $flex,
-        public int $offense
+        private readonly int $defense,
+        private readonly int $flex,
+        private readonly int $offense
     ) {
     }
 
@@ -22,5 +22,20 @@ final class PerkStatsDTO implements DTOInterface
             $data['flex'],
             $data['offense']
         );
+    }
+
+    public function getDefense(): int
+    {
+        return $this->defense;
+    }
+
+    public function getFlex(): int
+    {
+        return $this->flex;
+    }
+
+    public function getOffense(): int
+    {
+        return $this->offense;
     }
 }

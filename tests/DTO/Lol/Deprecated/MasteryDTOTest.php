@@ -9,7 +9,7 @@ use SeraPHP\DTO\Lol\Deprecated\MasteryDTO;
 
 final class MasteryDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'rank' => 1,

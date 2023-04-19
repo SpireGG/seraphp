@@ -10,7 +10,7 @@ use SeraPHP\DTO\LobbyEventDTOWrapperDTO;
 
 final class LobbyEventDTOWrapperDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'eventList' => [],

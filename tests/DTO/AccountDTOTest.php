@@ -9,7 +9,7 @@ use SeraPHP\DTO\AccountDTO;
 
 final class AccountDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'puuid' => 'a1',

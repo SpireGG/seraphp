@@ -10,7 +10,7 @@ use SeraPHP\DTO\UpdateDTO;
 
 final class UpdateDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'id' => 3214,

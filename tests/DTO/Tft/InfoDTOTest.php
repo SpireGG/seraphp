@@ -10,7 +10,7 @@ use SeraPHP\DTO\Tft\InfoDTO;
 
 final class InfoDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'game_datetime' => 1605820001234,

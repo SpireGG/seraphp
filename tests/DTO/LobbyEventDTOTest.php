@@ -9,7 +9,7 @@ use SeraPHP\DTO\LobbyEventDTO;
 
 final class LobbyEventDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'timestamp' => '1234567890000',

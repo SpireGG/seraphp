@@ -10,7 +10,7 @@ use SeraPHP\DTO\LeaderboardDTO;
 
 final class LeaderboardDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'players' => [],

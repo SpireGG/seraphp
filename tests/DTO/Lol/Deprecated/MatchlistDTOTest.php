@@ -10,7 +10,7 @@ use SeraPHP\DTO\Lol\Deprecated\MatchlistDTO;
 
 final class MatchlistDTOTest extends TestCase
 {
-    public function testCreateFromArrayCreatesProperObject(): void
+    public function testCreateFromArray(): void
     {
         $data = [
             'matches' => [],
