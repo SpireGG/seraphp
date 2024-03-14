@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace SeraPHP\API\Endpoints\Version4;
 
 use SeraPHP\API\AbstractApi;
-use SeraPHP\DTO\Lol\CurrentGameInfoDTO;
-use SeraPHP\DTO\Lol\FeaturedGamesDTO;
+use SeraPHP\DTO\Lol\CurrentGameInfoDTOV4;
+use SeraPHP\DTO\Lol\FeaturedGamesDTOV4;
 use SeraPHP\Enum\RegionEnum;
 
 final class Spectator extends AbstractApi
 {
     public const RESOURCE_SPECTATOR = '1419:spectator';
 
-    public function getActiveGamesBySummonerId(string $encryptedSummonerId, RegionEnum $region): CurrentGameInfoDTO
+    public function getActiveGamesBySummonerId(string $encryptedSummonerId, RegionEnum $region): CurrentGameInfoDTOV4
     {
         $response = $this->riotConnection->get(
             $region->getValue(),
@@ -21,10 +21,10 @@ final class Spectator extends AbstractApi
             $this->getResource()
         );
 
-        return CurrentGameInfoDTO::createFromArray($response->getBodyContentsDecodedAsArray());
+        return CurrentGameInfoDTOV4::createFromArray($response->getBodyContentsDecodedAsArray());
     }
 
-    public function getFeaturedGames(RegionEnum $region): FeaturedGamesDTO
+    public function getFeaturedGames(RegionEnum $region): FeaturedGamesDTOV4
     {
         $response = $this->riotConnection->get(
             $region->getValue(),
@@ -32,7 +32,7 @@ final class Spectator extends AbstractApi
             $this->getResource()
         );
 
-        return FeaturedGamesDTO::createFromArray($response->getBodyContentsDecodedAsArray());
+        return FeaturedGamesDTOV4::createFromArray($response->getBodyContentsDecodedAsArray());
     }
 
     protected function getResource(): string

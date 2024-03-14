@@ -7,7 +7,7 @@ namespace SeraPHP\Tests\DTO\Lol;
 use PHPUnit\Framework\TestCase;
 use SeraPHP\Collection\BannedChampionDTOCollection;
 use SeraPHP\Collection\CurrentGameParticipantDTOCollection;
-use SeraPHP\DTO\Lol\CurrentGameInfoDTO;
+use SeraPHP\DTO\Lol\CurrentGameInfoDTOV4;
 use SeraPHP\DTO\Lol\ObserverDTO;
 
 final class CurrentGameInfoDTOTest extends TestCase
@@ -29,7 +29,7 @@ final class CurrentGameInfoDTOTest extends TestCase
             'gameStartTime' => 1603484102577,
             'gameLength' => 403,
         ];
-        $object = CurrentGameInfoDTO::createFromArray($data);
+        $object = CurrentGameInfoDTOV4::createFromArray($data);
         self::assertSame(1234567890, $object->getGameId());
         self::assertSame(11, $object->getMapId());
         self::assertSame('CLASSIC', $object->getGameMode());

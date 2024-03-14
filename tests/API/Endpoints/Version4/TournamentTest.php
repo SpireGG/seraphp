@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace SeraPHP\Tests\API\Endpoints\Version4;
 
 use SeraPHP\API\ConnectionInterface;
-use SeraPHP\API\Endpoints\Version4\Tournament;
+use SeraPHP\API\Endpoints\Version5\Tournament;
 use SeraPHP\API\ResponseDecoderInterface;
 use SeraPHP\DTO\LobbyEventDTOWrapperDTO;
 use SeraPHP\DTO\TournamentCodeDTO;

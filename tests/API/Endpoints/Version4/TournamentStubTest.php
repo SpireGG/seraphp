@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SeraPHP\Tests\API\Endpoints\Version4;
 
-use SeraPHP\API\Endpoints\Version4\TournamentStub;
+use SeraPHP\API\Endpoints\Version5\TournamentStub;
 use SeraPHP\DTO\LobbyEventDTOWrapperDTO;
 use SeraPHP\Enum\MapTypeEnum;
 use SeraPHP\Enum\PickTypeEnum;

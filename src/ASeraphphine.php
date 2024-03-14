@@ -14,7 +14,7 @@ use SeraPHP\API\Endpoints\Version4;
 use SeraPHP\API\Endpoints\Version5;
 use SeraPHP\Exceptions\Riot\InvalidApiVersionException;
 
-abstract class ASeraPHP
+abstract class ASeraphphine
 {
     private const VERSION_1 = 'version1';
     private const VERSION_3 = 'version3';

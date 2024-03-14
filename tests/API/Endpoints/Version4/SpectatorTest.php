@@ -6,7 +6,7 @@ namespace SeraPHP\Tests\API\Endpoints\Version4;
 
 use SeraPHP\API\Endpoints\Version4\Spectator;
 use SeraPHP\Collection\FeaturedGameInfoDTOCollection;
-use SeraPHP\DTO\Lol\CurrentGameInfoDTO;
+use SeraPHP\DTO\Lol\CurrentGameInfoDTOV4;
 use SeraPHP\Enum\RegionEnum;
 use SeraPHP\Tests\APITestCase;
 
@@ -34,7 +34,7 @@ final class SpectatorTest extends APITestCase
             'eun1'
         ));
         $result = $spectator->getActiveGamesBySummonerId('1', RegionEnum::EUN1());
-        self::assertInstanceOf(CurrentGameInfoDTO::class, $result);
+        self::assertInstanceOf(CurrentGameInfoDTOV4::class, $result);
     }
 
     public function testGetFeaturedGamesReturnsProperObjectOnSuccess(): void

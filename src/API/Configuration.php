@@ -113,8 +113,8 @@ class Configuration
             V4\LolStatus::RESOURCE_STATUS => 60,
             V4\Summoner::RESOURCE_SUMMONER => 60 * 60,
             V4\ThirdPartyCode::RESOURCE_THIRD_PARTY_CODE => 0,
-            V4\Tournament::RESOURCE_TOURNAMENT => 0,
-            V4\TournamentStub::RESOURCE_TOURNAMENT_STUB => 0,
+            V5\Tournament::RESOURCE_TOURNAMENT => 0,
+            V5\TournamentStub::RESOURCE_TOURNAMENT_STUB => 0,
             V5\Match_::RESOURCE_MATCH => 0,
         ];
 

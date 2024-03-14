@@ -6,7 +6,7 @@ namespace SeraPHP\Tests\DTO\Lol;
 
 use PHPUnit\Framework\TestCase;
 use SeraPHP\Collection\FeaturedGameInfoDTOCollection;
-use SeraPHP\DTO\Lol\FeaturedGamesDTO;
+use SeraPHP\DTO\Lol\FeaturedGamesDTOV4;
 
 final class FeaturedGamesDTOTest extends TestCase
 {
@@ -16,7 +16,7 @@ final class FeaturedGamesDTOTest extends TestCase
             'gameList' => [],
             'clientRefreshInterval' => 300,
         ];
-        $object = FeaturedGamesDTO::createFromArray($data);
+        $object = FeaturedGamesDTOV4::createFromArray($data);
         self::assertInstanceOf(FeaturedGameInfoDTOCollection::class, $object->getGameList());
         self::assertSame(300, $object->getClientRefreshInterval());
     }

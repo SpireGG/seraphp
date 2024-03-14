@@ -14,8 +14,8 @@ use SeraPHP\API\Endpoints\Version4\Match_;
 use SeraPHP\API\Endpoints\Version4\Spectator;
 use SeraPHP\API\Endpoints\Version4\Summoner;
 use SeraPHP\API\Endpoints\Version4\ThirdPartyCode;
-use SeraPHP\API\Endpoints\Version4\Tournament;
-use SeraPHP\API\Endpoints\Version4\TournamentStub;
+use SeraPHP\API\Endpoints\Version5\Tournament;
+use SeraPHP\API\Endpoints\Version5\TournamentStub;
 use SeraPHP\Exceptions\Riot\InvalidApiEndpointException;
 
 final class Version4 extends AbstractAPIFactory
@@ -26,8 +26,6 @@ final class Version4 extends AbstractAPIFactory
     private const SPECTATOR = 'spectator';
     private const LEAGUE = 'league';
     private const MATCH_ = 'match';
-    private const TOURNAMENT_STUB = 'tournament_stub';
-    private const TOURNAMENT = 'tournament';
     private const LEAGUE_EXP = 'league_exp';
     private const LOL_STATUS = 'lol_status';
 
@@ -79,22 +77,6 @@ final class Version4 extends AbstractAPIFactory
         return $api;
     }
 
-    public function getTournamentStub(): TournamentStub
-    {
-        /** @var TournamentStub $api */
-        $api = $this->createApi(self::TOURNAMENT_STUB);
-
-        return $api;
-    }
-
-    public function getTournament(): Tournament
-    {
-        /** @var Tournament $api */
-        $api = $this->createApi(self::TOURNAMENT);
-
-        return $api;
-    }
-
     public function getLeagueExp(): LeagueExp
     {
         /** @var LeagueExp $api */
@@ -120,8 +102,6 @@ final class Version4 extends AbstractAPIFactory
             self::SPECTATOR => new Spectator($this->connection),
             self::LEAGUE => new League($this->connection),
             self::MATCH_ => new Match_($this->connection),
-            self::TOURNAMENT_STUB => new TournamentStub($this->connection),
-            self::TOURNAMENT => new Tournament($this->connection),
             self::LEAGUE_EXP => new LeagueExp($this->connection),
             self::LOL_STATUS => new LolStatus($this->connection),
             default => throw new InvalidApiEndpointException(),

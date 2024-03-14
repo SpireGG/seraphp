@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SeraPHP\API\Endpoints\Version4;
+namespace SeraPHP\API\Endpoints\Version5;
 
 use SeraPHP\API\AbstractApi;
 use SeraPHP\DTO\LobbyEventDTOWrapperDTO;
+use SeraPHP\DTO\TournamentCodeDTO;
 use SeraPHP\Enum\GeoRegionEnum;
 use SeraPHP\Enum\MapTypeEnum;
 use SeraPHP\Enum\PickTypeEnum;
@@ -13,9 +14,10 @@ use SeraPHP\Enum\SpectatorTypeEnum;
 use SeraPHP\Enum\TournamentRegionEnum;
 use Webmozart\Assert\Assert;
 
-final class TournamentStub extends AbstractApi
+//@TODO implement v5
+final class Tournament extends AbstractApi
 {
-    public const RESOURCE_TOURNAMENT_STUB = '1435:tournament-stub';
+    public const RESOURCE_TOURNAMENT = '1436:tournament';
 
     /**
      * @param array<string> $allowedSummonerIds
@@ -38,7 +40,7 @@ final class TournamentStub extends AbstractApi
 
         $response = $this->riotConnection->post(
             GeoRegionEnum::AMERICAS()->getValue(),
-            "lol/tournament-stub/v4/codes?count={$count}&tournamentId={$tournamentId}",
+            "lol/tournament/v4/codes?count={$count}&tournamentId={$tournamentId}",
             $this->getResource(),
             [
                 'allowedSummonerIds' => $allowedSummonerIds,
@@ -53,11 +55,50 @@ final class TournamentStub extends AbstractApi
         return $response->getBodyContentsDecodedAsArray();
     }
 
+    /**
+     * @param array<string> $allowedSummonerIds
+     */
+    public function updateCode(
+        string $tournamentCode,
+        array $allowedSummonerIds,
+        PickTypeEnum $pickType,
+        MapTypeEnum $mapType,
+        SpectatorTypeEnum $spectatorType
+    ): bool {
+        Assert::isList($allowedSummonerIds);
+        Assert::allString($allowedSummonerIds);
+
+        $this->riotConnection->put(
+            GeoRegionEnum::AMERICAS()->getValue(),
+            "lol/tournament/v4/codes/{$tournamentCode}",
+            $this->getResource(),
+            [
+                'allowedSummonerIds' => $allowedSummonerIds,
+                'pickType' => $pickType->getValue(),
+                'mapType' => $mapType->getValue(),
+                'spectatorType' => $spectatorType->getValue(),
+            ],
+        );
+
+        return true;
+    }
+
+    public function getCodeByTournamentCode(string $tournamentCode): TournamentCodeDTO
+    {
+        $response = $this->riotConnection->get(
+            GeoRegionEnum::AMERICAS()->getValue(),
+            "lol/tournament/v4/codes/{$tournamentCode}",
+            $this->getResource()
+        );
+
+        return TournamentCodeDTO::createFromArray($response->getBodyContentsDecodedAsArray());
+    }
+
     public function getLobbyEventsByTournamentCode(string $tournamentCode): LobbyEventDTOWrapperDTO
     {
         $response = $this->riotConnection->get(
             GeoRegionEnum::AMERICAS()->getValue(),
-            "lol/tournament-stub/v4/lobby-events/by-code/{$tournamentCode}",
+            "lol/tournament/v4/lobby-events/by-code/{$tournamentCode}",
             $this->getResource()
         );
 
@@ -68,7 +109,7 @@ final class TournamentStub extends AbstractApi
     {
         $response = $this->riotConnection->post(
             GeoRegionEnum::AMERICAS()->getValue(),
-            'lol/tournament-stub/v4/providers',
+            'lol/tournament/v4/providers',
             $this->getResource(),
             [
                 'region' => $region->getValue(),
@@ -83,7 +124,7 @@ final class TournamentStub extends AbstractApi
     {
         $response = $this->riotConnection->post(
             GeoRegionEnum::AMERICAS()->getValue(),
-            'lol/tournament-stub/v4/tournaments',
+            'lol/tournament/v4/tournaments',
             $this->getResource(),
             [
                 'providerId' => $providerId,
@@ -96,6 +137,6 @@ final class TournamentStub extends AbstractApi
 
     protected function getResource(): string
     {
-        return self::RESOURCE_TOURNAMENT_STUB;
+        return self::RESOURCE_TOURNAMENT;
     }
 }
